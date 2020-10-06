@@ -1,0 +1,43 @@
+
+
+Group 3: [5 souls] *
+   Bree Betts, Maya Dahlke, Adriana Donkers, Henno Kublin, Lexi Weingardt
+      synopsis:   Coco 2.0 ~ Dr. Korpusik advisor; follow on to her research project
+=====================================================================================
+Wow, you have done a LOT of work on this!  Good thought shows in the way you
+have done the funcitonal breakdown for the CSCI.  There is a *little* too
+much detail in that section though.  Once you get to the CSU level, you don't
+have to go deeper than that for section 5.2
+
+The requirements section is very good!  One thing to think of is with respect
+to the "such as" clauses.  That is where you should use "will" statements to
+make that information clear.  An example is in 5.3.1.1.1.2:
+
+5.3.1.1.1.2 Chatbot shall allow users to ask simple questions (i.e. about
+            nutrition facts, such as "How much protein is in beef?") and shall
+            respond appropriately to such questions.
+
+In reality, this is two requirements AND two "will" statements because of the
+"i.e." and because of the "and":
+
+5.3.1.1.1.2 Chatbot shall allow users to ask simple questions about
+            nutrition facts.
+            User questions will be limited to questions about food, such as
+            "How much protein is in beef?"
+
+5.3.1.1.1.2 Chatbot shall respond to such questions with 'appropriate' data.
+            The word 'appropriate' indicates that the answer will be from the
+            application's database and be pertinent to the question that has
+            been asked.
+
+Otherwise, great work!  You have put a lot of effort into this and it shows!
+Re-visit some of those requirements as I've discussed here by the end of the
+semester's re-submission to get full credit for this work product.
+
+I don't see any project schedule in your repo, though....  Did I miss that?
+
+
+Evaluation score:
+
+    8% out of 10% for this deliverable:  B
+
