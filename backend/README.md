@@ -1,4 +1,4 @@
-# Coco 2.0 Backend  
+# Daily Bites
 
 ## Setting up Python 3 Environment
 
