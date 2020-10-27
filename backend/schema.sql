@@ -2,7 +2,8 @@ CREATE TABLE account (
     id VARCHAR PRIMARY KEY,
     date_created DATE,
     name VARCHAR,
-    email VARCHAR
+    email VARCHAR,
+    fbid VARCHAR
 );
 
 CREATE TABLE meal (
@@ -68,4 +69,13 @@ CREATE TABLE saved_recipe (
     PRIMARY KEY(recipe_id, account_id)  
 );
 
+CREATE TABLE user_session (
+    session_id VARCHAR PRIMARY KEY,
+    date DATE,
+    time_started TIMESTAMP,
+    time_completed TIMESTAMP,
+    num_clicks INT,
+    screens_visited VARCHAR,
+    logged_meal BOOLEAN
+);
 -- TABLES TO CONSIDER ADDING: food_lookup, foodid_vecs, token_vecs
