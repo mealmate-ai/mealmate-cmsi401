@@ -1,0 +1,39 @@
+
+
+HW 2 - Piloni & Miles Textbook
+Group #3: Bree, Maya, Adriana, Henno, and Lexi
+
+Category        Weight     Earned
+===========    ========    ======
+Problem 1      [3 pts.]      3.0
+Problem 2      [4 pts.]      4.0
+Problem 3      [6 pts.]      5.0
+Problem 4      [9 pts.]      9.0
+Problem 5      [2 pts.]      2.0
+Problem 6      [7 pts.]      6.0
+Problem 7      [1 pt.]       1.0
+Problem 8      [3 pts.]      3.0
+Problem 9      [5 pts.]      5.0
+Problem 10     [4 pts.]      4.0
+
+      Subtotal [44 max]     43.0
+             Your Total     97.7
+
+         Letter grade   A-plus
+
+Good thought into these answers!  I see your point about time, but I wonder
+where cost fits into that, too... since "time is money" they are related,
+which makes me wonder if the rationale of "there was not enough time" is a
+cover in some respect [perhaps unconsciously] for development that didn't
+go well or didn't get planned well?  Just food for thought....
+
+ON number two you missed "maintenance" which is pretty important.  Usually
+70% to 80% of a major software project is taken by maintenance AFTER the
+software has been deployed!  ....just sayin'.....
+
+Excellent reasoned answers on eight and nine.  On ten, is that script tool
+something that is part of XCode or is it an add-on of some kind?  I don't
+know very much about XCode development so I'd be happy to learn more!
+
+
+Great work on this assignment overall!
