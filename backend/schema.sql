@@ -1,9 +1,13 @@
+-- Authentication? 
 CREATE TABLE account (
     id VARCHAR PRIMARY KEY,
     date_created DATE,
     name VARCHAR,
     email VARCHAR,
-    fbid VARCHAR
+    fbid VARCHAR,
+    diets VARCHAR,
+    dietary_restrictions VARCHAR,
+    cuisine_preferences VARCHAR
 );
 
 CREATE TABLE meal (
@@ -39,7 +43,7 @@ CREATE TABLE food (
 );
 
 CREATE TABLE meal_log (
-    meal_id INT, 
+    meal_id INT REFERENCES meal(meal_id), 
     log_id INT,
     raw_text VARCHAR,
     PRIMARY KEY(meal_id, log_id)  
@@ -71,6 +75,7 @@ CREATE TABLE saved_recipe (
 
 CREATE TABLE user_session (
     session_id VARCHAR PRIMARY KEY,
+    account_id VARCHAR REFERENCES account(id),
     date DATE,
     time_started TIMESTAMP,
     time_completed TIMESTAMP,
