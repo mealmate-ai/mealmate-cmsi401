@@ -18,20 +18,20 @@ class Account(db.Model):
     date= db.Column(db.Date, primary_key = True)
     name = db.Column(db.Text)
     email = db.Column(db.Text)
-    fbid = db.Column(db.Text)
-    diets = db.Column(db.Text)
-    dietary_restrictions = db.Column(db.Text)
-    cuisine_preferences = db.Column(db.Text)
+    # fbid = db.Column(db.Text)
+    # diets = db.Column(db.Text)
+    # dietary_restrictions = db.Column(db.Text)
+    # cuisine_preferences = db.Column(db.Text)
 
     def __init__(self, id, date, name, email, fbid, diets, dietary_restrictions, cuisine_preferences):
       self.id = id
       self.date = date
       self.name = name
       self.email = email
-      self.fbid = fbid
-      self.diets = diets
-      self.dietary_restrictions = dietary_restrictions
-      self.cuisine_preferences = cuisine_preferences
+      # self.fbid = fbid
+      # self.diets = diets
+      # self.dietary_restrictions = dietary_restrictions
+      # self.cuisine_preferences = cuisine_preferences
 
     def __repr__(self):
         return '<account_id {0}, name {1}>'.format(self.id, self.name)
