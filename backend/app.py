@@ -2,29 +2,12 @@ from flask import Flask
 from flask import request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from db_models import Account
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://localhost/postgres'
 db = SQLAlchemy(app)
 
-ACCOUNT_TABLE = "account"
-
-class Account(db.Model):
-    __tablename__ = ACCOUNT_TABLE
-
-    id = db.Column(db.Text, primary_key = True)
-    date_created = db.Column(db.Date, primary_key = True)
-    name = db.Column(db.Text)
-    email = db.Column(db.Text)
-
-    def __init__(self, id, date_created, name, email):
-      self.id = id
-      self.date_created = date_created
-      self.name = name
-      self.email = email
-
-    def __repr__(self):
-        return '<account_id {0}, name {1}>'.format(self.id, self.name)
 
 @app.route('/')
 def hello():
@@ -46,14 +29,13 @@ def new_account():
     db.session.add(new_account)
     db.session.commit()
 
-    return 'New Account'
+    return 'New Account {0}, {1}'.format(new_account.id, new_account.name)
 
-@app.route('/update-account', methods=['GET'])
-def update_account():
-    id = request.args.get('id')
+@app.route('/update-account/<account_id>', methods=['GET'])
+def update_account(account_id):
     name = request.args.get('name', None)
     
-    account_updating = Account.query.filter_by(id = id).first()
+    account_updating = db.session.query(Account).filter_by(id = account_id).first()
     account_updating.name = name
 
     db.session.commit()

@@ -1,4 +1,7 @@
-from app import db
+from sqlalchemy import Column, Integer, String, Date
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
 
 ACCOUNT_TABLE = "account"
 MEAL_TABLE = "meal" 
@@ -11,27 +14,19 @@ RECIPE_TABLE = "recipe"
 SAVED_RECIPE_TABLE = "saved_recipe" 
 USER_SESSION_TABLE = "user_session"
 
-class Account(db.Model):
+class Account(Base):
     __tablename__ = ACCOUNT_TABLE
 
-    id = db.Column(db.Text, primary_key = True)
-    date= db.Column(db.Date, primary_key = True)
-    name = db.Column(db.Text)
-    email = db.Column(db.Text)
-    # fbid = db.Column(db.Text)
-    # diets = db.Column(db.Text)
-    # dietary_restrictions = db.Column(db.Text)
-    # cuisine_preferences = db.Column(db.Text)
+    id = Column(String, primary_key = True)
+    date_created = Column(Date, primary_key = True)
+    name = Column(String)
+    email = Column(String)
 
-    def __init__(self, id, date, name, email, fbid, diets, dietary_restrictions, cuisine_preferences):
+    def __init__(self, id, date_created, name, email):
       self.id = id
-      self.date = date
+      self.date_created = date_created
       self.name = name
       self.email = email
-      # self.fbid = fbid
-      # self.diets = diets
-      # self.dietary_restrictions = dietary_restrictions
-      # self.cuisine_preferences = cuisine_preferences
 
     def __repr__(self):
         return '<account_id {0}, name {1}>'.format(self.id, self.name)
