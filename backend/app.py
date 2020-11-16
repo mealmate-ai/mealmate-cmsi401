@@ -62,7 +62,7 @@ def new_meal():
     db.session.add(new_meal)
     db.session.commit()
 
-    return "New Account {0}, {1}".format(new_meal.id, new_meal.category)
+    return "New Meal {0}, {1}".format(new_meal.id, new_meal.category)
 
 
 # @app.route('/get-nut', methods=['GET'])

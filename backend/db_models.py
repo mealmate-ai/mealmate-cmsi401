@@ -1,6 +1,7 @@
 import uuid
 from sqlalchemy import Column, Integer, String, Date, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.dialects.postgresql import UUID
 
 Base = declarative_base()
 
@@ -17,7 +18,7 @@ USER_SESSION_TABLE = "user_session"
 
 
 def uuid_gen():
-    return str(uuid.uuid4())
+    return uuid.uuid4()
 
 
 class Account(Base):
@@ -59,7 +60,7 @@ class Account(Base):
 class Meal(Base):
     __tablename__ = MEAL_TABLE
 
-    id = Column(String, primary_key=True, default=uuid_gen())
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     account_id = Column(String, ForeignKey("account.id"))
     date_logged = Column(Date)
     category = Column(String)

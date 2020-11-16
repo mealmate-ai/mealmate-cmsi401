@@ -13,7 +13,7 @@ CREATE TABLE account
 
 CREATE TABLE meal
 (
-    id VARCHAR PRIMARY KEY,
+    id UUID PRIMARY KEY,
     account_id VARCHAR REFERENCES account(id),
     date_logged DATE,
     category VARCHAR
@@ -38,7 +38,7 @@ CREATE TABLE food_unit
 
 CREATE TABLE food
 (
-    meal_id VARCHAR REFERENCES meal(meal_id),
+    meal_id UUID REFERENCES meal(id),
     food_id VARCHAR REFERENCES nut_per_100_gram(food_id),
     log_id INT,
     food_desc VARCHAR,
@@ -49,7 +49,7 @@ CREATE TABLE food
 
 CREATE TABLE meal_log
 (
-    meal_id VARCHAR REFERENCES meal(meal_id),
+    meal_id UUID REFERENCES meal(id),
     log_id INT,
     raw_text VARCHAR,
     PRIMARY KEY(meal_id, log_id)
