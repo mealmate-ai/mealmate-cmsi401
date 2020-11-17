@@ -1,5 +1,5 @@
 import uuid
-from sqlalchemy import Column, Integer, String, Date, ForeignKey
+from sqlalchemy import Column, Integer, String, Date, ForeignKey, Float
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.dialects.postgresql import UUID
 
@@ -73,3 +73,22 @@ class Meal(Base):
 
     def __repr__(self):
         return "<meal_id {0}, account_id {1}>".format(self.id, self.account_id)
+
+
+class Nutrition(Base):
+    __tablename__ = NUT_PER_100_GRAM_TABLE
+    food_id = Column(String, primary_key=True)
+    kcal = Column(Float)
+    protein_g = Column(Float)
+    total_fat_g = Column(Float)
+    total_carb_g = Column(Float)
+
+    def __init__(self, food_id, kcal, protein_g, total_fat_g, total_carb_g):
+        self.food_id = food_id
+        self.kcal = kcal
+        self.protein_g = protein_g
+        self.total_fat_g = total_fat_g
+        self.total_carb_g = total_carb_g
+
+    def __repr__(self):
+        return "<food_id {0}, kcal {1}>".format(self.food_id, self.kcal)

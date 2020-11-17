@@ -2,7 +2,7 @@ from flask import Flask
 from flask import request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from db_models import Account, Meal
+from db_models import Account, Meal, Nutrition
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -63,6 +63,20 @@ def new_meal():
     db.session.commit()
 
     return "New Meal {0}, {1}".format(new_meal.id, new_meal.category)
+
+
+@app.route("/add-food-nut/<food_id>", methods=["GET"])
+def new_nut(food_id):
+    kcal = request.args.get("kcal")
+    protein_g = request.args.get("prot")
+    total_fat_g = request.args.get("fat")
+    total_carb_g = request.args.get("carb")
+
+    new_nut_food = Nutrition(food_id, kcal, protein_g, total_fat_g, total_carb_g)
+    db.session.add(new_nut_food)
+    db.session.commit()
+
+    return "New Food Item {0}, id {1} ".format(kcal, food_id)
 
 
 # @app.route('/get-nut', methods=['GET'])
