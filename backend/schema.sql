@@ -8,7 +8,7 @@ CREATE TABLE account
     diets VARCHAR,
     dietary_restrictions VARCHAR,
     cuisine_preferences VARCHAR,
-    fbid VARCHAR,
+    fbid VARCHAR
 );
 
 CREATE TABLE meal
@@ -62,7 +62,8 @@ CREATE TABLE food_detail
     barcode VARCHAR,
     brand VARCHAR,
     food_group VARCHAR,
-    ingredient_list VARCHAR
+    ingredient_list VARCHAR,
+    processed_desc VARCHAR
 );
 
 CREATE TABLE recipe

@@ -11,6 +11,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.dialects.postgresql import UUID
+from app import db
 
 Base = declarative_base()
 
@@ -26,7 +27,7 @@ SAVED_RECIPE_TABLE = "saved_recipe"
 USER_SESSION_TABLE = "user_session"
 
 
-class Account(Base):
+class Account(db.Model):
     """
     Daily Bites account table - store users of application
     """
@@ -63,10 +64,19 @@ class Account(Base):
         self.fbid = fbid
 
     def __repr__(self):
-        return "<account_id {0}, name {1}>".format(self.id, self.name)
+        return "<account_id {0}, date_created {1}, name {2}, email {3}, diets {4}, dietary_restrictions {5}, cuisine_preferences {6}, fbid {7}>".format(
+            self.id,
+            self.date_created,
+            self.name,
+            self.email,
+            self.diets,
+            self.dietary_restrictions,
+            self.cuisine_preferences,
+            self.fbid,
+        )
 
 
-class Meal(Base):
+class Meal(db.Model):
     """
     Daily Bites meal table - record meals that users log
     """
@@ -85,10 +95,12 @@ class Meal(Base):
         self.category = category
 
     def __repr__(self):
-        return "<meal_id {0}, account_id {1}>".format(self.id, self.account_id)
+        return "<id {0}, account_id {1}, date_logged {2}, category {3}>".format(
+            self.id, self.account_id, self.date_logged, self.category
+        )
 
 
-class Nutrition(Base):
+class Nutrition(db.Model):
     """
     Daily Bites nut_per_100_gram table - look up table for food nutrition
     """
@@ -109,10 +121,12 @@ class Nutrition(Base):
         self.total_carb_g = total_carb_g
 
     def __repr__(self):
-        return "<food_id {0}, kcal {1}>".format(self.food_id, self.kcal)
+        return "<food_id {0}, kcal {1}, protein_g {2}, total_fat_g {3}, total_carb_g {4}>".format(
+            self.food_id, self.kcal, self.protein_g, self.total_fat_g, self.total_carb_g
+        )
 
 
-class FoodUnit(Base):
+class FoodUnit(db.Model):
     """
     Daily Bites food_unit table - look up table for food unit conversions
     """
@@ -129,10 +143,12 @@ class FoodUnit(Base):
         self.grams_per_unit = grams_per_unit
 
     def __repr__(self):
-        return "<food_id {0}, unit {1}>".format(self.food_id, self.unit_desc)
+        return "<food_id {0}, unit {1}, grams_per_unit {2}>".format(
+            self.food_id, self.unit_desc, self.grams_per_unit
+        )
 
 
-class Food(Base):
+class Food(db.Model):
     """
     Daily Bites food table - records the food item and quantity for a food logged
     """
@@ -155,10 +171,17 @@ class Food(Base):
         self.food_quantity = food_quantity
 
     def __repr__(self):
-        return "<meal_id {0}, food_id {1}>".format(self.meal_id, self.food_id)
+        return "<meal_id {0}, food_id {1}, log_id {2}, food_desc {3}, food_unit {4}, food_quantity {5}>".format(
+            self.meal_id,
+            self.food_id,
+            self.log_id,
+            self.food_desc,
+            self.food_unit,
+            self.food_quantity,
+        )
 
 
-class MealLog(Base):
+class MealLog(db.Model):
     """
     Daily Bites meal_log table - records the raw text for a meal logged
     """
@@ -175,10 +198,12 @@ class MealLog(Base):
         self.raw_text = raw_text
 
     def __repr__(self):
-        return "<meal_id {0}, raw_text {1}>".format(self.meal_id, self.raw_text)
+        return "<meal_id {0}, log_id {1}, raw_text {2}>".format(
+            self.meal_id, self.log_id, self.raw_text
+        )
 
 
-class FoodDetail(Base):
+class FoodDetail(db.Model):
     """
     Daily Bites food_detail table - provides details for food recorded
     """
@@ -191,20 +216,39 @@ class FoodDetail(Base):
     brand = Column(String)
     food_group = Column(String)
     ingredient_list = Column(String)
+    processed_desc = Column(String)
 
-    def __init__(self, food_id, food_desc, barcode, brand, food_group, ingredient_list):
+    def __init__(
+        self,
+        food_id,
+        food_desc,
+        barcode,
+        brand,
+        food_group,
+        ingredient_list,
+        processed_desc,
+    ):
         self.food_id = food_id
         self.food_desc = food_desc
         self.barcode = barcode
         self.brand = brand
         self.food_group = food_group
         self.ingredient_list = ingredient_list
+        self.processed_desc = processed_desc
 
     def __repr__(self):
-        return "<food_id {0}, desc {1}>".format(self.food_id, self.food_desc)
+        return "< {}, {}, {}, {}, {}, {}, {} >".format(
+            self.food_id,
+            self.food_desc,
+            self.barcode,
+            self.brand,
+            self.food_group,
+            self.ingredient_list,
+            self.processed_desc,
+        )
 
 
-class Recipe(Base):
+class Recipe(db.Model):
     """
     Daily Bites recipe table - stores recipes that recommend to user from Spoonacular
     """
@@ -227,10 +271,16 @@ class Recipe(Base):
         self.recipe_instructions = recipe_instructions
 
     def __repr__(self):
-        return "<food_id {0}, title {1}>".format(self.recipe_id, self.title)
+        return "<recipe_id {0}, title {1}, recipe_desc {2}, recipe_ingredients {3}, recipe_instructions {4}>".format(
+            self.recipe_id,
+            self.title,
+            self.recipe_desc,
+            self.recipe_ingredients,
+            self.recipe_instructions,
+        )
 
 
-class SavedRecipe(Base):
+class SavedRecipe(db.Model):
     """
     Daily Bites saved_recipe table - records saved recipes for user
     """
@@ -247,10 +297,12 @@ class SavedRecipe(Base):
         self.date_saved = date_saved
 
     def __repr__(self):
-        return "<meal_id {0}, account_id {1}>".format(self.recipe_id, self.account_id)
+        return "<recipe_id {0}, account_id {1}, date_saved {2}>".format(
+            self.recipe_id, self.account_id, self.date_saved
+        )
 
 
-class UserSession(Base):
+class UserSession(db.Model):
     """
     Daily Bites user_session table - records user's interaction with the app
     """
@@ -287,6 +339,13 @@ class UserSession(Base):
         self.logged_meal = logged_meal
 
     def __repr__(self):
-        return "<session_id {0}, account_id {1}>".format(
-            self.session_id, self.account_id
+        return "<session_id {0}, account_id {1}, date {2}, time_started {3}, time_completed {4}, num_clicks {5}, screens_visited {6}, logged_meal {7}>".format(
+            self.session_id,
+            self.account_id,
+            self.date,
+            self.time_started,
+            self.time_completed,
+            self.num_clicks,
+            self.screens_visited,
+            self.logged_meal,
         )
