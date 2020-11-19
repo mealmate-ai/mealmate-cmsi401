@@ -111,14 +111,108 @@ class Nutrition(db.Model):
     protein_g = Column(Float)
     total_fat_g = Column(Float)
     total_carb_g = Column(Float)
+    total_diet_fiber_g = Column(Float)
+    calcium_mg = Column(Float)
+    iron_mg = Column(Float)
+    magnesium_mg = Column(Float)
+    phosphorus_mg = Column(Float)
+    potassium_mg = Column(Float)
+    sodium_mg = Column(Float)
+    zinc_mg = Column(Float)
+    copper_mg = Column(Float)
+    manganese_mg = Column(Float)
+    selenium_mcg = Column(Float)
+    vitamin_c_mg = Column(Float)
+    thiamin_mg = Column(Float)
+    riboflavin_mg = Column(Float)
+    niacin_mg = Column(Float)
+    pantothenic_acid_mg = Column(Float)
+    vitamin_b6_mg = Column(Float)
+    total_folate_mcg = Column(Float)
+    vitamin_b12_mcg = Column(Float)
+    vitamin_d_mcg = Column(Float)
+    vitamin_e_mg = Column(Float)
+    vitamin_k_mcg = Column(Float)
+    total_sat_fat_g = Column(Float)
+    total_monounsat_fat_g = Column(Float)
+    total_poly_unsat_fat_g = Column(Float)
+    total_trans_fat_g = Column(Float)
+    cholesterol_mg = Column(Float)
+    total_sugar_g = Column(Float)
+    omega_3_fatty_acids_g = Column(Float)
 
     # need to add more nuts
-    def __init__(self, food_id, kcal, protein_g, total_fat_g, total_carb_g):
+    def __init__(
+        self,
+        food_id,
+        kcal,
+        protein_g,
+        total_fat_g,
+        total_carb_g,
+        total_diet_fiber_g,
+        calcium_mg,
+        iron_mg,
+        magnesium_mg,
+        phosphorus_mg,
+        potassium_mg,
+        sodium_mg,
+        zinc_mg,
+        copper_mg,
+        manganese_mg,
+        selenium_mcg,
+        vitamin_c_mg,
+        thiamin_mg,
+        riboflavin_mg,
+        niacin_mg,
+        pantothenic_acid_mg,
+        vitamin_b6_mg,
+        total_folate_mcg,
+        vitamin_b12_mcg,
+        vitamin_d_mcg,
+        vitamin_e_mg,
+        vitamin_k_mcg,
+        total_sat_fat_g,
+        total_monounsat_fat_g,
+        total_poly_unsat_fat_g,
+        total_trans_fat_g,
+        cholesterol_mg,
+        total_sugar_g,
+        omega_3_fatty_acids_g,
+    ):
         self.food_id = food_id
         self.kcal = kcal
         self.protein_g = protein_g
         self.total_fat_g = total_fat_g
         self.total_carb_g = total_carb_g
+        self.total_diet_fiber_g = total_diet_fiber_g
+        self.calcium_mg = calcium_mg
+        self.iron_mg = iron_mg
+        self.magnesium_mg = magnesium_mg
+        self.phosphorus_mg = phosphorus_mg
+        self.potassium_mg = potassium_mg
+        self.sodium_mg = sodium_mg
+        self.zinc_mg = zinc_mg
+        self.copper_mg = copper_mg
+        self.manganese_mg = manganese_mg
+        self.selenium_mcg = selenium_mcg
+        self.vitamin_c_mg = vitamin_c_mg
+        self.thiamin_mg = thiamin_mg
+        self.riboflavin_mg = riboflavin_mg
+        self.niacin_mg = niacin_mg
+        self.pantothenic_acid_mg = pantothenic_acid_mg
+        self.vitamin_b6_mg = vitamin_b6_mg
+        self.total_folate_mcg = total_folate_mcg
+        self.vitamin_b12_mcg = vitamin_b12_mcg
+        self.vitamin_d_mcg = vitamin_d_mcg
+        self.vitamin_e_mg = vitamin_e_mg
+        self.vitamin_k_mcg = vitamin_k_mcg
+        self.total_sat_fat_g = total_sat_fat_g
+        self.total_monounsat_fat_g = total_monounsat_fat_g
+        self.total_poly_unsat_fat_g = total_poly_unsat_fat_g
+        self.total_trans_fat_g = total_trans_fat_g
+        self.cholesterol_mg = cholesterol_mg
+        self.total_sugar_g = total_sugar_g
+        self.omega_3_fatty_acids_g = omega_3_fatty_acids_g
 
     def __repr__(self):
         return "<food_id {0}, kcal {1}, protein_g {2}, total_fat_g {3}, total_carb_g {4}>".format(
@@ -237,7 +331,7 @@ class FoodDetail(db.Model):
         self.processed_desc = processed_desc
 
     def __repr__(self):
-        return "< {}, {}, {}, {}, {}, {}, {} >".format(
+        return "<food_id {}, food_desc {}, barcode {}, brand {}, food_group {}, ingredient_list {}, processed_desc {} >".format(
             self.food_id,
             self.food_desc,
             self.barcode,

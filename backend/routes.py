@@ -79,19 +79,15 @@ def query_foods():
     query = request.args.get("query")
     foods = re.split("\s+|[,]", query)
 
+    matches = {}
     items = []
-    for ind, food in enumerate(foods):
+    for food in foods:
         text = food.replace("'", "''")
-        items.append(
-            FoodDetail.query.filter(FoodDetail.processed_desc.contains(text)).all()
-        )
+        res = FoodDetail.query.filter(FoodDetail.processed_desc.contains(text)).all()
+        items += res
+        matches[text] = [item.food_id for item in res]
+    print(matches, items)
+    # for item in items:
+    #     print(item)
 
-    for item in items:
-        print(item)
-        # db.session.query(FoodDetail).filter(
-        #     FoodDetail.processed_desc == "%apple%"
-        # )
-
-    # recommendations = db.session.query(FoodDetail).filter_by(FoodDetail.processed_desc ==)
-
-    return "Foods in list:  ".format()
+    return "Foods in list: {} ".format(matches)
