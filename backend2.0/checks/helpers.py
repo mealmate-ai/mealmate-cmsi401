@@ -17,6 +17,10 @@ def check_integer(key, value):
     check(value is None or isinstance(value, int), f"Parameter {key} must be an integer")
 
 
+def check_float(key, value):
+    check(value is None or isinstance(value, float), f"Parameter {key} must be a float")
+
+
 def check_string(key, value):
     check(value is None or isinstance(value, str), f"Parameter {key} must be a string")
 

@@ -3,6 +3,7 @@ from daily_bites_app import app
 
 import services.account as account_service
 import services.meal as meal_service
+import services.food as food_service
 
 
 def parsed_request():
@@ -65,19 +66,9 @@ def delete_meal(meal_id):
     return meal_service.remove_meal(meal_id)
 
 
-# # How to query from db? Where do we use nutritionix and where usda db?
-@app.route("/add-food-nut/<food_id>", methods=["GET"])
-def new_nut(food_id):
-    #     kcal = request.args.get("kcal")
-    #     protein_g = request.args.get("prot")
-    #     total_fat_g = request.args.get("fat")
-    #     total_carb_g = request.args.get("carb")
-
-    #     new_nut_food = Nutrition(food_id, kcal, protein_g, total_fat_g, total_carb_g)
-    #     db.session.add(new_nut_food)
-    #     db.session.commit()
-
-    return "WIP"
+@app.route("/add-food", methods=["POST"])
+def new_food():
+    return food_service.create_food(parsed_request())
 
 
 @app.route("/query-foods", methods=["GET"])
