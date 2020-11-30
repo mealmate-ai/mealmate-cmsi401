@@ -15,7 +15,6 @@ with open(NUTR_SOURCE, "r+", encoding="iso-8859-1") as f:
         protein_g = row[2]
         total_fat_g = row[3]
         total_carb_g = row[4]
-        # add more rows
         total_diet_fiber_g = row[5]
         calcium_mg = row[6]
         iron_mg = row[7]
@@ -47,41 +46,12 @@ with open(NUTR_SOURCE, "r+", encoding="iso-8859-1") as f:
         omega_3_fatty_acids_g = row[33]
         print(
             f"""
-            INSERT INTO nut_per_100_gram VALUES('
-                {food_id}',
-                {kcal},
-                {protein_g},
-                {total_fat_g},
-                {total_carb_g},
-                {total_diet_fiber_g},
-                {calcium_mg},
-                {iron_mg},
-                {magnesium_mg},
-                {phosphorus_mg},
-                {potassium_mg},
-                {sodium_mg},
-                {zinc_mg},
-                {copper_mg},
-                {manganese_mg},
-                {selenium_mcg},
-                {vitamin_c_mg},
-                {thiamin_mg},
-                {riboflavin_mg},
-                {niacin_mg},
-                {pantothenic_acid_mg},
-                {vitamin_b6_mg},
-                {total_folate_mcg},
-                {vitamin_b12_mcg},
-                {vitamin_d_mcg},
-                {vitamin_e_mg},
-                {vitamin_k_mcg},
-                {total_sat_fat_g},
-                {total_monounsat_fat_g},
-                {total_poly_unsat_fat_g},
-                {total_trans_fat_g},
-                {cholesterol_mg},
-                {total_sugar_g},
-                {omega_3_fatty_acids_g}
+            INSERT INTO nut_per_100_gram
+                VALUES(\'{food_id}\', {kcal}, {protein_g}, {total_fat_g}, {total_carb_g}, {total_diet_fiber_g}, {calcium_mg},
+                {iron_mg}, {magnesium_mg}, {phosphorus_mg}, {potassium_mg}, {sodium_mg}, {zinc_mg}, {copper_mg}, {manganese_mg},
+                {selenium_mcg}, {vitamin_c_mg}, {thiamin_mg}, {riboflavin_mg}, {niacin_mg}, {pantothenic_acid_mg}, {vitamin_b6_mg},
+                {total_folate_mcg}, {vitamin_b12_mcg}, {vitamin_d_mcg}, {vitamin_e_mg}, {vitamin_k_mcg}, {total_sat_fat_g},
+                {total_monounsat_fat_g}, {total_poly_unsat_fat_g}, {total_trans_fat_g}, {cholesterol_mg}, {total_sugar_g}, {omega_3_fatty_acids_g}
             );
             """
         )
