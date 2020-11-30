@@ -23,3 +23,7 @@ def update_account(account_id, patch_content):
         return {"message": "No fields to update from arguments"}, 400
     updated_account = dal.update_account(account_id, patch)
     return {"account": updated_account}, 200
+
+
+def remove_account(account_id):
+    return {"deleted": dal.delete_account(account_id)}, 200

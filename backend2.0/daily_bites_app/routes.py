@@ -34,7 +34,7 @@ def update_account(account_id):
 
 @app.route("/delete-account/<account_id>", methods=["DELETE"])
 def delete_account(account_id):
-    return "WIP"
+    return account_service.remove_account(account_id)
 
 
 @app.route("/add-meal/<account_id>", methods=["POST"])
