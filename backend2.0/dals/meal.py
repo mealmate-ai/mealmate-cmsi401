@@ -51,3 +51,10 @@ def get_meals_by_category_and_date(account_id, category, date):
     if len(meals.all()) == 0:
         return []
     return [meal.full_view() for meal in meals.all()]
+
+
+def delete_meal(meal_id):
+    meal = Meal.get_meal_by_id(meal_id)
+    db.session.delete(meal)
+    db.session.commit()
+    return True

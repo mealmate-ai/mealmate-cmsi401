@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func, or_
 from sqlalchemy.dialects.postgresql import JSONB, TSVECTOR, UUID
 
+from daily_bites_app.errors import BadArgumentError
+
 from daily_bites_app.routes import app
 import uuid
 
@@ -88,6 +90,8 @@ class Meal(db.Model, ReturnHelper):
     def get_meal_by_id(cls, meal_id):
         meal = cls.query.filter_by(id=meal_id).first()
         # do a check here for meal
+        if meal is None:
+            raise BadArgumentError("No such meal")
         return meal
 
 

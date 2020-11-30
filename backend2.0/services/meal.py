@@ -32,3 +32,7 @@ def get_meals_by_account_category(account_id, category):
 def get_meals_by_account_date_category(account_id, category, date):
     meals = dal.get_meals_by_category_and_date(account_id, category, date)
     return {"meals": meals}, 200
+
+
+def remove_meal(meal_id):
+    return {"deleted": dal.delete_meal(meal_id)}, 200

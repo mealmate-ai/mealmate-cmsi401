@@ -60,9 +60,9 @@ def get_meal(account_id):
     return meal_service.get_meals_by_account(account_id)
 
 
-@app.route("/delete-meal/<account_id>", methods=["DELETE"])
-def delete_meal(account_id):
-    return "WIP"
+@app.route("/delete-meal/<meal_id>", methods=["DELETE"])
+def delete_meal(meal_id):
+    return meal_service.remove_meal(meal_id)
 
 
 # # How to query from db? Where do we use nutritionix and where usda db?
