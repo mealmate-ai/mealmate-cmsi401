@@ -49,7 +49,6 @@ def get_meal(account_id):
     date = request.args.get("date")
     category = request.args.get("category")
 
-    print(category, date)
     if category and date:
         return meal_service.get_meals_by_account_date_category(account_id, category, date)
     if category:
@@ -74,5 +73,6 @@ def new_food():
 @app.route("/query-foods", methods=["GET"])
 def query_foods():
     query = request.args.get("query")
+    print(query)
 
-    return "WIP"
+    return food_service.search_foods(query)

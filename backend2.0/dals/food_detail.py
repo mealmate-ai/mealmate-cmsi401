@@ -23,7 +23,7 @@ def get_food_detail(food_id):
 
 
 def search_foods(search_query):
-    query = query.filter(
+    query = FoodDetail.query.filter(
         func.to_tsvector("english", FoodDetail.food_desc).op("@@")(
             func.plainto_tsquery("english", search_query)
         )

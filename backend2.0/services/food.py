@@ -17,3 +17,8 @@ def create_food(food_info):
         "food_detail": dal.insert_food_detail(food_detail),
         "food_units": dal.insert_food_units(food_units),
     }, 201
+
+
+def search_foods(query):
+    foods = dal.search_foods(query)
+    return {"foods": foods}, 201
