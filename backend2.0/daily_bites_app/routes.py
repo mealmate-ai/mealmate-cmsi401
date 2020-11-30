@@ -27,17 +27,9 @@ def get_account(account_id):
     return account_service.get_account(account_id)
 
 
-@app.route("/update-account/<account_id>", methods=["GET"])
+@app.route("/update-account/<account_id>", methods=["PATCH"])
 def update_account(account_id):
-    # name = request.args.get("name", None)
-    # email = request.args.get("email", None)
-
-    # account_updating = db.session.query(Account).filter_by(id=account_id).first()
-    # account_updating.name = name if name else account_updating.name
-    # account_updating.email = email if email else account_updating.email
-
-    # db.session.commit()
-    return "WIP"
+    return account_service.update_account(account_id, parsed_request())
 
 
 @app.route("/delete-account/<account_id>", methods=["DELETE"])
@@ -45,7 +37,7 @@ def delete_account(account_id):
     return "WIP"
 
 
-@app.route("/add-meal/<account_id>", methods=["GET"])
+@app.route("/add-meal/<account_id>", methods=["POST"])
 def new_meal(account_id):
     # account_id = request.args.get("accountId")
     # date_logged = datetime.today().strftime("%Y-%m-%d")

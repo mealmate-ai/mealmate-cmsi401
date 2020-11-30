@@ -46,34 +46,38 @@ def check_email(key, value):
 
 
 def check_valid_diets(key, value):
-    diets = value.split(",")
-    for diet in diets:
-        check(
-            isinstance(value, str) and diet in SPOONACULAR_DIETS,
-            f"Parameter {key} must be a Spoonacular Diet",
-        )
+    if value is not None:
+        diets = [v.strip() for v in value.split(",")]
+        for diet in diets:
+            check(
+                isinstance(value, str) and diet in SPOONACULAR_DIETS,
+                f"Parameter {key} must be a Spoonacular Diet",
+            )
 
 
 def check_valid_dietary_restrictions(key, value):
-    intolarances = value.split(",")
-    for intolerance in intolarances:
-        check(
-            isinstance(value, str) and intolerance in SPOONACULAR_INTOLERANCES,
-            f"Parameter {key} must be a Spoonacular Intolerance",
-        )
+    if value is not None:
+        intolarances = [v.strip() for v in value.split(",")]
+        for intolerance in intolarances:
+            check(
+                isinstance(value, str) and intolerance in SPOONACULAR_INTOLERANCES,
+                f"Parameter {key} must be a Spoonacular Intolerance",
+            )
 
 
 def check_valid_cuisines(key, value):
-    cuisines = value.split(",")
-    for cuisine in cuisines:
-        check(
-            isinstance(value, str) and cuisine in SPOONACULAR_CUSINES,
-            f"Parameter {key} must be a Spoonacular Cuisine",
-        )
+    if value is not None:
+        cuisines = [v.strip() for v in value.split(",")]
+        for cuisine in cuisines:
+            check(
+                isinstance(value, str) and cuisine in SPOONACULAR_CUSINES,
+                f"Parameter {key} must be a Spoonacular Cuisine",
+            )
 
 
 def check_category(key, value):
-    check(
-        isinstance(value, str) and value in CATEGORIES,
-        f"Parameter {key} must be a valid category",
-    )
+    if value is not None:
+        check(
+            isinstance(value, str) and value in CATEGORIES,
+            f"Parameter {key} must be a valid category",
+        )

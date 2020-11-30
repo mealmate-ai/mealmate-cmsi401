@@ -15,3 +15,11 @@ def create_account(account_info):
 def get_account(account_id):
     account = Account.get_account_by_id(account_id)
     return None if account is None else account.full_view()
+
+
+def update_account(account_id, patch_content):
+    patch = AccountChecker.__on_update__(patch_content)
+    if not patch:
+        return {"message": "No fields to update from arguments"}, 400
+    updated_account = dal.update_account(account_id, patch)
+    return {"account": updated_account}, 200

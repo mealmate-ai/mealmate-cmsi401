@@ -35,7 +35,7 @@ class AccountChecker(Checker):
         "email": [check_email],
         "fbid": [check_string],
     }
-    updateFields: {
+    updateFields = {
         "name": [check_string],
         "email": [check_email],
         "fbid": [check_string],
