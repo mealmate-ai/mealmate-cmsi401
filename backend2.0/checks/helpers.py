@@ -1,4 +1,5 @@
 import re
+from checks.constants import *
 
 
 def check(condition, message):
@@ -34,4 +35,45 @@ def check_date(key, value):
     check(
         value is None or isinstance(value, str) and re.match(r"^\d\d\d\d-\d\d-\d\d+$", value),
         f"Parameter {key} does not look like a date",
+    )
+
+
+def check_email(key, value):
+    check(
+        value is None or isinstance(value, str),
+        f"Parameter {key} does not look like an email",
+    )
+
+
+def check_valid_diets(key, value):
+    diets = value.split(",")
+    for diet in diets:
+        check(
+            isinstance(value, str) and diet in SPOONACULAR_DIETS,
+            f"Parameter {key} must be a Spoonacular Diet",
+        )
+
+
+def check_valid_dietary_restrictions(key, value):
+    intolarances = value.split(",")
+    for intolerance in intolarances:
+        check(
+            isinstance(value, str) and intolerance in SPOONACULAR_INTOLERANCES,
+            f"Parameter {key} must be a Spoonacular Intolerance",
+        )
+
+
+def check_valid_cuisines(key, value):
+    cuisines = value.split(",")
+    for cuisine in cuisines:
+        check(
+            isinstance(value, str) and cuisine in SPOONACULAR_CUSINES,
+            f"Parameter {key} must be a Spoonacular Cuisine",
+        )
+
+
+def check_category(key, value):
+    check(
+        isinstance(value, str) and value in CATEGORIES,
+        f"Parameter {key} must be a valid category",
     )

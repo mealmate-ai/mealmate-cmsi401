@@ -1,5 +1,15 @@
-from flask import g
+from flask import g, request
 from daily_bites_app import app
+
+import services.account as account_service
+
+
+def parsed_request():
+    content = request.get_json()
+    print("CONTENT", content, request)
+    if content is None:
+        return "content parse failed"  # add exception !!
+    return content
 
 
 @app.route("/", methods=["GET"])
@@ -7,18 +17,9 @@ def hello():
     return {"message": "Hello"}, 200
 
 
-@app.route("/add-account", methods=["GET"])
-def new_account():
-    # id = request.args.get("id")
-    # date_created = datetime.today().strftime("%Y-%m-%d")
-    # email = request.args.get("email", None)
-    # name = request.args.get("name", None)
-
-    # account = Account(id, date_created, name, email, "", "", "", "")
-    # db.session.add(account)
-    # db.session.commit()
-
-    return "WIP"
+@app.route("/add-account", methods=["POST"])
+def create_account():
+    return account_service.create_account(parsed_request())
 
 
 @app.route("/update-account/<account_id>", methods=["GET"])
@@ -35,7 +36,7 @@ def update_account(account_id):
 
 
 @app.route("/delete-account/<account_id>", methods=["DELETE"])
-def update_account(account_id):
+def delete_account(account_id):
     return "WIP"
 
 

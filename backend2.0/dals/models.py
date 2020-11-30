@@ -22,6 +22,13 @@ USER_SESSION_TABLE = "user_session"
 
 
 class ReturnHelper:
+    def value_for(self, key):
+        return getattr(self, key)
+
+    def as_dict(self, fields):
+        keys = [key for key in getattr(type(self), fields)]
+        return {key: self.value_for(key) for key in keys}
+
     def min_view(self):
         return self.as_dict("min_fields")
 
@@ -29,6 +36,7 @@ class ReturnHelper:
         return self.as_dict("search_result_fields")
 
     def full_view(self):
+        print("here")
         return self.as_dict("all_fields")
 
 
