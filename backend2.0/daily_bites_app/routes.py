@@ -45,6 +45,18 @@ def new_meal(account_id):
 
 @app.route("/get-meal/<account_id>", methods=["GET"])
 def get_meal(account_id):
+    date = request.args.get("date")
+    category = request.args.get("category")
+
+    print(category, date)
+    if category and date:
+        return meal_service.get_meals_by_account_date_category(account_id, category, date)
+    if category:
+        print(category)
+        return meal_service.get_meals_by_account_category(account_id, category)
+    if date:
+        return meal_service.get_meals_by_account_date(account_id, date)
+
     return meal_service.get_meals_by_account(account_id)
 
 

@@ -32,14 +32,14 @@ def get_meals_by_account(account_id):
 
 def get_meals_by_date(account_id, date):
     meals = Meal.query.filter(Meal.account_id == account_id, Meal.date_logged == date)
-    if len(meals) == 0:
+    if len(meals.all()) == 0:
         return []
     return [meal.full_view() for meal in meals.all()]
 
 
 def get_meals_by_category(account_id, category):
     meals = Meal.query.filter(Meal.account_id == account_id, Meal.category == category)
-    if len(meals) == 0:
+    if len(meals.all()) == 0:
         return []
     return [meal.full_view() for meal in meals.all()]
 
@@ -48,6 +48,6 @@ def get_meals_by_category_and_date(account_id, category, date):
     meals = Meal.query.filter(
         Meal.account_id == account_id, Meal.category == category, Meal.date_logged == date
     )
-    if len(meals) == 0:
+    if len(meals.all()) == 0:
         return []
     return [meal.full_view() for meal in meals.all()]

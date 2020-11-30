@@ -17,3 +17,18 @@ def get_meals_by_account(account_id):
     # check valid account_id ?
     meals = dal.get_meals_by_account(account_id)
     return {"meals": meals}, 200
+
+
+def get_meals_by_account_date(account_id, date):
+    meals = dal.get_meals_by_date(account_id, date)
+    return {"meals": meals}, 200
+
+
+def get_meals_by_account_category(account_id, category):
+    meals = dal.get_meals_by_category(account_id, category)
+    return {"meals": meals}, 200
+
+
+def get_meals_by_account_date_category(account_id, category, date):
+    meals = dal.get_meals_by_category_and_date(account_id, category, date)
+    return {"meals": meals}, 200
