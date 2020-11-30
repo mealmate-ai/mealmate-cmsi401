@@ -34,8 +34,13 @@ def update_account(account_id):
     return "WIP"
 
 
-@app.route("/add-meal", methods=["GET"])
-def new_meal():
+@app.route("/delete-account/<account_id>", methods=["DELETE"])
+def update_account(account_id):
+    return "WIP"
+
+
+@app.route("/add-meal/<account_id>", methods=["GET"])
+def new_meal(account_id):
     # account_id = request.args.get("accountId")
     # date_logged = datetime.today().strftime("%Y-%m-%d")
     # category = request.args.get("category")
@@ -44,6 +49,16 @@ def new_meal():
     # db.session.add(meal_new)
     # db.session.commit()
 
+    return "WIP"
+
+
+@app.route("/get-meal/<account_id>", methods=["GET"])
+def get_meal(account_id):
+    return "WIP"
+
+
+@app.route("/delete-meal/<account_id>", methods=["GET"])
+def delete_meal(account_id):
     return "WIP"
 
 
