@@ -23,6 +23,13 @@ def update_meal(meal_id, meal_patch):
         setattr(meal, key, value)
 
 
+def get_meals_by_account(account_id):
+    meals = Meal.query.filter(Meal.account_id == account_id)
+    if len(meals.all()) == 0:
+        return []
+    return [meal.full_view() for meal in meals.all()]
+
+
 def get_meals_by_date(account_id, date):
     meals = Meal.query.filter(Meal.account_id == account_id, Meal.date_logged == date)
     if len(meals) == 0:

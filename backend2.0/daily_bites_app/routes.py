@@ -45,10 +45,10 @@ def new_meal(account_id):
 
 @app.route("/get-meal/<account_id>", methods=["GET"])
 def get_meal(account_id):
-    return "WIP"
+    return meal_service.get_meals_by_account(account_id)
 
 
-@app.route("/delete-meal/<account_id>", methods=["GET"])
+@app.route("/delete-meal/<account_id>", methods=["DELETE"])
 def delete_meal(account_id):
     return "WIP"
 

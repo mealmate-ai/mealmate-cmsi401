@@ -11,3 +11,9 @@ def create_meal(account_id, meal_info):
     meal["account_id"] = account_id
     meal["date_logged"] = datetime.today().strftime("%Y-%m-%d")
     return {"meal": dal.create_meal(meal)}, 201
+
+
+def get_meals_by_account(account_id):
+    # check valid account_id ?
+    meals = dal.get_meals_by_account(account_id)
+    return {"meals": meals}, 200
