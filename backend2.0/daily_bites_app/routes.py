@@ -1,6 +1,6 @@
 from flask import g, request
 from daily_bites_app import app
-
+from daily_bites_app.errors import BadArgumentError
 import services.account as account_service
 import services.meal as meal_service
 import services.food as food_service
@@ -8,9 +8,8 @@ import services.food as food_service
 
 def parsed_request():
     content = request.get_json()
-    print("CONTENT", content, request)
     if content is None:
-        return "content parse failed"  # add exception !!
+        raise BadArgumentError("Error on parsing arguments")  # add exception !!
     return content
 
 
@@ -73,6 +72,4 @@ def new_food():
 @app.route("/query-foods", methods=["GET"])
 def query_foods():
     query = request.args.get("query")
-    print(query)
-
     return food_service.search_foods(query)

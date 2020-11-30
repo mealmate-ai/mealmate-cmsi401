@@ -28,7 +28,5 @@ def search_foods(search_query):
             func.plainto_tsquery("english", search_query)
         )
     )
-
     foods = [food.search_result_view() for food in query.all()]
-
     return foods
