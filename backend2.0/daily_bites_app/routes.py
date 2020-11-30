@@ -22,6 +22,11 @@ def create_account():
     return account_service.create_account(parsed_request())
 
 
+@app.route("/get-account/<account_id>", methods=["GET"])
+def get_account(account_id):
+    return account_service.get_account(account_id)
+
+
 @app.route("/update-account/<account_id>", methods=["GET"])
 def update_account(account_id):
     # name = request.args.get("name", None)
