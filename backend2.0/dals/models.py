@@ -199,7 +199,7 @@ class Food(db.Model, ReturnHelper):
     __tablename__ = FOOD_TABLE
 
     meal_id = db.Column(UUID(as_uuid=True), db.ForeignKey("meal.id"), primary_key=True)
-    food_id = db.Column(db.String(36), db.ForeignKey("nut_per_100_gram.id"), primary_key=True)
+    food_id = db.Column(db.String(36), db.ForeignKey("nut_per_100_gram.food_id"), primary_key=True)
     log_id = db.Column(db.Integer)  # could probably get rid of this
     food_unit = db.Column(db.String(256))
     food_quantity = db.Column(db.String(256))
@@ -240,7 +240,7 @@ class FoodDetail(db.Model, ReturnHelper):
 
     __tablename__ = FOOD_DETAIL_TABLE
 
-    food_id = db.Column(db.String(36), db.ForeignKey("nut_per_100_gram.id"), primary_key=True)
+    food_id = db.Column(db.String(36), db.ForeignKey("nut_per_100_gram.food_id"), primary_key=True)
     food_desc = db.Column(db.String(256))
     barcode = db.Column(db.String(50))
     brand = db.Column(db.String(256))
@@ -291,7 +291,7 @@ class SavedRecipe(db.Model, ReturnHelper):
 
     __tablename__ = SAVED_RECIPE_TABLE
 
-    recipe_id = db.Column(db.Integer, db.ForeignKey("recipe.id"), primary_key=True)
+    recipe_id = db.Column(db.Integer, db.ForeignKey("recipe.recipe_id"), primary_key=True)
     account_id = db.Column(db.String(36), db.ForeignKey("account.id"), primary_key=True)
     date_saved = db.Column(db.Date)
 

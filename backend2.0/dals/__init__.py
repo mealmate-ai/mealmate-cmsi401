@@ -17,4 +17,8 @@ from dals.food import *
 from dals.food_detail import *
 from dals.food_unit import *
 from dals.meal import *
+from dals.meal_log import *
 from dals.nutrition import *
+from dals.recipe import *
+from dals.saved_recipe import *
+from dals.user_session import *
