@@ -186,6 +186,10 @@ class FoodUnit(db.Model, ReturnHelper):
     def get_all_units_by_id(cls, food_id):
         return cls.query.filter_by(food_id=food_id).all()
 
+    @classmethod
+    def get_unit_by_id_and_desc(cls, food_id, desc):
+        return cls.query.filter_by(food_id=food_id, unit_desc=desc).first()
+
 
 class Food(db.Model, ReturnHelper):
     """
@@ -205,7 +209,11 @@ class Food(db.Model, ReturnHelper):
     all_fields = {*search_result_fields, "food_unit", "food_quantity"}
 
     @classmethod
-    def get_foods_in_meal(cls, meal_id):
+    def get_foods_by_meal_id(cls, meal_id):
+        return cls.query.filter_by(meal_id=meal_id).all()
+
+    @classmethod
+    def get_food_by_id(cls, food_id):
         return cls.query.filter_by(meal_id=meal_id).all()
 
 
@@ -232,7 +240,7 @@ class FoodDetail(db.Model, ReturnHelper):
 
     __tablename__ = FOOD_DETAIL_TABLE
 
-    food_id = db.Column(db.String(36), ForeignKey("nut_per_100_gram.id"), primary_key=True)
+    food_id = db.Column(db.String(36), db.ForeignKey("nut_per_100_gram.id"), primary_key=True)
     food_desc = db.Column(db.String(256))
     barcode = db.Column(db.String(50))
     brand = db.Column(db.String(256))
@@ -248,6 +256,10 @@ class FoodDetail(db.Model, ReturnHelper):
     min_fields = {"food_id"}
     search_result_fields = {*min_fields, "barcode", "brand"}
     all_fields = {*search_result_fields, "food_desc"}
+
+    @classmethod
+    def get_food_detail_by_id(cls, food_id):
+        return cls.query.filter_by(food_id=food_id).first()
 
 
 class Recipe(db.Model, ReturnHelper):
@@ -300,7 +312,7 @@ class UserSession(db.Model, ReturnHelper):
     __tablename__ = USER_SESSION_TABLE
 
     session_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    account_id = db.Column(db.String(36), ForeignKey("account.id"))
+    account_id = db.Column(db.String(36), db.ForeignKey("account.id"))
     date = db.Column(db.Date)
     time_started = db.Column(db.DateTime)
     time_completed = db.Column(db.DateTime)
@@ -318,3 +330,7 @@ class UserSession(db.Model, ReturnHelper):
         "screens_visited",
         "logged_meal",
     }
+
+    @classmethod
+    def get_session_by_id(cls, session_id):
+        return cls.query.filter_by(session_id=session_id).all()
