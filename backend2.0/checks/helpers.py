@@ -1,3 +1,6 @@
+import re
+
+
 def check(condition, message):
     from daily_bites_app.errors import BadArgumentError
 
