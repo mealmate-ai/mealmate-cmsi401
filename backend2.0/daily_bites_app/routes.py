@@ -2,6 +2,7 @@ from flask import g, request
 from daily_bites_app import app
 
 import services.account as account_service
+import services.meal as meal_service
 
 
 def parsed_request():
@@ -39,15 +40,7 @@ def delete_account(account_id):
 
 @app.route("/add-meal/<account_id>", methods=["POST"])
 def new_meal(account_id):
-    # account_id = request.args.get("accountId")
-    # date_logged = datetime.today().strftime("%Y-%m-%d")
-    # category = request.args.get("category")
-
-    # meal_new = Meal(None, account_id, date_logged, category)
-    # db.session.add(meal_new)
-    # db.session.commit()
-
-    return "WIP"
+    return meal_service.create_meal(account_id, parsed_request())
 
 
 @app.route("/get-meal/<account_id>", methods=["GET"])
