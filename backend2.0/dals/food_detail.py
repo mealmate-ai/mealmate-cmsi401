@@ -6,9 +6,9 @@ from dals.models import db, FoodDetail
 def insert_food_detail(food_detail_args):
     try:
         inserted_food_detail = FoodDetail(**food_detail_args)
-        db.session.add(insert_food_detail)
+        db.session.add(inserted_food_detail)
         db.session.commit()
-        return insert_food_detail.full_view()
+        return inserted_food_detail.full_view()
     except IntegrityError:
         db.session.rollback()
         return None

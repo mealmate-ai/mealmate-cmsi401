@@ -2,12 +2,15 @@ from sqlalchemy.exc import IntegrityError
 from dals.models import db, FoodUnit
 
 
-def insert_food_unit(food_unit_args):
+def insert_food_units(food_units_list):
     try:
-        new_unit = FoodUnit(**food_unit_args)
-        db.session.add(new_unit)
+        new_units = []
+        for food_unit in food_units_list:
+            new_unit = FoodUnit(**food_unit)
+            new_units.append(new_unit)
+            db.session.add(new_unit)
         db.session.commit()
-        return new_unit.full_view()
+        return [unit.full_view() for unit in new_units]
     except IntegrityError:
         db.session.rollback()
         return None

@@ -2,7 +2,7 @@ from sqlalchemy.exc import IntegrityError
 from dals.models import db, Nutrition
 
 
-def insert_food(food_args):
+def insert_nut_food(food_args):
     try:
         new_food = Nutrition(**food_args)
         db.session.add(new_food)
@@ -17,7 +17,7 @@ def insert_food(food_args):
         raise
 
 
-def get_food_by_id(food_id):
+def get_nut_food_by_id(food_id):
     food = Nutrition.get_food_by_id(food_id)
 
     return food.full_view()

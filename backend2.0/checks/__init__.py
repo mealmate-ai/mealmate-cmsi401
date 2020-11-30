@@ -98,5 +98,35 @@ class NutritionChecker(Checker):
     updateFields = {}
 
     @classmethod
-    def __on_creation__(cls, record):
+    def __on_creation__(cls, record, food_id):
+        record["food_id"] = food_id
+        return checked(record, cls.creationFields, convert_missing_nut_to_zero=True)
+
+
+class FoodDetailChecker(Checker):
+    creationFields = {
+        "food_id": [check_arg_is_required, check_string],
+        "food_desc": [check_arg_is_required, check_string],
+        "barcode": [check_integer],
+        "brand": [check_string],
+    }
+    updateFields = {}
+
+    @classmethod
+    def __on_creation__(cls, record, food_id):
+        record["food_id"] = food_id
+        return checked(record, cls.creationFields, convert_missing_nut_to_zero=True)
+
+
+class FoodUnitChecker(Checker):
+    creationFields = {
+        "food_id": [check_arg_is_required, check_string],
+        "unit_desc": [check_arg_is_required, check_string],
+        "grams_per_unit": [check_arg_is_required, check_float],
+    }
+    updateFields = {}
+
+    @classmethod
+    def __on_creation__(cls, record, food_id):
+        record["food_id"] = food_id
         return checked(record, cls.creationFields, convert_missing_nut_to_zero=True)
