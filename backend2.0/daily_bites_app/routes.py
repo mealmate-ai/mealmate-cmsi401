@@ -73,18 +73,6 @@ def new_food():
 
 @app.route("/query-foods", methods=["GET"])
 def query_foods():
-    # query = request.args.get("query")
-    # foods = re.split("\s+|[,]", query)
-
-    # matches = {}
-    # items = []
-    # for food in foods:
-    #     text = food.replace("'", "''")
-    #     res = FoodDetail.query.filter(FoodDetail.processed_desc.contains(text)).all()
-    #     items += res
-    #     matches[text] = [item.food_id for item in res]
-    # print(matches, items)
-    # # for item in items:
-    # #     print(item)
+    query = request.args.get("query")
 
     return "WIP"
