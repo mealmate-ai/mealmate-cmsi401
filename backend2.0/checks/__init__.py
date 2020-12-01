@@ -130,3 +130,8 @@ class FoodUnitChecker(Checker):
     def __on_creation__(cls, record, food_id):
         record["food_id"] = food_id
         return checked(record, cls.creationFields, convert_missing_nut_to_zero=True)
+
+
+class MealLogChecker(Checker):
+    creationFields = {"raw_text": [check_arg_is_required, check_string]}
+    updateFields = {"raw_text": [check_string]}

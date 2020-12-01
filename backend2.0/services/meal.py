@@ -1,5 +1,5 @@
 from services import dal
-from checks import MealChecker
+from checks import MealChecker, MealLogChecker
 from datetime import datetime
 import uuid
 from dals.models import Meal
@@ -36,3 +36,10 @@ def get_meals_by_account_date_category(account_id, category, date):
 
 def remove_meal(meal_id):
     return {"deleted": dal.delete_meal(meal_id)}, 200
+
+
+def log_meal(meal_id, meal_log_info):
+    meal_log = MealLogChecker.__on_creation__(meal_log_info)
+    meal_log["meal_id"] = meal_id
+
+    return {"meal_log": dal.insert_meal_log(meal_log)}, 201

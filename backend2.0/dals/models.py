@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import Sequence
 from sqlalchemy.sql import func, or_
 from sqlalchemy.dialects.postgresql import JSONB, TSVECTOR, UUID
 
@@ -186,7 +187,7 @@ class FoodUnit(db.Model, ReturnHelper):
 
     __tablename__ = FOOD_UNIT_TABLE
 
-    food_id = db.Column(db.String(36), db.ForeignKey("account.id"), primary_key=True)
+    food_id = db.Column(db.String(36), db.ForeignKey("nut_per_100_gram.food_id"), primary_key=True)
     unit_desc = db.Column(db.String(256), primary_key=True)
     grams_per_unit = db.Column(db.Float)
 
@@ -237,7 +238,7 @@ class MealLog(db.Model, ReturnHelper):
     __tablename__ = MEAL_LOG_TABLE
 
     meal_id = db.Column(UUID(as_uuid=True), db.ForeignKey("meal.id"), primary_key=True)
-    log_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    log_id = db.Column(db.Integer, Sequence("log_id_seq"), primary_key=True)
     raw_text = db.Column(db.Text)
 
     min_fields = {"meal_id"}

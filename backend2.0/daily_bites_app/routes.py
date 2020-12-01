@@ -9,7 +9,7 @@ import services.food as food_service
 def parsed_request():
     content = request.get_json()
     if content is None:
-        raise BadArgumentError("Error on parsing arguments")  # add exception !!
+        raise BadArgumentError("Error on parsing arguments")
     return content
 
 
@@ -73,3 +73,8 @@ def new_food():
 def query_foods():
     query = request.args.get("query")
     return food_service.search_foods(query)
+
+
+@app.route("/log-meal/<meal_id>", methods=["POST"])
+def log_meal(meal_id):
+    return meal_service.log_meal(meal_id, parsed_request())
