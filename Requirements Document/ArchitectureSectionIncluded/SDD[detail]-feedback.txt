@@ -1,0 +1,60 @@
+
+
+Group 3: [5 souls] *
+   Bree Betts, Maya Dahlke, Adriana Donkers, Henno Kublin, Lexi Weingardt
+      synopsis:  Daily Bites ~ Dr. Korpusik advisor; follow on to Coco 2.0
+=====================================================================================
+
+Architectural Design Section:
+-----------------------------
+Wow, this is great!  You really nailed down the descriptions and the amount
+of detail you've provided is perfect for architectural level.  The diagrams
+are most helpful to aid in understanding the operations and associations.
+You have also described the way the parts communicate with each other; that
+is something which is commonly missed.
+
+I like the bucket as the storage graphic, and the gateway symbol in the AWS
+architecture!  Imaginative.
+
+The only thing to consider is that you should use the present tense, not the
+future tense, when describing your design.  For example, in section 6.1.2.1
+you state:
+
+One interface will be the chatbot.  Humans can interact with this interface
+as if it were an actual nutritionist via text or voice input.  For voice
+input, they will press a button on the chatbot page.  Users will be able to
+use the chatbot interface.....
+
+....which should be:
+
+One interface is the chatbot.  Humans can interact with this interface
+as if it were an actual nutritionist via text or voice input.  For voice
+input, they can simply press a button on the chatbot page.  Users can
+use the chatbot interface.....
+
+When doing the detailed design, you can address this situation.
+
+
+Otherwise, VERY nice work on this deliverable!
+
+
+Evaluation score:
+
+    10% out of 10% for this deliverable:  A-plus
+
+------------------------
+Detailed Design Section:
+------------------------
+Outstanding work on this design!  Very complete and the implementer wouldn't
+have any trouble figuring out what to build.  I like the descriptions of the
+database security section, which shows how you are considering that as part
+of your design.
+
+GOOD JOB!
+
+Evaluation score:
+
+      15% out of 15% for this deliverable:   A-plus
+         Note that the "CDR presentation is folded into "ABCDR"
+            so the 15% reflects 10% for detail and 5% for CDR
+
