@@ -19,8 +19,14 @@
 		221F6446254BE78D00BA8AF2 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F6445254BE78D00BA8AF2 /* ChatView.swift */; };
 		221F6448254BE7D400BA8AF2 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F6447254BE7D400BA8AF2 /* RecipesView.swift */; };
 		221F644A254BE83100BA8AF2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F6449254BE83100BA8AF2 /* SettingsView.swift */; };
-		22B3F4A4255E104C000B4F07 /* CuisinesDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3F4A3255E104C000B4F07 /* CuisinesDropDown.swift */; };
 		22FB1F6B2563905A00F02730 /* RecipeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F6A2563905A00F02730 /* RecipeDetails.swift */; };
+		22FB1F6D2573784100F02730 /* DateRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F6C2573784100F02730 /* DateRangeView.swift */; };
+		22FB1F732576273D00F02730 /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F722576273D00F02730 /* BarcodeReaderViewController.swift */; };
+		22FB1F75257ACD6800F02730 /* CuisineEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F74257ACD6800F02730 /* CuisineEditView.swift */; };
+		22FB1F79257AD10E00F02730 /* Cuisine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F78257AD10E00F02730 /* Cuisine.swift */; };
+		22FB1F7B257AD14800F02730 /* CuisineChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F7A257AD14800F02730 /* CuisineChoice.swift */; };
+		22FB1F7D257AD1A700F02730 /* MultiSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F7C257AD1A700F02730 /* MultiSelector.swift */; };
+		22FB1F7F257AD1D700F02730 /* MultiSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F7E257AD1D700F02730 /* MultiSelectorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +65,14 @@
 		221F6445254BE78D00BA8AF2 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		221F6447254BE7D400BA8AF2 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		221F6449254BE83100BA8AF2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		22B3F4A3255E104C000B4F07 /* CuisinesDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisinesDropDown.swift; sourceTree = "<group>"; };
 		22FB1F6A2563905A00F02730 /* RecipeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetails.swift; sourceTree = "<group>"; };
+		22FB1F6C2573784100F02730 /* DateRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangeView.swift; sourceTree = "<group>"; };
+		22FB1F722576273D00F02730 /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
+		22FB1F74257ACD6800F02730 /* CuisineEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineEditView.swift; sourceTree = "<group>"; };
+		22FB1F78257AD10E00F02730 /* Cuisine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuisine.swift; sourceTree = "<group>"; };
+		22FB1F7A257AD14800F02730 /* CuisineChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineChoice.swift; sourceTree = "<group>"; };
+		22FB1F7C257AD1A700F02730 /* MultiSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelector.swift; sourceTree = "<group>"; };
+		22FB1F7E257AD1D700F02730 /* MultiSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +126,10 @@
 				221F6413254A618000BA8AF2 /* AppDelegate.swift */,
 				221F6415254A618000BA8AF2 /* SceneDelegate.swift */,
 				221F6417254A618000BA8AF2 /* ContentView.swift */,
-				221F6443254BE77000BA8AF2 /* DashboardView.swift */,
-				221F6445254BE78D00BA8AF2 /* ChatView.swift */,
-				221F6447254BE7D400BA8AF2 /* RecipesView.swift */,
-				22FB1F6A2563905A00F02730 /* RecipeDetails.swift */,
-				221F6449254BE83100BA8AF2 /* SettingsView.swift */,
-				22B3F4A3255E104C000B4F07 /* CuisinesDropDown.swift */,
+				22FB1F6E25761E5500F02730 /* Dashboard */,
+				22FB1F6F25761E7D00F02730 /* Chatbot */,
+				22FB1F7025761EBC00F02730 /* RecipeRecommender */,
+				22FB1F7125761EDF00F02730 /* Settings */,
 				221F6419254A618300BA8AF2 /* Assets.xcassets */,
 				221F641E254A618300BA8AF2 /* LaunchScreen.storyboard */,
 				221F6421254A618300BA8AF2 /* Info.plist */,
@@ -152,6 +162,62 @@
 				221F6437254A618400BA8AF2 /* Info.plist */,
 			);
 			path = "Daily BitesUITests";
+			sourceTree = "<group>";
+		};
+		22FB1F6E25761E5500F02730 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				22FB1F6C2573784100F02730 /* DateRangeView.swift */,
+				221F6443254BE77000BA8AF2 /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		22FB1F6F25761E7D00F02730 /* Chatbot */ = {
+			isa = PBXGroup;
+			children = (
+				221F6445254BE78D00BA8AF2 /* ChatView.swift */,
+				22FB1F722576273D00F02730 /* BarcodeReaderViewController.swift */,
+			);
+			path = Chatbot;
+			sourceTree = "<group>";
+		};
+		22FB1F7025761EBC00F02730 /* RecipeRecommender */ = {
+			isa = PBXGroup;
+			children = (
+				221F6447254BE7D400BA8AF2 /* RecipesView.swift */,
+				22FB1F6A2563905A00F02730 /* RecipeDetails.swift */,
+			);
+			path = RecipeRecommender;
+			sourceTree = "<group>";
+		};
+		22FB1F7125761EDF00F02730 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				22FB1F80257AD3F400F02730 /* Cuisines */,
+				221F6449254BE83100BA8AF2 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		22FB1F80257AD3F400F02730 /* Cuisines */ = {
+			isa = PBXGroup;
+			children = (
+				22FB1F74257ACD6800F02730 /* CuisineEditView.swift */,
+				22FB1F81257AD42400F02730 /* Models */,
+				22FB1F7C257AD1A700F02730 /* MultiSelector.swift */,
+				22FB1F7E257AD1D700F02730 /* MultiSelectorView.swift */,
+			);
+			path = Cuisines;
+			sourceTree = "<group>";
+		};
+		22FB1F81257AD42400F02730 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				22FB1F78257AD10E00F02730 /* Cuisine.swift */,
+				22FB1F7A257AD14800F02730 /* CuisineChoice.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,13 +352,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				221F644A254BE83100BA8AF2 /* SettingsView.swift in Sources */,
-				22B3F4A4255E104C000B4F07 /* CuisinesDropDown.swift in Sources */,
 				221F6414254A618000BA8AF2 /* AppDelegate.swift in Sources */,
+				22FB1F7B257AD14800F02730 /* CuisineChoice.swift in Sources */,
 				221F6444254BE77000BA8AF2 /* DashboardView.swift in Sources */,
 				221F6446254BE78D00BA8AF2 /* ChatView.swift in Sources */,
+				22FB1F7D257AD1A700F02730 /* MultiSelector.swift in Sources */,
 				221F6416254A618000BA8AF2 /* SceneDelegate.swift in Sources */,
+				22FB1F732576273D00F02730 /* BarcodeReaderViewController.swift in Sources */,
+				22FB1F7F257AD1D700F02730 /* MultiSelectorView.swift in Sources */,
 				22FB1F6B2563905A00F02730 /* RecipeDetails.swift in Sources */,
 				221F6448254BE7D400BA8AF2 /* RecipesView.swift in Sources */,
+				22FB1F79257AD10E00F02730 /* Cuisine.swift in Sources */,
+				22FB1F75257ACD6800F02730 /* CuisineEditView.swift in Sources */,
+				22FB1F6D2573784100F02730 /* DateRangeView.swift in Sources */,
 				221F6418254A618000BA8AF2 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

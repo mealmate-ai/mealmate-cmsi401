@@ -40,41 +40,45 @@ struct SettingsView: View {
                 
             }.padding()
             
-            VStack(alignment: .leading){
-                Picker(selection: $cuisines, label: Text("CUISINES")
-                    .font(.custom("Hiragino Sans W3", size: 16))
-                    .foregroundColor(.gray))
-                {
-                    Text("African").tag(1)
-                    Text("American").tag(2)
-                    Text("British").tag(3)
-                    Text("Cajun").tag(4)
-                    Text("Caribbean").tag(5)
-                    Text("Chinese").tag(6)
-                    Text("Eastern European").tag(7)
-                    Text("European").tag(8)
-                    Text("French").tag(9)
-                    Text("German").tag(10)
-                }
-            }
             
-            VStack(alignment: .leading){
-                Picker(selection: $diets, label: Text("DIETS")
-                    .font(.custom("Hiragino Sans W3", size: 16))
-                    .foregroundColor(.gray))
-                {
-                    Text("Gluten Free").tag(1)
-                    Text("Ketogenic").tag(2)
-                    Text("Vegetarian").tag(3)
-                    Text("Lacto-Vegetarian").tag(4)
-                    Text("Ovo-Vegetarian").tag(5)
-                    Text("Vegan").tag(6)
-                    Text("Pescatarian").tag(7)
-                    Text("Paleo").tag(8)
-                    Text("Primal").tag(9)
-                    Text("Whole30").tag(10)
-                }
-            }
+            
+            
+            
+//            VStack(alignment: .leading){
+//                Picker(selection: $cuisines, label: Text("CUISINES")
+//                    .font(.custom("Hiragino Sans W3", size: 16))
+//                    .foregroundColor(.gray))
+//                {
+//                    Text("African").tag(1)
+//                    Text("American").tag(2)
+//                    Text("British").tag(3)
+//                    Text("Cajun").tag(4)
+//                    Text("Caribbean").tag(5)
+//                    Text("Chinese").tag(6)
+//                    Text("Eastern European").tag(7)
+//                    Text("European").tag(8)
+//                    Text("French").tag(9)
+//                    Text("German").tag(10)
+//                }
+//            }
+//
+//            VStack(alignment: .leading){
+//                Picker(selection: $diets, label: Text("DIETS")
+//                    .font(.custom("Hiragino Sans W3", size: 16))
+//                    .foregroundColor(.gray))
+//                {
+//                    Text("Gluten Free").tag(1)
+//                    Text("Ketogenic").tag(2)
+//                    Text("Vegetarian").tag(3)
+//                    Text("Lacto-Vegetarian").tag(4)
+//                    Text("Ovo-Vegetarian").tag(5)
+//                    Text("Vegan").tag(6)
+//                    Text("Pescatarian").tag(7)
+//                    Text("Paleo").tag(8)
+//                    Text("Primal").tag(9)
+//                    Text("Whole30").tag(10)
+//                }
+//            }
             
             //            VStack{
             //                HStack{
