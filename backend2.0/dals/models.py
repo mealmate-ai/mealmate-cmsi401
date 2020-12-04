@@ -237,8 +237,9 @@ class MealLog(db.Model, ReturnHelper):
 
     __tablename__ = MEAL_LOG_TABLE
 
+    log_seq = Sequence("log_id_seq")
     meal_id = db.Column(UUID(as_uuid=True), db.ForeignKey("meal.id"), primary_key=True)
-    log_id = db.Column(db.Integer, Sequence("log_id_seq"), primary_key=True)
+    log_id = db.Column(db.Integer, log_seq, primary_key=True, server_default=log_seq.next_value())
     raw_text = db.Column(db.Text)
 
     min_fields = {"meal_id"}

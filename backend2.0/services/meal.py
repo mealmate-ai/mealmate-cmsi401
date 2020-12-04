@@ -41,5 +41,6 @@ def remove_meal(meal_id):
 def log_meal(meal_id, meal_log_info):
     meal_log = MealLogChecker.__on_creation__(meal_log_info)
     meal_log["meal_id"] = meal_id
+    print('MEAL LOG', meal_log)
 
     return {"meal_log": dal.insert_meal_log(meal_log)}, 201

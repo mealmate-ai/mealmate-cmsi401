@@ -8,4 +8,4 @@ from dotenv import load_dotenv
 load_dotenv()
 app = Flask(__name__)
 app.debug = True
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DAILY_BITES_DB_URL")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("LOCAL_DB_URL")
