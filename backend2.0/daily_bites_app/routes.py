@@ -51,7 +51,6 @@ def get_meal(account_id):
     if category and date:
         return meal_service.get_meals_by_account_date_category(account_id, category, date)
     if category:
-        print(category)
         return meal_service.get_meals_by_account_category(account_id, category)
     if date:
         return meal_service.get_meals_by_account_date(account_id, date)
@@ -78,3 +77,24 @@ def query_foods():
 @app.route("/log-meal/<meal_id>", methods=["POST"])
 def log_meal(meal_id):
     return meal_service.log_meal(meal_id, parsed_request())
+
+
+# CONSULT W/ MAYA
+@app.route("/insert-recipe", methods=["POST"])
+def create_recipe():
+    return 'TODO'
+
+
+@app.route("/get-recipe/<recipe_id>", methods=["GET"])
+def get_recipe(recipe_id):
+    return 'TODO'
+
+
+@app.route("/save-recipe/<account_id>", methods=["POST"])
+def get_recipe(account_id):
+    return 'TODO'
+
+
+@app.route("/get-saved-recipes/<account_id>", methods=["GET"])
+def get_saved_recipes(account_id):
+    return 'TODO'

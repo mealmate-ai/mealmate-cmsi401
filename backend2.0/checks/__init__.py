@@ -115,7 +115,7 @@ class FoodDetailChecker(Checker):
     @classmethod
     def __on_creation__(cls, record, food_id):
         record["food_id"] = food_id
-        return checked(record, cls.creationFields, convert_missing_nut_to_zero=True)
+        return checked(record, cls.creationFields)
 
 
 class FoodUnitChecker(Checker):
@@ -129,7 +129,7 @@ class FoodUnitChecker(Checker):
     @classmethod
     def __on_creation__(cls, record, food_id):
         record["food_id"] = food_id
-        return checked(record, cls.creationFields, convert_missing_nut_to_zero=True)
+        return checked(record, cls.creationFields)
 
 
 class MealLogChecker(Checker):
