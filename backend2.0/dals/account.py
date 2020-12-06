@@ -4,12 +4,9 @@ from dals.models import db, Account
 
 def insert_account(account_args):
     try:
-
         inserted_account = Account(**account_args)
-        print(inserted_account)
         db.session.add(inserted_account)
         db.session.commit()
-        print(inserted_account.full_view())
         return inserted_account.full_view()
     except IntegrityError:
         db.session.rollback()

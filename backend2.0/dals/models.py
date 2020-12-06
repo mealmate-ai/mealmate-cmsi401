@@ -39,7 +39,6 @@ class ReturnHelper:
         return self.as_dict("search_result_fields")
 
     def full_view(self):
-        print("here")
         return self.as_dict("all_fields")
 
 
