@@ -32,7 +32,6 @@ def upgrade():
         ),
         sa.PrimaryKeyConstraint('meal_id', 'log_id'),
     )
-    pass
 
 
 def downgrade():

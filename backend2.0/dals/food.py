@@ -18,11 +18,9 @@ def insert_food(food_args):
 
 def get_food_by_foodid(food_id):
     food = Food.get_food_by_id(food_id)
-
     return food.full_view()
 
 
 def get_foods_in_meal(meal_id):
     foods = Food.get_foods_by_meal_id(meal_id)
-
     return [food.full_view() for food in foods.all()]

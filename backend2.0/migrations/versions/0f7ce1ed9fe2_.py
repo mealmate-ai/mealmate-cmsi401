@@ -18,7 +18,6 @@ depends_on = None
 
 def upgrade():
     op.alter_column('meal_log', 'log_id', nullable=False, autoincrement=True)
-    pass
 
 
 def downgrade():

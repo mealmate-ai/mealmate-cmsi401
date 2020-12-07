@@ -91,7 +91,7 @@ def get_recipe(recipe_id):
 
 
 @app.route("/save-recipe/<account_id>", methods=["POST"])
-def get_recipe(account_id):
+def create_saved_recipe(account_id):
     return 'TODO'
 
 
