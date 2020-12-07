@@ -21,4 +21,5 @@ from dals.meal_log import *
 from dals.nutrition import *
 from dals.recipe import *
 from dals.saved_recipe import *
+from dals.total_nutrition import *
 from dals.user_session import *

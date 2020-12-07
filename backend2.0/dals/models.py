@@ -24,6 +24,7 @@ FOOD_DETAIL_TABLE = "food_detail"
 RECIPE_TABLE = "recipe"
 SAVED_RECIPE_TABLE = "saved_recipe"
 USER_SESSION_TABLE = "user_session"
+TOTAL_NUT_MV = 'total_nutrition'
 
 
 class ReturnHelper:
@@ -349,3 +350,106 @@ class UserSession(db.Model, ReturnHelper):
     @classmethod
     def get_session_by_id(cls, session_id):
         return cls.query.filter_by(session_id=session_id).all()
+
+
+class TotalNutritionView(db.Model, ReturnHelper):
+    """
+    TotalNutritionView is a materialized view that stores data from Nutrition, FoodDetail, and FoodUnit tables
+    """
+
+    __tablename__ = TOTAL_NUT_MV
+
+    food_id = db.Column(db.String(36), primary_key=True)
+    kcal = db.Column(db.Float)
+    protein_g = db.Column(db.Float)
+    total_fat_g = db.Column(db.Float)
+    total_carb_g = db.Column(db.Float)
+    total_diet_fiber_g = db.Column(db.Float)
+    calcium_mg = db.Column(db.Float)
+    iron_mg = db.Column(db.Float)
+    magnesium_mg = db.Column(db.Float)
+    phosphorus_mg = db.Column(db.Float)
+    potassium_mg = db.Column(db.Float)
+    sodium_mg = db.Column(db.Float)
+    zinc_mg = db.Column(db.Float)
+    copper_mg = db.Column(db.Float)
+    manganese_mg = db.Column(db.Float)
+    selenium_mcg = db.Column(db.Float)
+    vitamin_c_mg = db.Column(db.Float)
+    thiamin_mg = db.Column(db.Float)
+    riboflavin_mg = db.Column(db.Float)
+    niacin_mg = db.Column(db.Float)
+    pantothenic_acid_mg = db.Column(db.Float)
+    vitamin_b6_mg = db.Column(db.Float)
+    total_folate_mcg = db.Column(db.Float)
+    vitamin_b12_mcg = db.Column(db.Float)
+    vitamin_d_mcg = db.Column(db.Float)
+    vitamin_e_mg = db.Column(db.Float)
+    vitamin_k_mcg = db.Column(db.Float)
+    total_sat_fat_g = db.Column(db.Float)
+    total_monounsat_fat_g = db.Column(db.Float)
+    total_poly_unsat_fat_g = db.Column(db.Float)
+    total_trans_fat_g = db.Column(db.Float)
+    cholesterol_mg = db.Column(db.Float)
+    total_sugar_g = db.Column(db.Float)
+    omega_3_fatty_acids_g = db.Column(db.Float)
+    food_desc = db.Column(db.String(256))
+    barcode = db.Column(db.String(50))
+    brand = db.Column(db.String(256))
+    food_units = db.Column(JSONB)
+
+    min_fields = {"food_id"}
+    search_result_fields = {
+        *min_fields,
+        "food_desc",
+        "kcal",
+        "protein_g",
+        "total_fat_g",
+        "total_carb_g",
+        "food_units",
+    }
+    all_fields = {
+        *search_result_fields,
+        "total_carb_g",
+        "total_diet_fiber_g",
+        "calcium_mg",
+        "iron_mg",
+        "magnesium_mg",
+        "phosphorus_mg",
+        "potassium_mg",
+        "sodium_mg",
+        "zinc_mg",
+        "copper_mg",
+        "manganese_mg",
+        "selenium_mcg",
+        "vitamin_c_mg",
+        "thiamin_mg",
+        "riboflavin_mg",
+        "niacin_mg",
+        "pantothenic_acid_mg",
+        "vitamin_b6_mg",
+        "total_folate_mcg",
+        "vitamin_b12_mcg",
+        "vitamin_d_mcg",
+        "vitamin_e_mg",
+        "vitamin_k_mcg",
+        "total_sat_fat_g",
+        "total_monounsat_fat_g",
+        "total_poly_unsat_fat_g",
+        "total_trans_fat_g",
+        "cholesterol_mg",
+        "total_sugar_g",
+        "omega_3_fatty_acids_g",
+        "barcode",
+        "brand",
+    }
+
+    @classmethod
+    def get_food_by_barcode(cls, barcode):
+        return cls.query.filter_by(barcode=barcode).first()
+
+    @classmethod
+    def get_food_by_id(cls, food_id):
+        food = cls.query.filter_by(food_id=food_id).first()
+        # do a check if missing food - means there has been an error
+        return food

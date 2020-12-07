@@ -22,3 +22,13 @@ def create_food(food_info):
 def search_foods(query):
     foods = dal.search_foods(query)
     return {"foods": foods}, 201
+
+
+def search_mat_view_foods(query):
+    foods = dal.search_mv_foods(query)
+    return {"foods": foods}, 201
+
+
+def get_by_barcode(barcode):
+    food = dal.get_food_by_barcode(barcode)
+    return {'food': food}, 201

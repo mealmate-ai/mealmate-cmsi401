@@ -74,6 +74,17 @@ def query_foods():
     return food_service.search_foods(query)
 
 
+@app.route("/query-mv-foods", methods=["GET"])
+def query_mv_foods():
+    query = request.args.get("query")
+    return food_service.search_mat_view_foods(query)
+
+
+@app.route("/query-barcode/<barcode>", methods=["GET"])
+def query_barcode(barcode):
+    return food_service.get_by_barcode(barcode)
+
+
 @app.route("/log-meal/<meal_id>", methods=["POST"])
 def log_meal(meal_id):
     return meal_service.log_meal(meal_id, parsed_request())
