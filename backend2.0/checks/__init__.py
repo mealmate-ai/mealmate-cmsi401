@@ -107,7 +107,7 @@ class FoodDetailChecker(Checker):
     creationFields = {
         "food_id": [check_arg_is_required, check_string],
         "food_desc": [check_arg_is_required, check_string],
-        "barcode": [check_integer],
+        "barcode": [check_barcode],
         "brand": [check_string],
     }
     updateFields = {}

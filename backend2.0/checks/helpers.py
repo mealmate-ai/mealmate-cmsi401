@@ -1,5 +1,6 @@
 import re
 from checks.constants import *
+from daily_bites_app.errors import BadArgumentError
 
 
 def check(condition, message):
@@ -17,7 +18,21 @@ def check_integer(key, value):
     check(value is None or isinstance(value, int), f"Parameter {key} must be an integer")
 
 
+def check_barcode(key, value):
+    if isinstance(value, str):
+        try:
+            value = int(value)
+        except:
+            raise BadArgumentError(f"Parameter {key} must be an integer or integer compatible")
+    check(value is None or isinstance(value, int), f"Parameter {key} must be an integer")
+
+
 def check_float(key, value):
+    if isinstance(value, int):
+        try:
+            value = float(value)
+        except:
+            raise BadArgumentError(f"Parameter {key} must be a float")
     check(value is None or isinstance(value, float), f"Parameter {key} must be a float")
 
 

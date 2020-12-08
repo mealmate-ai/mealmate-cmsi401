@@ -3,6 +3,7 @@ from checks import NutritionChecker, FoodDetailChecker, FoodUnitChecker
 from datetime import datetime
 import uuid
 from dals.models import Nutrition, FoodDetail, FoodUnit
+import nutritionix
 
 
 def create_food(food_info):
@@ -31,4 +32,10 @@ def search_mat_view_foods(query):
 
 def get_by_barcode(barcode):
     food = dal.get_food_by_barcode(barcode)
-    return {'food': food}, 201
+
+    if not food:
+        new_food = nutritionix.barcode_to_food(barcode)
+        new_food['food_id'] = 'n' + new_food['food_detail']['barcode']
+        return create_food(new_food)
+
+    return {'food': food.full_view()}, 201
