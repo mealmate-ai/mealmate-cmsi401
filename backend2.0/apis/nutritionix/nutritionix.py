@@ -93,48 +93,6 @@ def convert_to_nut_map(nutrients, scale):
     return nut_map
 
 
-def add_missing_nutrients(nut_map):
-    '''For any missing USDA nutrients, use a default value of 0.'''
-    for nut in [
-        'kcal',
-        'protein_g',
-        'total_fat_g',
-        'total_carb_g',
-        'total_diet_fiber_g',
-        'calcium_mg',
-        'iron_mg',
-        'magnesium_mg',
-        'phosphorus_mg',
-        'potassium_mg',
-        'sodium_mg',
-        'zinc_mg',
-        'copper_mg',
-        'manganese_mg',
-        'selenium_mcg',
-        'vitamin_c_mg',
-        'thiamin_mg',
-        'riboflavin_mg',
-        'niacin_mg',
-        'pantothenic_acid_mg',
-        'vitamin_b6_mg',
-        'total_folate_mcg',
-        'vitamin_b12_mcg',
-        'vitamin_d_mcg',
-        'vitamin_e_mg',
-        'vitamin_k_mcg',
-        'total_sat_fat_g',
-        'total_monounsat_fat_g',
-        'total_poly_unsat_fat_g',
-        'total_trans_fat_g',
-        'cholesterol_mg',
-        'total_sugar_g',
-        'omega_3_fatty_acids_g',
-    ]:
-        if nut not in nut_map:
-            nut_map[nut] = 0.0
-    return nut_map
-
-
 def add_missing_units(units, res):
     '''For any missing units, use default values for grams per unit.'''
     grams_per_unit = res['grams_per_unit'] / float(res['serving_qty'])

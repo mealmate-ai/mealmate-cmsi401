@@ -7,10 +7,10 @@ load_dotenv()
 
 SPOONACULAR = 'https://api.spoonacular.com/recipes/'
 
-# API - /random
+# API Endpoint - /random
 def random_recipe(number):
     api_route = 'random?number=' + number + '&apiKey=' + os.environ.get('SPOONACULAR_API_KEY')
     r = requests.get(
         SPOONACULAR + api_route,
     )
-    return r
+    return r.json()

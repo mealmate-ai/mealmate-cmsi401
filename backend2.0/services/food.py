@@ -3,7 +3,7 @@ from checks import NutritionChecker, FoodDetailChecker, FoodUnitChecker
 from datetime import datetime
 import uuid
 from dals.models import Nutrition, FoodDetail, FoodUnit
-import nutritionix
+from apis.nutritionix import nutritionix
 
 
 def create_food(food_info):
