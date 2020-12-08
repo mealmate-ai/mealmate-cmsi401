@@ -135,3 +135,13 @@ class FoodUnitChecker(Checker):
 class MealLogChecker(Checker):
     creationFields = {"raw_text": [check_arg_is_required, check_string]}
     updateFields = {"raw_text": [check_string]}
+
+
+class RecipeChecker(Checker):
+    creationFields = {}
+    updateFields = {}
+
+
+class SavedRecipeChecker(Checker):
+    creationFields = {}
+    updateFields = {}

@@ -63,6 +63,7 @@ def delete_meal(meal_id):
     return meal_service.remove_meal(meal_id)
 
 
+# might remove this endpoint, won't be calling nutritionix api from frontend currently
 @app.route("/add-food", methods=["POST"])
 def new_food():
     return food_service.create_food(parsed_request())

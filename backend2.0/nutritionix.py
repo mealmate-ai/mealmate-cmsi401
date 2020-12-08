@@ -1,12 +1,14 @@
 """
-Author: Mandy Korpusik
 https://github.com/mkorpusik/mealmate/blob/35dff82faa3e5c3cbdeb269e69a1cdca1b8b38bb/flask_server/nutritionix.py
 """
 
 import requests
 import load_nut_map
 from daily_bites_app.errors import BadArgumentError
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
 NUTRITIONIX = 'https://trackapi.nutritionix.com/v2/'
 NUT_MAP = load_nut_map.load_nut_map()
@@ -17,8 +19,8 @@ def barcode_to_food(barcode):
     r = requests.get(
         NUTRITIONIX + api_route,
         headers={
-            'x-app-id': 'eeff9eae',
-            'x-app-key': 'c1531c69ffee7797de9e2107c8ea75ba',
+            'x-app-id': str(os.environ.get('NUTRITIONIX_APP_ID')),
+            'x-app-key': str(os.environ.get('NUTRITIONIX_API_KEY')),
         },
     )
     return server_format(r.json(), barcode)
@@ -56,7 +58,7 @@ def server_format(payload, upc):
 
     scale = 100.0 / div
 
-    unitRes = {
+    unit_res = {
         'serving_qty': food['serving_qty'],
         'serving_unit': food['serving_unit'],
         'grams_per_unit': food['serving_weight_grams'] if food['serving_weight_grams'] else 100.0,
@@ -70,7 +72,7 @@ def server_format(payload, upc):
     }
     new_food['image'] = food['photo']['thumb']
     new_food['nutrition'] = convert_to_nut_map(food['full_nutrients'], scale)
-    new_food['food_units'] = get_food_units(unitRes)
+    new_food['food_units'] = get_food_units(unit_res)
 
     return new_food
 
