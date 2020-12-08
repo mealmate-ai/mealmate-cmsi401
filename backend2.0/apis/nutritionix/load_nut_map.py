@@ -29,7 +29,7 @@ def load_table(filepath):
 
 def load_nut_map():
     '''Loads USDA nutrient info table with nutrient names and units.'''
-    table = load_table('nutmap.tsv')
+    table = load_table(r'nutmap.tsv')
     nutrients = [Nutrient(r) for r in table[1:]]
     nut_map = dict(map(lambda n: [n.attr_id, n], nutrients))
     return nut_map

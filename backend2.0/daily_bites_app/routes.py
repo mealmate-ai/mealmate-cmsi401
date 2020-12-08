@@ -4,6 +4,7 @@ from daily_bites_app.errors import BadArgumentError
 import services.account as account_service
 import services.meal as meal_service
 import services.food as food_service
+import services.recipe as recipe_service
 
 
 def parsed_request():
@@ -100,6 +101,13 @@ def create_recipe():
 @app.route("/get-recipe/<recipe_id>", methods=["GET"])
 def get_recipe(recipe_id):
     return 'TODO'
+
+
+@app.route("/get-random-recipes", methods=["GET"])
+def get_random_recipes():
+    number = request.args.get("number")
+    n = number if number else 5
+    return recipe_service.get_random_recipes(n)
 
 
 @app.route("/save-recipe/<account_id>", methods=["POST"])

@@ -3,7 +3,7 @@ https://github.com/mkorpusik/mealmate/blob/35dff82faa3e5c3cbdeb269e69a1cdca1b8b3
 """
 
 import requests
-import load_nut_map
+from apis.nutritionix import load_nut_map
 from daily_bites_app.errors import BadArgumentError
 import os
 from dotenv import load_dotenv

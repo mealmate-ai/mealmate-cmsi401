@@ -2,7 +2,7 @@ from sqlalchemy.exc import IntegrityError
 from dals.models import db, SavedRecipe
 
 
-def save_recipe(recipe_details):
+def insert_saved_recipe(recipe_details):
     try:
         new_saved_recipe = SavedRecipe(**recipe_details)
         db.session.add(new_saved_recipe)
