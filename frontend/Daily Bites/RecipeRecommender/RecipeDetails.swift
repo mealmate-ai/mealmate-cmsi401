@@ -1,6 +1,6 @@
-import SwiftUI
-import UIKit
-
+//import SwiftUI
+//import UIKit
+//
 //struct RecipeDetails: View {
 //
 //    var recipe: Recipe
@@ -57,4 +57,5 @@ import UIKit
 //        static var previews: some View {
 //            RecipeDetails(recipe:testData[0])
 //        }
+//}
 //}
