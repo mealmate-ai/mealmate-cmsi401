@@ -8,6 +8,8 @@ let allDietChoices: [DietChoice] = [DietChoice(name: "Gluten Free"), DietChoice(
 
 let allDietaryResChoices: [DietaryResChoice] = [DietaryResChoice(name: "Dairy"), DietaryResChoice(name: "Egg"), DietaryResChoice(name: "Gluten"), DietaryResChoice(name: "Grain"), DietaryResChoice(name: "Seafood"), DietaryResChoice(name: "Sesame"), DietaryResChoice(name: "Shellfish"), DietaryResChoice(name: "Soy"), DietaryResChoice(name: "Sulfite"), DietaryResChoice(name: "Tree Nut"), DietaryResChoice(name: "Wheat"), DietaryResChoice(name: "None")]
 
+let allNutGoalChoices: [NutGoalChoice] = [NutGoalChoice(name: "Lose Weight"), NutGoalChoice(name: "Gain Weight"), NutGoalChoice(name: "Same Weight")]
+
 struct SettingsView: View {
     
     @State var name: String = ""
@@ -23,8 +25,7 @@ struct SettingsView: View {
     
     @State var dietRes = Dietary(name: "", dietaryResItems: [allDietaryResChoices[1]])
     
-    @State private var selectedGoals = 0
-    var goals = ["Lose Weight", "Gain Weight", "Same Weight"]
+    @State var nutGoals = Goals(name: "", nutGoalItems: [allNutGoalChoices[1]])
     
     var body: some View {
         
@@ -52,16 +53,19 @@ struct SettingsView: View {
                     {
                         print("Name onCommit")
                     }
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(5)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
                     
                     Text("\(name)")
                     
                 }.padding()
                 
                 Form {
-                    Section(header: Text("Cuisines")) {
+                    Section {
                         MultiSelector(
-                            label: Text("Cuisine Choices"),
+                            label: Text("CUISINE CHOICES")
+                            .font(.custom("Hiragino Sans W3", size: 14))
+                            .foregroundColor(.gray),
                             options: allCuisineChoices,
                             optionToString: { $0.name },
                             selected: $cuisine.cuisineItems
@@ -71,9 +75,11 @@ struct SettingsView: View {
                 }
                 
                 Form {
-                    Section(header: Text("Diets")) {
+                    Section {
                         MultiSelector(
-                            label: Text("Diets"),
+                            label: Text("DIETS")
+                            .font(.custom("Hiragino Sans W3", size: 14))
+                            .foregroundColor(.gray),
                             options: allDietChoices,
                             optionToString: { $0.name },
                             selected: $diet.dietItems
@@ -82,12 +88,27 @@ struct SettingsView: View {
                 }
                 
                 Form {
-                    Section(header: Text("Dietary Restrictions")) {
+                    Section {
                         MultiSelector(
-                            label: Text("Dietary Restrictions"),
+                            label: Text("DIETARY RESTRICTIONS")
+                            .font(.custom("Hiragino Sans W3", size: 14))
+                            .foregroundColor(.gray),
                             options: allDietaryResChoices,
                             optionToString: { $0.name },
                             selected: $dietRes.dietaryResItems
+                        )
+                    }
+                }
+                
+                Form {
+                    Section {
+                        MultiSelector(
+                            label: Text("NUTRITION GOAL")
+                            .font(.custom("Hiragino Sans W3", size: 14))
+                            .foregroundColor(.gray),
+                            options: allNutGoalChoices,
+                            optionToString: { $0.name },
+                            selected: $nutGoals.nutGoalItems
                         )
                     }
                 }
@@ -104,24 +125,17 @@ struct SettingsView: View {
                     {
                         print("Restrictions onCommit")
                     }
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(5)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
                     
                     Text("\(restrictions)")
                     
                 }.padding()
                 
-                Picker(selection: $selectedGoals, label: Text("Nutrition Goals")) {
-                    ForEach(0 ..< goals.count) {
-                        Text(self.goals[$0])
-                    }
-                }
-                
-//                Text("You selected: \(goals[selectedGoals])")
-        
-        Spacer()
+                Spacer()
+            }
+        }
     }
-}
-}
 }
 
 struct ContentView_Previews: PreviewProvider {

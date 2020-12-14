@@ -30,6 +30,8 @@
 		22FB1F85257AE6B300F02730 /* DietChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F84257AE6B300F02730 /* DietChoice.swift */; };
 		22FB1F8A257C57CD00F02730 /* DietaryResChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F89257C57CC00F02730 /* DietaryResChoice.swift */; };
 		22FB1F8C257C583600F02730 /* Dietary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F8B257C583600F02730 /* Dietary.swift */; };
+		22FB1F8F258425C500F02730 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F8E258425C500F02730 /* Goals.swift */; };
+		22FB1F912584261B00F02730 /* NutGoalChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F902584261B00F02730 /* NutGoalChoice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		22FB1F84257AE6B300F02730 /* DietChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietChoice.swift; sourceTree = "<group>"; };
 		22FB1F89257C57CC00F02730 /* DietaryResChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryResChoice.swift; sourceTree = "<group>"; };
 		22FB1F8B257C583600F02730 /* Dietary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dietary.swift; sourceTree = "<group>"; };
+		22FB1F8E258425C500F02730 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
+		22FB1F902584261B00F02730 /* NutGoalChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutGoalChoice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +208,7 @@
 				22FB1F7C257AD1A700F02730 /* MultiSelector.swift */,
 				22FB1F7E257AD1D700F02730 /* MultiSelectorView.swift */,
 				22FB1F88257C57A100F02730 /* Dietary Restriction Models */,
+				22FB1F8D258425A700F02730 /* Nutrition Goals Models */,
 				22FB1F81257AD42400F02730 /* Cuisine Models */,
 				22FB1F87257AE7C200F02730 /* Diet Models */,
 			);
@@ -235,6 +240,15 @@
 				22FB1F89257C57CC00F02730 /* DietaryResChoice.swift */,
 			);
 			path = "Dietary Restriction Models";
+			sourceTree = "<group>";
+		};
+		22FB1F8D258425A700F02730 /* Nutrition Goals Models */ = {
+			isa = PBXGroup;
+			children = (
+				22FB1F8E258425C500F02730 /* Goals.swift */,
+				22FB1F902584261B00F02730 /* NutGoalChoice.swift */,
+			);
+			path = "Nutrition Goals Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22FB1F8A257C57CD00F02730 /* DietaryResChoice.swift in Sources */,
+				22FB1F8F258425C500F02730 /* Goals.swift in Sources */,
 				221F644A254BE83100BA8AF2 /* SettingsView.swift in Sources */,
 				221F6414254A618000BA8AF2 /* AppDelegate.swift in Sources */,
 				22FB1F8C257C583600F02730 /* Dietary.swift in Sources */,
@@ -378,6 +393,7 @@
 				22FB1F7D257AD1A700F02730 /* MultiSelector.swift in Sources */,
 				22FB1F83257AE63E00F02730 /* Diet.swift in Sources */,
 				221F6416254A618000BA8AF2 /* SceneDelegate.swift in Sources */,
+				22FB1F912584261B00F02730 /* NutGoalChoice.swift in Sources */,
 				22FB1F732576273D00F02730 /* BarcodeReaderViewController.swift in Sources */,
 				22FB1F7F257AD1D700F02730 /* MultiSelectorView.swift in Sources */,
 				22FB1F6B2563905A00F02730 /* RecipeDetails.swift in Sources */,

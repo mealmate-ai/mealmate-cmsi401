@@ -11,10 +11,10 @@ struct MultiSelectionView<Selectable: Identifiable & Hashable>: View {
             ForEach(options) { selectable in
                 Button(action: { self.toggleSelection(selectable: selectable) }) {
                     HStack {
-                        Text(self.optionToString(selectable)).foregroundColor(.black)
+                        Text(self.optionToString(selectable)).foregroundColor(.gray)
                         Spacer()
                         if self.selected.contains { $0.id == selectable.id } {
-                            Image(systemName: "checkmark").foregroundColor(.accentColor)
+                            Image(systemName: "checkmark").foregroundColor((Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255)))
                         }
                     }
                 }.tag(selectable.id)
