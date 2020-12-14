@@ -16,6 +16,7 @@ struct ContentView: View {
                             Text("Dashboard")
                         }
                 }
+
                 ChatView()
                     .padding(.top, -30)
                     .tabItem {
@@ -24,6 +25,7 @@ struct ContentView: View {
                             Text("Chat")
                         }
                 }
+
                 RecipesView()
                     .padding(.top, -30)
                     .tabItem {
@@ -32,6 +34,7 @@ struct ContentView: View {
                             Text("Recipes")
                         }
                 }
+
                 SettingsView()
                     .padding(.top, -30)
                     .tabItem {
