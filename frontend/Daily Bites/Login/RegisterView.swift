@@ -3,15 +3,16 @@ import SwiftUI
 import UIKit
 
 
-struct SettingsView: View {
-    
+struct RegisterView: View {
+
     @State var name: String = ""
     @State var email: String = ""
     @State var password: String = ""
-    
-    
+
+
+
     var body: some View {
-        
+
         NavigationView{
             VStack {
                 RoundedRectangle(cornerRadius: 5.0)
@@ -23,7 +24,7 @@ struct SettingsView: View {
                         .offset(y: 17)
                         , alignment:
                         .center)
-                
+
                 VStack(alignment: .leading) {
                     Text("NAME")
                         .fontWeight(.regular)
@@ -33,7 +34,7 @@ struct SettingsView: View {
                     TextField("Enter your name", text: $name)
                     .padding(5)
                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
-                    
+
                 }.padding()
                 
                 VStack(alignment: .leading) {
@@ -62,7 +63,7 @@ struct SettingsView: View {
                 
                 VStack {
                 NavigationLink(destination: NutPrefView()) {
-                    Text("CHANGE NUTRITIONAL PREFERENCES")
+                    Text("CHOOSE NUTRITIONAL PREFERENCES")
                         .frame(width: 400, height: 100)
                         .padding()
                         .font(.custom("Hiragino Sans W3", size: 18))
@@ -70,8 +71,8 @@ struct SettingsView: View {
                     }
                 }
                 
-                Button(action: {print("saved")}) {
-                    Text("Save")
+                Button(action: {print("account made")}) {
+                    Text("Create Account")
                         .font(.custom("Hiragino Sans W3", size: 18))
                         .foregroundColor(.gray)
                         .padding()
@@ -79,6 +80,7 @@ struct SettingsView: View {
                             RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255), lineWidth: 3)
                 )}
+
                 
                 Spacer()
             }
@@ -87,7 +89,7 @@ struct SettingsView: View {
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
-            SettingsView()
+            RegisterView()
         }
     }
 }
