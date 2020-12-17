@@ -8,6 +8,8 @@ struct LoginPageView: View {
     
     var body: some View {
         
+        
+        
         //DESIGN ---------------------------------
         ZStack{
             VStack {
@@ -70,7 +72,7 @@ struct LoginPageView: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255), lineWidth: 3)
-                )}
+                    )}
                 
                 Spacer()
                 
@@ -82,4 +84,5 @@ struct LoginPageView: View {
             LoginPageView()
         }
     }
+    
 }

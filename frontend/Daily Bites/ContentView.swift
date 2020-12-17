@@ -7,10 +7,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             
-//            MainView()
-//                .navigationBarHidden(true)
-//                .padding(.top, -30)
-            
             TabView{
                 
                 DashboardView()
@@ -22,7 +18,7 @@ struct ContentView: View {
                             Text("Dashboard")
                         }
                 }
-
+                
                 ChatView()
                     .navigationBarHidden(true)
                     .padding(.top, -30)
@@ -32,7 +28,7 @@ struct ContentView: View {
                             Text("Chat")
                         }
                 }
-
+                
                 RecipesView()
                     .navigationBarHidden(true)
                     .padding(.top, -30)
@@ -42,7 +38,7 @@ struct ContentView: View {
                             Text("Recipes")
                         }
                 }
-
+                
                 SettingsView()
                     .navigationBarHidden(true)
                     .padding(.top, -30)
@@ -52,10 +48,13 @@ struct ContentView: View {
                             Text("Settings")
                         }
                 }
+                
+                Spacer()
+                
             }
-            Spacer()
         }
     }
+    
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
