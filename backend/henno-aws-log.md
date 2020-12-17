@@ -28,7 +28,7 @@ I began by finding where the iOS Swift code connects to the back end using the R
 To get an overview of the current architecture vs the architecture I am going to be making, I decided to make two architecture diagrams from draw.io (a really good site for working with AWS icons).
 
 Here is the before diagram:
-<TODO:INSERT BEFORE DIAGRAM>
+[Before Diagram](https://github.com/mealmate-ai/mealmate-cmsi401/blob/master/backend/images/BeforeDiagram.png)
 This diagram shows the current hybrid state of the architecture, and definetly shows theres a lot to move over to make things entirely on AWS.
 
 Here is the diagram of what we're aiming for:
