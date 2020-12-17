@@ -6,9 +6,15 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
+            
+//            MainView()
+//                .navigationBarHidden(true)
+//                .padding(.top, -30)
+            
             TabView{
                 
                 DashboardView()
+                    .navigationBarHidden(true)
                     .padding(.top, -30)
                     .tabItem {
                         VStack {
@@ -18,6 +24,7 @@ struct ContentView: View {
                 }
 
                 ChatView()
+                    .navigationBarHidden(true)
                     .padding(.top, -30)
                     .tabItem {
                         VStack {
@@ -27,6 +34,7 @@ struct ContentView: View {
                 }
 
                 RecipesView()
+                    .navigationBarHidden(true)
                     .padding(.top, -30)
                     .tabItem {
                         VStack {
@@ -36,6 +44,7 @@ struct ContentView: View {
                 }
 
                 SettingsView()
+                    .navigationBarHidden(true)
                     .padding(.top, -30)
                     .tabItem {
                         VStack {

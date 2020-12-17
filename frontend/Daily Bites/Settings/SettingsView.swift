@@ -63,10 +63,11 @@ struct SettingsView: View {
                 VStack {
                 NavigationLink(destination: NutPrefView()) {
                     Text("CHANGE NUTRITIONAL PREFERENCES")
-                        .frame(width: 400, height: 100)
+                        .frame(width: 343, height: 40)
                         .padding()
                         .font(.custom("Hiragino Sans W3", size: 18))
                         .foregroundColor(.gray)
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1)).padding(20)
                     }
                 }
                 
