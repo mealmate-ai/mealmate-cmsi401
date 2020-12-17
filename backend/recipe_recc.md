@@ -21,10 +21,6 @@ app.config["DEBUG"] = True
 
 api_key = '954290f038ba44a7b0c7b1ddc2ce0714'
 
-@app.route("/hello", methods=["GET"])
-def hello_world():
-    return 'Hello World!'
-
 @app.route("/recipes/<user_id>", methods=["GET"])
 def get_recipes(user_id):
 
