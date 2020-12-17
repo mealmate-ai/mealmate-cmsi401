@@ -1,8 +1,8 @@
 # Recipe Reccomendations 
 
 Todo next semester: 
-- Hook the code up to the database in RDS
-- Integrate the code into the Front-End 
+- Hook the code up to the database in RDS (working with Bree)
+- Integrate the code into the Front-End (working with Lexi) 
 
 ### app.py
 
@@ -166,6 +166,9 @@ Route to get a users saved recipes
 '''
 @app.route("/savedrecipes/<int:recipe_id>", methods=["GET"]) 
 def get_saved_recipes(user_id):
+    # use the user_id get a list of saved recipes
+        # when a recipe is saved, save the recipe_id in the database for easy retreival
+    # return that list
     
 
 if __name__ == '__main__':
