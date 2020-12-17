@@ -1,3 +1,7 @@
-
 .Python
 env/
+
+*.pyc
+.env
+
+*.csv
