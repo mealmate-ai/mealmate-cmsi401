@@ -4,6 +4,7 @@ import UIKit
 struct LoginView: View {
     
     var body: some View {
+        
         NavigationView{
             ZStack{
                 VStack {
@@ -18,18 +19,32 @@ struct LoginView: View {
                         .aspectRatio(contentMode: .fit)
                         .padding(10)
                     
-                    Button(action: {print("?")}) {
-                        Text("Log In")
-                            .font(.custom("Hiragino Sans W3", size: 25))
-                            .foregroundColor(.gray)
-                            .padding(18)
+                    VStack {
+                        NavigationLink(destination: LoginPageView()) {
+                            Text("LOGIN")
+                                .frame(width: 150, height: 30)
+                                .padding()
+                                .font(.custom("Hiragino Sans W3", size: 20))
+                                .foregroundColor(.gray)
+                            .overlay(
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .stroke(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255), lineWidth: 3)
+                            )
+                        }
                     }
                     
-                    Button(action: {print("?")}) {
-                        Text("Register")
-                            .font(.custom("Hiragino Sans W3", size: 25))
-                            .foregroundColor(.gray)
-                            .padding(18)
+                    VStack {
+                        NavigationLink(destination: RegisterView()) {
+                            Text("REGISTER")
+                                .frame(width: 150, height: 30)
+                                .padding()
+                                .font(.custom("Hiragino Sans W3", size: 20))
+                                .foregroundColor(.gray)
+                            .overlay(
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .stroke(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255), lineWidth: 3)
+                            )
+                        }
                     }
                 }
             }

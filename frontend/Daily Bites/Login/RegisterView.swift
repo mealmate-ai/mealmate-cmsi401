@@ -18,7 +18,7 @@ struct RegisterView: View {
                 RoundedRectangle(cornerRadius: 5.0)
                     .fill(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255))
                     .frame(width: 414, height: 115)
-                    .overlay(Text("Settings")
+                    .overlay(Text("Register")
                         .font(.custom("Hiragino Sans W3", size: 34))
                         .foregroundColor(.gray)
                         .offset(y: 17)
@@ -64,10 +64,11 @@ struct RegisterView: View {
                 VStack {
                 NavigationLink(destination: NutPrefView()) {
                     Text("CHOOSE NUTRITIONAL PREFERENCES")
-                        .frame(width: 400, height: 100)
+                        .frame(width: 343, height: 40)
                         .padding()
                         .font(.custom("Hiragino Sans W3", size: 18))
                         .foregroundColor(.gray)
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1)).padding(20)
                     }
                 }
                 

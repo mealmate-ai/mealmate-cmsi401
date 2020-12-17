@@ -62,6 +62,16 @@ struct LoginPageView: View {
                     
                 }.padding()
                 
+                Button(action: {print("logged in")}) {
+                    Text("Login")
+                        .font(.custom("Hiragino Sans W3", size: 18))
+                        .foregroundColor(.gray)
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255), lineWidth: 3)
+                )}
+                
                 Spacer()
                 
             }
