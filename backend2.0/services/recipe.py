@@ -9,7 +9,19 @@ from apis.spoonacular import spoonacular
 
 def get_random_recipes(number):
     recipes = spoonacular.random_recipes(number)
-    return {'recipes': recipes}, 201
+    return {'recipes': spoonacular.random_recipes(number)}, 201
+
+
+def get_recipe_ingredients(recipe_id):
+    return {'ingredients': spoonacular.recipe_ingredients(recipe_id)['ingredients']}, 201
+
+
+def get_recipe_instructions(recipe_id):
+    return {'instructions': spoonacular.recipe_instructions(recipe_id)}, 201
+
+
+def get_recipe_nutrition(recipe_id):
+    return {'nutrition': spoonacular.recipe_nutrition(recipe_id)}, 201
 
 
 def save_recipe(account_id, recipe):

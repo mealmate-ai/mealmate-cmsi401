@@ -117,6 +117,21 @@ def get_random_recipes():
     return recipe_service.get_random_recipes(n)
 
 
+@app.route("/get-recipe-ingredients/<recipe_id>", methods=["GET"])
+def get_recipe_ingredients(recipe_id):
+    return recipe_service.get_recipe_ingredients(recipe_id)
+
+
+@app.route("/get-recipe-instructions/<recipe_id>", methods=["GET"])
+def get_recipe_instructions(recipe_id):
+    return recipe_service.get_recipe_instructions(recipe_id)
+
+
+@app.route("/get-recipe-nutrition/<recipe_id>", methods=["GET"])
+def get_recipe_nutrition(recipe_id):
+    return recipe_service.get_recipe_nutrition(recipe_id)
+
+
 @app.route("/save-recipe/<account_id>", methods=["POST"])
 def create_saved_recipe(account_id):
     return 'TODO'

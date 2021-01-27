@@ -16,9 +16,42 @@ def random_recipes(number):
     return r.json()
 
 
-def get_recipe_nutrition(recipe_id):
-    api_route = 'random?number=' + str(number) + '&apiKey=' + os.environ.get('SPOONACULAR_API_KEY')
+def recipe_nutrition(recipe_id):
+    api_route = (
+        str(recipe_id)
+        + '/nutritionWidget.json'
+        + '?apiKey='
+        + os.environ.get('SPOONACULAR_API_KEY')
+    )
     r = requests.get(
         SPOONACULAR + api_route,
     )
+    return r.json()
+
+
+def recipe_ingredients(recipe_id):
+    api_route = (
+        str(recipe_id)
+        + '/ingredientWidget.json'
+        + '?apiKey='
+        + os.environ.get('SPOONACULAR_API_KEY')
+    )
+    r = requests.get(
+        SPOONACULAR + api_route,
+    )
+
+    return r.json()
+
+
+def recipe_instructions(recipe_id):
+    api_route = (
+        str(recipe_id)
+        + '/analyzedInstructions'
+        + '?apiKey='
+        + os.environ.get('SPOONACULAR_API_KEY')
+    )
+    r = requests.get(
+        SPOONACULAR + api_route,
+    )
+
     return r.json()
