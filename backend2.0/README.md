@@ -4,7 +4,7 @@
 
 1. Clone this repository
 
-    git clone https://github.com/mealmate-ai/mealmate-cmsi401.git
+    git clone https://github.com/mealmate-ai/mealmate-cmsi402.git
 
 2. Navigate to the `/backend2.0` directory in the terminal
 
