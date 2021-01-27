@@ -5,6 +5,7 @@ import services.account as account_service
 import services.meal as meal_service
 import services.food as food_service
 import services.recipe as recipe_service
+import services.nutrition as nutrition_service
 
 
 def parsed_request():
@@ -85,6 +86,12 @@ def query_mv_foods():
 @app.route("/query-barcode/<barcode>", methods=["GET"])
 def query_barcode(barcode):
     return food_service.get_by_barcode(barcode)
+
+
+@app.route("/get-nutrition/<account_id>", methods=["GET"])
+def get_nutrition(account_id):
+    date_logged = request.args.get("dateLogged")
+    return nutrition_service.get_nutrition_by_date(account_id, date_logged)
 
 
 @app.route("/log-meal/<meal_id>", methods=["POST"])
