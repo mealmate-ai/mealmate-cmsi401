@@ -20,6 +20,11 @@ def hello():
     return {"message": "Hello"}, 200
 
 
+@app.route("/signup", methods=["POST"])
+def signup():
+    return account_service.signup(parsed_request())
+
+
 @app.route("/add-account", methods=["POST"])
 def create_account():
     return account_service.create_account(parsed_request())

@@ -56,6 +56,7 @@ class Account(db.Model, ReturnHelper):
     date_created = db.Column(db.Date)
     name = db.Column(db.String(128))
     email = db.Column(db.String(256))
+    password = db.Column(db.String(256), nullable=False)
     diets = db.Column(db.Text)
     dietary_restrictions = db.Column(db.Text)
     cuisine_preferences = db.Column(db.Text)
@@ -71,6 +72,13 @@ class Account(db.Model, ReturnHelper):
         find account details using account id
         """
         return cls.query.filter_by(id=id).first()
+
+    @classmethod
+    def get_account_by_email(cls, email):
+        """
+        find account details using email
+        """
+        return cls.query.filter_by(email=email).first()
 
 
 class Meal(db.Model, ReturnHelper):
