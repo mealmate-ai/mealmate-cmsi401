@@ -26,12 +26,24 @@ def get_recipes(user_id):
     'Ovo-Vegetarian','Vegan','Pescatarian','Paleo','Primal','Whole30','None']
     list_of_intolerances = ['Dairy','Egg','Gluten','Grain','Peanut','Seafood','Sesame',
     'Shellfish','Soy','Sulfite','Tree Nut','Wheat','None']
+    # -----------------------------------------------------
+    
+    # 1.  get quiz information from db 
+            # Note: If no options are checkmarked in the quiz for a specific question that means 'None'
+    # 1a. if existing user, get history of meals from db (a few of users last eaten meals) 
+    # 2.  if there are any, get liked recipes from db (for later use in 4.)
+    # 3.  form query for spoonacular using history meals and quiz info to get 10 meals 
+            # Note: You may have to query multiple times to get more recipes, change query/cuisine to get more results
+    # 3a. in the api put in:
+            # query (can be specific food items based on history of meals (1a.))
+                # ex: pasta, peanut butter, chicken
+            # cuisine (based on quiz)
+            # diet (based on quiz)
+            # intolerances (based on quiz)
+    # 4.  remove liked recipes 
+    # 5.  return up to 5 recipes
 
-    # 1. use user_id to query quiz from db 
-    # 2. use user_id to query liked recipes from db 
-    # 3. form query for spoonacular
-    # 4. remove recipes already favorite
-    # 5. return up to 5
+    # -----------------------------------------------------
 
     # if new user:
         # query = 'None'
@@ -55,7 +67,6 @@ def get_recipes(user_id):
             intolerances = 'None'
             break
     intolerances = ','.join(some_intolerances)
-    #-----------------------------------------------------
     
     payload = {'query': query, 'cuisine': cuisine, 'diet': diet, 'intolerances': intolerances, 'apiKey': api_key}
     response = requests.get('https://api.spoonacular.com/recipes/complexSearch', params = payload)
@@ -176,15 +187,15 @@ def get_instruction(recipe_id, user_id):
     return {'steps': f'{result}'}
 
 
-# '''
-# Route to get a users saved recipes
-#     - Requires in user_id
-# '''
-# @app.route("/savedrecipes/<int:recipe_id>", methods=["GET"]) 
-# def get_saved_recipes(user_id):
-#     # use the user_id get a list of saved recipes
-#         # when a recipe is saved, save the recipe_id in the database for easy retreival
-#     return None
+'''
+Route to get a users saved recipes
+    - Requires in user_id
+'''
+@app.route("/savedrecipes/<int:recipe_id>", methods=["GET"]) 
+def get_saved_recipes(user_id):
+    # use the user_id get a list of saved recipes
+        # when a recipe is saved, save the recipe_id in the database for easy retreival
+    return TODO
     
 if __name__ == '__main__':
     # To create/use the database mentioned in the URI, run the create_all() method.
