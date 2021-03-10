@@ -12,6 +12,9 @@
 
 3. Set up the Python 3 Environment
 
+   _Launch virtual environment_  
+   python3 -m venv flask_env
+
    _Activate virtual environment_  
    source flask_env/bin/activate
 
