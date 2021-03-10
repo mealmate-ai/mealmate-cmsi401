@@ -4,27 +4,24 @@
 
 1. Clone this repository
 
-    git clone https://github.com/mealmate-ai/mealmate-cmsi402.git
+   git clone https://github.com/mealmate-ai/mealmate-cmsi402.git
 
 2. Navigate to the `/backend2.0` directory in the terminal
 
-    cd backend2.0
+   cd backend2.0
 
 3. Set up the Python 3 Environment
 
-    _Create virtual environment_  
-    python3 -m venv flask_env
+   _Activate virtual environment_  
+   source flask_env/bin/activate
 
-    _Activate virtual environment_  
-    source flask_env/bin/activate
-
-    _Install packages_  
-    pip3 install -r requirements.txt
+   _Install packages_  
+   pip3 install -r requirements.txt
 
 4. Create `.env` file with dependencies
 
-    Reach out to a developer to get the needed env variables :)
+   Reach out to a developer to get the needed env variables :)
 
 5. Run the application
 
-    python3 app.py
+   python3 app.py
