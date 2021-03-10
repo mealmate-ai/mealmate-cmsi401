@@ -109,10 +109,17 @@ def log_meal(meal_id):
 def create_recipe():
     return 'TODO'
 
-
+# GET SPECIFIC RECIPE by ID 
 @app.route("/get-recipe/<recipe_id>", methods=["GET"])
 def get_recipe(recipe_id):
     return 'TODO'
+
+# GET RECOMMENDED RECIPES w/ USER INFO
+@app.route("/get-recipes/<account_id>", methods=["GET"])
+def get_tailored_recipes(account_id):
+    number = request.args.get("number")
+    n = number if number else 5
+    return recipe_service.get_filtered_recipes(account_id, n)
 
 
 @app.route("/get-random-recipes", methods=["GET"])
