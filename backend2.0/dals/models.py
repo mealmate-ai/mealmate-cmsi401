@@ -61,6 +61,7 @@ class Account(db.Model, ReturnHelper):
     dietary_restrictions = db.Column(db.Text)
     cuisine_preferences = db.Column(db.Text)
     fbid = db.Column(db.String(128))
+    # most_recent_login = db.Column(db.Date)
 
     min_fields = {"id"}
     search_result_fields = {*min_fields, "name", "email", "date_created"}
