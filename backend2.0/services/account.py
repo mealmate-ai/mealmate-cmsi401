@@ -25,8 +25,11 @@ def login(account_info):
     if not _verify(checkedAccount["password"], account.password):
         return {"message": "Incorrect password provided, please try again"}, 401
     
+    token = account.encode_auth_token(account.id)
+    accountIdFromToken = account.decode_auth_token(token)
+    print(token, type(token), accountIdFromToken)
     # TODO : ADD LOGIN TOKEN
-    return {"message": account.full_view()}, 201
+    return {"message": account.full_view(), "token": token}, 201
 
 
 def create_account(account_info):

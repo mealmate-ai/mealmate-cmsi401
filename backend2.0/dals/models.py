@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Sequence
@@ -11,6 +11,8 @@ from sqlalchemy.schema import DDLElement
 from daily_bites_app.errors import BadArgumentError
 from daily_bites_app.routes import app
 import uuid
+import jwt
+import os
 
 db = SQLAlchemy(app)
 
@@ -80,6 +82,33 @@ class Account(db.Model, ReturnHelper):
         find account details using email
         """
         return cls.query.filter_by(email=email).first()
+    
+    def encode_auth_token(self, id):
+        """
+        Method to encode a user id - going to be used for auth routes
+        Thank you to: https://realpython.com/token-based-authentication-with-flask/#jwt-setup
+        """
+        try:
+            payload = {
+                'exp': datetime.utcnow() + timedelta(minutes=15),
+                'iat': datetime.utcnow(),
+                'sub': id
+            }
+            return jwt.encode(payload, os.environ.get('SECRET_KEY'), algorithm='HS256')
+        except Exception as e:
+            return e, 400
+
+    
+    def decode_auth_token(self, token):
+        # https://realpython.com/token-based-authentication-with-flask/#jwt-setup
+        try:
+            payload = jwt.decode(token, os.environ.get('SECRET_KEY'), algorithms=["HS256"])
+            return payload['sub']
+        except jwt.ExpiredSignatureError:
+            return 'Signature expired. Please log in again.'
+        except jwt.InvalidTokenError:
+            return 'Invalid token. Please log in again.'
+
 
 
 class Meal(db.Model, ReturnHelper):
