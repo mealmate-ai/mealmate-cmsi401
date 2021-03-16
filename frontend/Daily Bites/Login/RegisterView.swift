@@ -4,85 +4,99 @@ import UIKit
 
 
 struct RegisterView: View {
-
+    
     @State var name: String = ""
     @State var email: String = ""
-    @State var password: String = ""
-
-
-
+    @State private var password: String = ""
+    @State private var secured: Bool = true
+    
+    
     var body: some View {
-
+        
         NavigationView{
             VStack {
-                RoundedRectangle(cornerRadius: 5.0)
-                    .fill(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255))
-                    .frame(width: 414, height: 115)
-                    .overlay(Text("Register")
-                        .font(.custom("Hiragino Sans W3", size: 34))
-                        .foregroundColor(.gray)
-                        .offset(y: 17)
-                        , alignment:
-                        .center)
-
-                VStack(alignment: .leading) {
-                    Text("NAME")
-                        .fontWeight(.regular)
-                        .font(.custom("Hiragino Sans W3", size: 14))
-                        .foregroundColor(.gray)
-                        .padding(.bottom, 5)
-                    TextField("Enter your name", text: $name)
-                    .padding(5)
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
-
-                }.padding()
                 
-                VStack(alignment: .leading) {
-                    Text("EMAIL")
-                        .fontWeight(.regular)
-                        .font(.custom("Hiragino Sans W3", size: 14))
-                        .foregroundColor(.gray)
-                        .padding(.bottom, 5)
-                    TextField("Enter your email", text: $email)
-                    .padding(5)
+                Image("new_daily_bites_logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(.vertical, 40)
+                    .padding(.horizontal, 80)
+                
+                Spacer()
+                
+                TextField("Name", text: $name)
+                    .padding()
+                    .frame(width: 365, height: 35)
                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+                    .padding()
+                
+                TextField("Email", text: $email)
+                    .padding()
+                    .frame(width: 365, height: 35)
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+                
+                
+                HStack {
                     
-                }.padding()
-                
-                VStack(alignment: .leading) {
-                    Text("PASSWORD")
-                        .fontWeight(.regular)
-                        .font(.custom("Hiragino Sans W3", size: 14))
-                        .foregroundColor(.gray)
-                        .padding(.bottom, 5)
-                    TextField("Enter your password", text: $password)
-                    .padding(5)
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+                    if (secured) {
+                        SecureField("Password", text: $password)
+                            .padding()
+                            .frame(width: 328, height: 35)
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+                            .padding()
+                    } else {
+                        TextField("Password", text: $password)
+                            .padding()
+                            .frame(width: 328, height: 35)
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+                            .padding()
+                    }
+                    //                        ({
+                    //                            print("Password onCommit")
+                    //                        })
                     
-                }.padding()
-                
-                VStack {
-                NavigationLink(destination: NutPrefView()) {
-                    Text("CHOOSE NUTRITIONAL PREFERENCES")
-                        .frame(width: 343, height: 40)
-                        .padding()
-                        .font(.custom("Hiragino Sans W3", size: 18))
-                        .foregroundColor(.gray)
-                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1)).padding(20)
+                    Button(action: {
+                        self.secured.toggle()
+                    }) {
+                        if secured {
+                            Image(systemName: "eye.slash.fill")
+                        } else {
+                            Image(systemName: "eye.fill")
+                        }
                     }
                 }
                 
-                Button(action: {print("account made")}) {
-                    Text("Create Account")
-                        .font(.custom("Hiragino Sans W3", size: 18))
-                        .foregroundColor(.gray)
-                        .padding()
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255), lineWidth: 3)
-                )}
-
+                VStack {
+                    NavigationLink(destination: NutPrefView()) {
+                        Text("CHOOSE NUTRITIONAL PREFERENCES")
+                            .frame(width: 320, height: 40)
+                            .padding()
+                            .font(.custom("Hiragino Sans W3", size: 18))
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.center)
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1)).padding(20)
+                    }
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+                    
+                    Button(action: {
+                        print("New Account")
+                    }, label: {
+                        NavigationLink(destination: ContentView()) {
+                            RoundedRectangle(cornerRadius: 18)
+                                .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
+                                .frame(width: 320, height: 45)
+                                .padding()
+                                .overlay(
+                                    Text("Create Account")
+                                        .font(.custom("Hiragino Sans W3", size: 18))
+                                        .foregroundColor(.white)
+                                )}.navigationBarHidden(true)
+                            .navigationBarTitle("")
+                    })
+                }
                 
+                Spacer()
                 Spacer()
             }
         }
@@ -91,6 +105,7 @@ struct RegisterView: View {
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             RegisterView()
+                .background(Color(.systemBackground))
         }
     }
 }

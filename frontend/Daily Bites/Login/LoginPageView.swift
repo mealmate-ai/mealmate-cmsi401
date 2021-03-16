@@ -4,76 +4,82 @@ import UIKit
 struct LoginPageView: View {
     
     @State var email: String = ""
-    @State var password: String = ""
+    @State private var password: String = ""
+    @State private var secured: Bool = true
+    @State private var action: Int? = 0
     
     var body: some View {
         
-        
-        
         //DESIGN ---------------------------------
-        ZStack{
+        NavigationView{
             VStack {
-                Rectangle()
-                    .fill(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255))
-                    .frame(width: 419, height: 115)
-                    .overlay(Text("Login")
-                        .fontWeight(.regular)
-                        .font(.custom("Hiragino Sans W3", size: 34))
-                        .foregroundColor(.gray)
-                        .offset(y: 17)
-                        , alignment:
-                        .center)
-                    .cornerRadius(5.0)
+                
+                Image("new_daily_bites_logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(.vertical, 40)
+                    .padding(.horizontal, 80)
+                
+                Spacer()
+                
+                TextField("Email", text: $email, onEditingChanged: { (changed) in
+                    print("Email onEditingChanged - \(changed)")
+                })
+                {
+                    print("Email onCommit")
+                }
+                .frame(width: 340, height: 4)
+                .padding()
+                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+                
+                Text("\(email)")
                 
                 
-                VStack(alignment: .leading) {
-                    Text("EMAIL")
-                        .fontWeight(.regular)
-                        .font(.custom("Hiragino Sans W3", size: 14))
-                        .foregroundColor(.gray)
-                        .padding(.bottom, 5)
-                    TextField("Enter your email", text: $email, onEditingChanged: { (changed) in
-                        print("Email onEditingChanged - \(changed)")
-                    })
-                    {
-                        print("Email onCommit")
+                HStack {
+                    
+                    if (secured) {
+                        SecureField("Password", text: $password)
+                            .padding()
+                            .frame(width: 340, height: 36)
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+                    } else {
+                        TextField("Password", text: $password)
+                            .frame(width: 300, height: 36)
+                            .padding()
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))                        }
+                    //                        ({
+                    //                            print("Password onCommit")
+                    //                        })
+                    
+                    Button(action: {
+                        self.secured.toggle()
+                    }) {
+                        if secured {
+                            Image(systemName: "eye.slash.fill")
+                        } else {
+                            Image(systemName: "eye.fill")
+                        }
                     }
-                    .padding(5)
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
-                    
-                    Text("\(email)")
-                    
-                }.padding()
+                }
                 
-                VStack(alignment: .leading) {
-                    Text("PASSWORD")
-                        .fontWeight(.regular)
-                        .font(.custom("Hiragino Sans W3", size: 14))
-                        .foregroundColor(.gray)
-                        .padding(.bottom, 5)
-                    TextField("Enter your password", text: $email, onEditingChanged: { (changed) in
-                        print("Password onEditingChanged - \(changed)")
-                    })
-                    {
-                        print("Password onCommit")
-                    }
-                    .padding(5)
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
-                    
-                    Text("\(password)")
-                    
-                }.padding()
+                Button(action: {
+                    print("Login")
+                }, label: {
+                    NavigationLink(destination: ContentView()) {
+                        RoundedRectangle(cornerRadius: 18)
+                            .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
+                            .frame(width: 320, height: 45)
+                            .padding()
+                            .overlay(
+                                Text("Login")
+                                    .font(.custom("Hiragino Sans W3", size: 18))
+                                    .foregroundColor(.white)
+                            )}.navigationBarHidden(true)
+                        .navigationBarTitle("")
+                })
                 
-                Button(action: {print("logged in")}) {
-                    Text("Login")
-                        .font(.custom("Hiragino Sans W3", size: 18))
-                        .foregroundColor(.gray)
-                        .padding()
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255), lineWidth: 3)
-                    )}
-                
+                Spacer()
+                Spacer()
                 Spacer()
                 
             }
@@ -82,6 +88,7 @@ struct LoginPageView: View {
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             LoginPageView()
+                .background(Color(.systemBackground))
         }
     }
     

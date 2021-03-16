@@ -9,16 +9,15 @@ struct DashboardView: View {
         ZStack{
             VStack {
                 Rectangle()
-                    .fill(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255))
-                    .frame(width: 419, height: 115)
+                    .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
+                    .frame(width: 419, height: 120)
                     .overlay(Text("Trends")
                         .fontWeight(.regular)
                         .font(.custom("Hiragino Sans W3", size: 34))
-                        .foregroundColor(.gray)
-                        .offset(y: 17)
+                        .foregroundColor(.white)
                         , alignment:
                     .center)
-                    .cornerRadius(5.0)
+
                 HStack {
                     Button(action: {print("Day")}) {
                         Text("Day")
@@ -47,7 +46,7 @@ struct DashboardView: View {
                     .frame(width: 425, height: 2)
                 
                 HStack (alignment: .center, spacing: 0, content:{
-                    Text("Hello, Name")
+                    Text("Hello, Name!")
                         .fontWeight(.regular)
                         .font(.custom("Hiragino Sans W3", size: 33))
                         .foregroundColor(.gray)
@@ -65,6 +64,8 @@ struct DashboardView: View {
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             DashboardView()
+                .background(Color(.systemBackground))
+                .edgesIgnoringSafeArea(.top)
         }
     }
 }
