@@ -5,8 +5,11 @@ import os
 from flask_httpauth import HTTPTokenAuth
 
 auth = HTTPTokenAuth(scheme='Bearer')
-
 token_required = auth.login_required
+
+@auth.error_handler
+def token_error():
+    return {'message': 'Invalid Token'}, 401
 
 @auth.verify_token
 def verify_token(token):
