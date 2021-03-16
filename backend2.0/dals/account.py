@@ -30,6 +30,7 @@ def update_account(account_id, account_patch):
 
 
 def delete_account(account_id):
+    # NEED TO DELETE REFERENCES TO ACCOUNT FIRST ! 
     account = Account.get_account_by_id(account_id)
     db.session.delete(account)
     db.session.commit()
