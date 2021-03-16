@@ -51,6 +51,14 @@ class AccountChecker(Checker):
         "dietary_restrictions": [check_valid_dietary_restrictions],
         "cuisine_preferences": [check_valid_cuisines],
     }
+    loginFields = {
+        "email": [check_email, check_arg_is_required],
+        "password": [check_string, check_arg_is_required]
+    }
+
+    @classmethod
+    def __on_login__(cls, record):
+        return checked(record, cls.loginFields)
 
 
 class MealChecker(Checker):

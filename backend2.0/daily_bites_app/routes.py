@@ -24,6 +24,9 @@ def hello():
 def signup():
     return account_service.signup(parsed_request())
 
+@app.route("/login", methods=["POST"])
+def login():
+    return account_service.login(parsed_request())
 
 @app.route("/add-account", methods=["POST"])
 def create_account():
