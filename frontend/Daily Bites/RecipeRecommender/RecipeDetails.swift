@@ -10,7 +10,7 @@
 //        VStack{
 //            RoundedRectangle(cornerRadius: 5.0)
 //                .fill(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255))
-//                .frame(width: 414, height: 115)
+//                .frame(width: 414, height: 90)
 //                .overlay(Text("Recipes")
 //                    .fontWeight(.regular)
 //                    .font(.custom("Hiragino Sans W3", size: 34))
@@ -56,6 +56,7 @@
 //    struct ContentView_Previews: PreviewProvider {
 //        static var previews: some View {
 //            RecipeDetails(recipe:testData[0])
+//.background(Color(.systemBackground))
 //        }
 //}
 //}

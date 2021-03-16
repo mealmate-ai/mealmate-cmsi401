@@ -10,7 +10,6 @@ struct ContentView: View {
             TabView{
                 
                 DashboardView()
-                    .navigationBarHidden(true)
                     .padding(.top, -30)
                     .tabItem {
                         VStack {
@@ -20,7 +19,6 @@ struct ContentView: View {
                 }
                 
                 ChatView()
-                    .navigationBarHidden(true)
                     .padding(.top, -30)
                     .tabItem {
                         VStack {
@@ -30,7 +28,6 @@ struct ContentView: View {
                 }
                 
                 RecipesView()
-                    .navigationBarHidden(true)
                     .padding(.top, -30)
                     .tabItem {
                         VStack {
@@ -40,7 +37,6 @@ struct ContentView: View {
                 }
                 
                 SettingsView()
-                    .navigationBarHidden(true)
                     .padding(.top, -30)
                     .tabItem {
                         VStack {
@@ -48,17 +44,18 @@ struct ContentView: View {
                             Text("Settings")
                         }
                 }
-                
-                Spacer()
-                
             }
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
     
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
-            ContentView().edgesIgnoringSafeArea(.top)
+            ContentView().edgesIgnoringSafeArea([.top])
+            .border(Color.purple)
+                .background(Color(.systemBackground))
         }
     }
 }
