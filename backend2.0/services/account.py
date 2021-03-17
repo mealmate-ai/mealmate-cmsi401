@@ -3,6 +3,7 @@ from checks import AccountChecker
 from datetime import datetime
 import uuid
 from dals.models import Account
+from services.auth import verify_token
 from passlib.hash import pbkdf2_sha256
 
 
@@ -26,10 +27,13 @@ def login(account_info):
         return {"message": "Incorrect password provided, please try again"}, 401
     
     token = account.encode_auth_token(account.id)
-    accountIdFromToken = account.decode_auth_token(token)
-    print(token, type(token), accountIdFromToken)
-    # TODO : ADD LOGIN TOKEN
     return {"message": account.full_view(), "token": token}, 201
+
+
+def get_current_account(token):
+    accountIdFromToken = verify_token(token)
+    account = Account.get_account_by_id(accountIdFromToken).full_view()
+    return {"account": account}, 200
 
 
 def create_account(account_info):
