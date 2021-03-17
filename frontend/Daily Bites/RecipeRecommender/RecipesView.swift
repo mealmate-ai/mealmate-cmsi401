@@ -8,6 +8,7 @@ struct RecipesView: View {
 
     var body: some View {
         //DESIGN ---------------------------------
+        NavigationView {
         VStack {
             RoundedRectangle(cornerRadius: 5.0)
                 .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
@@ -42,15 +43,16 @@ struct RecipesView: View {
                 )
             }
             
-            NavigationView {
+          //  NavigationView {
                 List(recipes) { recipe in
                     NavigationLink(destination: RecipeDetails(recipe: recipe)) {
                         RecipeRow(recipe: recipe)
                     }
                 }
-            }
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
+//            }
+//            .navigationBarTitle("")
+//            .navigationBarHidden(true)
+//            .padding(10)
             
             Button(action: { print("Generate Recipes") }) {
                 Text("GENERATE NEW RECIPES")
@@ -64,6 +66,9 @@ struct RecipesView: View {
                 RoundedRectangle(cornerRadius: 15)
                     .stroke(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255), lineWidth: 1)
             )
+        }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
             
             Spacer()
         }

@@ -23,8 +23,8 @@ struct RecipeDetails: View {
             
             ZStack {
                 RoundedRectangle(cornerRadius: 5.0)
-                    .fill(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255))
-                    .frame(width: 414, height: 115)
+                    .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
+                    .frame(width: 414, height: 100)
                 
                 HStack {
                     Image(recipe.image)
@@ -39,10 +39,10 @@ struct RecipeDetails: View {
                         Text(recipe.name)
                             .font(.custom("Hiragino Sans W3", size: 25))
                             .fontWeight(.heavy)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.black)
                         Text("Cuisine: " + recipe.cuisine)
                             .font(.custom("Hiragino Sans W3", size: 20))
-                            .foregroundColor(.gray)
+                            .foregroundColor(.black)
                     }
                 }
                 .padding(.leading, 35)

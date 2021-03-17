@@ -14,6 +14,7 @@ struct Recipes: Identifiable {
     let name: String
     let cuisine: String
     let liked: Bool
+    //let nutrients: String
     let ingredients: String
     let insructions: String
     let id = UUID()
