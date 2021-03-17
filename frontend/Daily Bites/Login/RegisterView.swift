@@ -93,7 +93,7 @@ struct RegisterView: View {
                                         .foregroundColor(.white)
                                 )}.navigationBarHidden(true)
                             .navigationBarTitle("")
-                    })
+                    }).disabled(name.isEmpty || email.isEmpty || password.isEmpty)
                 }
                 
                 Spacer()

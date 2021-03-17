@@ -76,7 +76,7 @@ struct LoginPageView: View {
                                     .foregroundColor(.white)
                             )}.navigationBarHidden(true)
                         .navigationBarTitle("")
-                })
+                }).disabled(email.isEmpty || password.isEmpty)
                 
                 Spacer()
                 Spacer()
