@@ -47,7 +47,7 @@ struct RecipesView: View {
             NavigationView {
                 List(1...5, id: \.self) { index in
                     NavigationLink(
-                        destination: RecipeDetails(),
+                        destination: Text("Food Details"),
                         label: {
                             Text("Food Item #\(index)")
                                 .font(.custom("Hiragino Sans W3", size: 22))

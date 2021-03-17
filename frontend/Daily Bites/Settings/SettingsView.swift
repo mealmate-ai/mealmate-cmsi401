@@ -22,7 +22,6 @@ struct SettingsView: View {
                         .foregroundColor(.white),
                              alignment:
                         .center)
-//                    .offset(y:15)
                 
                 VStack(alignment: .leading) {
                     Text("NAME")
