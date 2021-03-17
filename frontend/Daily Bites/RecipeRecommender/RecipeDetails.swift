@@ -3,58 +3,86 @@ import UIKit
 
 struct RecipeDetails: View {
 
-    var recipe: Recipe
+    var recipe: Recipes
+
     var body: some View {
-
-        VStack{
-            RoundedRectangle(cornerRadius: 5.0)
-                .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
-                .frame(width: 419, height: 120)
-                .overlay(Text("Trends")
-                .fontWeight(.regular)
-                .font(.custom("Hiragino Sans W3", size: 34))
-                .foregroundColor(.white)
-                         , alignment:
-                            .center)
-
-            HStack{
-                Image(recipe.imageName)
-                    .resizable()
-                VStack{
-                    HStack{
+        VStack {
+            
+            HStack {
+                Spacer()
+                Button(action: {
+                    print("You liked this recipe")
+                    //The button can change from filled to unfilled
+                    //based on the Bool value of recipe.liked
+                }) {
+                    Image(systemName: "heart")
+                }
+                .font(.system(size:30))
+                .padding(.trailing, 30)
+            }
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 5.0)
+                    .fill(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255))
+                    .frame(width: 414, height: 115)
+                
+                HStack {
+                    Image(recipe.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 145, height: 145)
+                        .clipped()
+                        .cornerRadius(150)
+                        .shadow(radius: 3)
+                    Spacer()
+                    VStack(alignment: .leading) {
                         Text(recipe.name)
-//                        Image(systemName: onCLick ? "heart" : "heart.fill")
-//figure out how to add to saved when heart is filled
+                            .font(.custom("Hiragino Sans W3", size: 25))
+                            .fontWeight(.heavy)
+                            .foregroundColor(.gray)
+                        Text("Cuisine: " + recipe.cuisine)
+                            .font(.custom("Hiragino Sans W3", size: 20))
+                            .foregroundColor(.gray)
                     }
-                    Text("meal.type")
-                    Text("cuisine.type")
                 }
+                .padding(.leading, 35)
+                .padding(.trailing, 35)
             }
-            VStack{
-                Text("Nutritional Information")
-                Text("calories")
-                Text("fat")
-                Text("carbs")
-                Text("protein")
+            
+            HStack {
+                VStack(alignment: .leading, spacing: 15) {
+                    Text("Ingredients")
+                        .font(.custom("Hiragino Sans W3", size: 20))
+                        .foregroundColor(.gray)
+                        .fontWeight(.medium)
+                    Text(recipe.ingredients)
+                        .font(.custom("Hiragino Sans W3", size: 15))
+                        .foregroundColor(.gray)
+                        .lineLimit(10)
+                }.padding(15)
             }
-            VStack{
-                Text("Ingredients")
-                List{
-                    Text(ingredients)
-                }
+            
+            
+            HStack {
+                VStack(alignment: .leading, spacing: 15) {
+                    Text("Instructions")
+                        .font(.custom("Hiragino Sans W3", size: 20))
+                        .foregroundColor(.gray)
+                        .fontWeight(.medium)
+                    Text(recipe.insructions)
+                        .font(.custom("Hiragino Sans W3", size: 15))
+                        .foregroundColor(.gray)
+                }.padding(15)
             }
-            VStack{
-                Text("Instructions")
-                List{
-                    Text(instructions)
-                }
-            }
+           
+            Spacer()
+            
         }
     }
-    struct ContentView_Previews: PreviewProvider {
+}
+    struct RecipeDetails_Previews: PreviewProvider {
         static var previews: some View {
-            RecipeDetails(recipe:testData[0])
-            .background(Color(.systemBackground))
+            RecipeDetails(recipe: recipes[4])
         }
 }
-}
+

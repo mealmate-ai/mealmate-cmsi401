@@ -1,14 +1,12 @@
 
 import SwiftUI
-import UIKit
 
 struct RecipesView: View {
     
 //    @State var buttonTapped: Bool = false
     //    var recipes: [Recipes] = []
-    
+
     var body: some View {
-        
         //DESIGN ---------------------------------
         VStack {
             RoundedRectangle(cornerRadius: 5.0)
@@ -45,15 +43,10 @@ struct RecipesView: View {
             }
             
             NavigationView {
-                List(1...5, id: \.self) { index in
-                    NavigationLink(
-                        destination: RecipeDetails(),
-                        label: {
-                            Text("Food Item #\(index)")
-                                .font(.custom("Hiragino Sans W3", size: 22))
-                                .foregroundColor(.gray)
-                        }).navigationBarTitle("")
-                        .navigationBarHidden(true)
+                List(recipes) { recipe in
+                    NavigationLink(destination: RecipeDetails(recipe: recipe)) {
+                        RecipeRow(recipe: recipe)
+                    }
                 }
             }
             .navigationBarTitle("")
@@ -71,7 +64,6 @@ struct RecipesView: View {
                 RoundedRectangle(cornerRadius: 15)
                     .stroke(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255), lineWidth: 1)
             )
-            
             
             Spacer()
         }

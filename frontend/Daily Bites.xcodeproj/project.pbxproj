@@ -40,6 +40,8 @@
 		22FB1F8C257C583600F02730 /* Dietary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F8B257C583600F02730 /* Dietary.swift */; };
 		22FB1F8F258425C500F02730 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F8E258425C500F02730 /* Goals.swift */; };
 		22FB1F912584261B00F02730 /* NutGoalChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F902584261B00F02730 /* NutGoalChoice.swift */; };
+		4F7A59A32601E4AF0045BBE1 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A59A22601E4AF0045BBE1 /* Recipes.swift */; };
+		4F7A59B62601F2CE0045BBE1 /* RecipeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A59B52601F2CE0045BBE1 /* RecipeRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		22FB1F8B257C583600F02730 /* Dietary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dietary.swift; sourceTree = "<group>"; };
 		22FB1F8E258425C500F02730 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
 		22FB1F902584261B00F02730 /* NutGoalChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutGoalChoice.swift; sourceTree = "<group>"; };
+		4F7A59A22601E4AF0045BBE1 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
+		4F7A59B52601F2CE0045BBE1 /* RecipeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +252,8 @@
 			children = (
 				221F6447254BE7D400BA8AF2 /* RecipesView.swift */,
 				22FB1F6A2563905A00F02730 /* RecipeDetails.swift */,
+				4F7A59A22601E4AF0045BBE1 /* Recipes.swift */,
+				4F7A59B52601F2CE0045BBE1 /* RecipeRow.swift */,
 			);
 			path = RecipeRecommender;
 			sourceTree = "<group>";
@@ -442,6 +448,7 @@
 				229CE6172601195800701030 /* PieChartData.swift in Sources */,
 				229CE612260118FF00701030 /* NutData.swift in Sources */,
 				229F63D72589D412006398E2 /* RegisterView.swift in Sources */,
+				4F7A59A32601E4AF0045BBE1 /* Recipes.swift in Sources */,
 				22FB1F83257AE63E00F02730 /* Diet.swift in Sources */,
 				221F6416254A618000BA8AF2 /* SceneDelegate.swift in Sources */,
 				22FB1F912584261B00F02730 /* NutGoalChoice.swift in Sources */,
@@ -457,6 +464,7 @@
 				22FB1F79257AD10E00F02730 /* Cuisine.swift in Sources */,
 				229F63D52589CAF3006398E2 /* LoginPageView.swift in Sources */,
 				22FB1F6D2573784100F02730 /* DateRangeView.swift in Sources */,
+				4F7A59B62601F2CE0045BBE1 /* RecipeRow.swift in Sources */,
 				221F6418254A618000BA8AF2 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
