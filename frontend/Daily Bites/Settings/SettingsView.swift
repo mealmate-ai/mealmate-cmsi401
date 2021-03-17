@@ -15,14 +15,14 @@ struct SettingsView: View {
         NavigationView{
             VStack {
                 RoundedRectangle(cornerRadius: 5.0)
-                    .fill(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255))
-                    .frame(width: 414, height: 115)
+                    .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
+                    .frame(width: 419, height: 120)
                     .overlay(Text("Settings")
                         .font(.custom("Hiragino Sans W3", size: 34))
-                        .foregroundColor(.gray)
-                        .offset(y: 17)
-                        , alignment:
+                        .foregroundColor(.white),
+                             alignment:
                         .center)
+//                    .offset(y:15)
                 
                 VStack(alignment: .leading) {
                     Text("NAME")
@@ -31,8 +31,8 @@ struct SettingsView: View {
                         .foregroundColor(.gray)
                         .padding(.bottom, 5)
                     TextField("Enter your name", text: $name)
-                    .padding(5)
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+                        .padding(5)
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
                     
                 }.padding()
                 
@@ -43,8 +43,8 @@ struct SettingsView: View {
                         .foregroundColor(.gray)
                         .padding(.bottom, 5)
                     TextField("Enter your email", text: $email)
-                    .padding(5)
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+                        .padding(5)
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
                     
                 }.padding()
                 
@@ -55,40 +55,61 @@ struct SettingsView: View {
                         .foregroundColor(.gray)
                         .padding(.bottom, 5)
                     TextField("Enter your password", text: $password)
-                    .padding(5)
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+                        .padding(5)
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
                     
                 }.padding()
                 
                 VStack {
-                NavigationLink(destination: NutPrefView()) {
-                    Text("CHANGE NUTRITIONAL PREFERENCES")
-                        .frame(width: 343, height: 40)
-                        .padding()
-                        .font(.custom("Hiragino Sans W3", size: 18))
-                        .foregroundColor(.gray)
-                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1)).padding(20)
+                    NavigationLink(destination: NutPrefView()) {
+                        Text("CHANGE NUTRITIONAL PREFERENCES")
+                            .frame(width: 343, height: 40)
+                            .padding()
+                            .font(.custom("Hiragino Sans W3", size: 18))
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.center)
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255), lineWidth: 1)).padding(20)
                     }
                 }
                 
                 Button(action: {print("saved")}) {
-                    Text("Save")
-                        .font(.custom("Hiragino Sans W3", size: 18))
-                        .foregroundColor(.gray)
-                        .padding()
+                    RoundedRectangle(cornerRadius: 26)
+                        .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
+                        .frame(width: 320, height: 45)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255), lineWidth: 3)
-                )}
+                            Text("Save")
+                                .font(.custom("Hiragino Sans W3", size: 18))
+                                .foregroundColor(.white)
+                    )}
                 
-                Spacer()
+                Button(action: {
+                    print("Log Out")
+                }, label: {
+                    NavigationLink(destination: LoginView()) {
+                        RoundedRectangle(cornerRadius: 26)
+                            .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
+                            .frame(width: 320, height: 45)
+                            .padding(.horizontal, 50)
+                            .overlay(
+                                Text("Logout")
+                                    .font(.custom("Hiragino Sans W3", size: 18))
+                                    .foregroundColor(.white)
+                        )}.navigationBarHidden(true)
+                        .navigationBarTitle("")
+                    
+                    Spacer()
+                })
             }
-        }
+        }.navigationBarTitle("")
+        .navigationBarHidden(true)
     }
+    
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             SettingsView()
+                .background(Color(.systemBackground))
+                .edgesIgnoringSafeArea(.top)
         }
     }
 }
