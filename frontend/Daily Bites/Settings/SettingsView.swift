@@ -68,7 +68,7 @@ struct SettingsView: View {
                             .font(.custom("Hiragino Sans W3", size: 18))
                             .foregroundColor(.gray)
                             .multilineTextAlignment(.center)
-                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1)).padding(20)
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255), lineWidth: 1)).padding(20)
                     }
                 }
                 

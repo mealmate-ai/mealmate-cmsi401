@@ -1,8 +1,12 @@
 
 import SwiftUI
 import UIKit
+import Combine
 
 struct DashboardView: View {
+    
+//    var pieChartData: PieChartData
+    
     var body: some View {
         
         //DESIGN ---------------------------------
@@ -56,11 +60,27 @@ struct DashboardView: View {
                 Spacer()
                 })
                 
+//                GeometryReader { geometry in
+//                    self.makePieChart(geometry, pieChartData: self.pieChartData.data)
+//                }
+                
                 Spacer()
                 
             }
         }
     }
+    
+//    func makePieChart(_ geometry: GeometryProxy, pieChartData: [NutData]) -> some View {
+//        return ZStack {
+//            ForEach(0..<pieChartData.count, id: \.self) { index in
+//                PieChartSlide(geometry: geometry, nutData: pieChartData[index])
+//            }
+//        }
+//    }
+}
+
+//pieChartData: PieChartData(data: [1, 2])
+    
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             DashboardView()
@@ -68,4 +88,4 @@ struct DashboardView: View {
                 .edgesIgnoringSafeArea(.top)
         }
     }
-}
+

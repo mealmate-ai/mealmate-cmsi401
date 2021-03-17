@@ -29,9 +29,9 @@ struct RecipesView: View {
                 }.buttonStyle(PrimaryButtonStyle())
                 .overlay(
                     RoundedRectangle(cornerRadius: 15)
-                        .stroke(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255), lineWidth: 2)
+                        .stroke(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255), lineWidth: 1)
                 )
-                
+
                 Button(action: { print("Saved") }) {
                     Text("Saved Recipes")
                         .font(.custom("Hiragino Sans W3", size: 22))
@@ -40,22 +40,38 @@ struct RecipesView: View {
                 }.buttonStyle(PrimaryButtonStyle())
                 .overlay(
                     RoundedRectangle(cornerRadius: 15)
-                        .stroke(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255), lineWidth: 2)
+                        .stroke(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255), lineWidth: 1)
                 )
             }
+            
             NavigationView {
                 List(1...5, id: \.self) { index in
                     NavigationLink(
-                        destination: Text("Food Item #\(index) Details"),
+                        destination: RecipeDetails(),
                         label: {
                             Text("Food Item #\(index)")
                                 .font(.custom("Hiragino Sans W3", size: 22))
                                 .foregroundColor(.gray)
                         }).navigationBarTitle("")
+                        .navigationBarHidden(true)
                 }
             }
             .navigationBarTitle("")
             .navigationBarHidden(true)
+            
+            Button(action: { print("Generate Recipes") }) {
+                Text("GENERATE NEW RECIPES")
+                    .frame(width: 320, height: 40)
+                    .padding()
+                    .font(.custom("Hiragino Sans W3", size: 18))
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
+            }.buttonStyle(PrimaryButtonStyle())
+            .overlay(
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255), lineWidth: 1)
+            )
+            
             
             Spacer()
         }
@@ -76,15 +92,4 @@ struct RecipesView: View {
                 .background(configuration.isPressed ? Color(.systemGray5) : Color.white)
         }
     }
-
-    //    struct Recipe: View{
-    //        var body: some View{
-    //            NavigationLink(destination: Text(recipe.name)) {
-    //                Image(recipe.thumbnailName)
-    //                    .cornerRadius(5)
-    //                Text(recipe.name)
-    //            }
-    //        }
-    //    }
-    
 }
