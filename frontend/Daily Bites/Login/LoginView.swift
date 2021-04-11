@@ -25,8 +25,8 @@ struct LoginView: View {
                                     .padding()
                                     .font(.custom("Hiragino Sans W3", size: 20))
                                     .foregroundColor(.white)
-                            )}.navigationBarTitle("")
-                        .navigationBarHidden(true)
+                            )}.navigationBarHidden(true).navigationBarTitle("")
+                        
                     
                     NavigationLink(destination: RegisterView()) {
                         RoundedRectangle(cornerRadius: 26)
@@ -37,11 +37,14 @@ struct LoginView: View {
                                 Text("REGISTER")
                                     .font(.custom("Hiragino Sans W3", size: 20))
                                     .foregroundColor(.white)
-                            )}
+                            )}.navigationBarHidden(true)
+                        .navigationBarTitle("")
+                        
                     Spacer()
                 }
             }
-        }
+        }.navigationBarHidden(true)
+        .navigationBarTitle("")
     }
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {

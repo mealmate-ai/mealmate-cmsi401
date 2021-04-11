@@ -22,18 +22,13 @@ struct LoginPageView: View {
                 
                 Spacer()
                 
-                TextField("Email", text: $email, onEditingChanged: { (changed) in
-                    print("Email onEditingChanged - \(changed)")
-                })
-                {
-                    print("Email onCommit")
-                }
-                .frame(width: 340, height: 4)
-                .padding()
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
-                
-                Text("\(email)")
-                
+                //                onEditingChanged: { (changed) in
+                //                    print("Email onEditingChanged - \(changed)")
+
+                TextField("Email", text: $email)
+                    .frame(width: 340, height: 4)
+                    .padding()
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
                 
                 HStack {
                     
@@ -83,7 +78,9 @@ struct LoginPageView: View {
                 Spacer()
                 
             }
-        }
+        }.navigationBarHidden(true)
+        .navigationBarTitle("")
+        
     }
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {

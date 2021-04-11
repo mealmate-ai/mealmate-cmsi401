@@ -16,15 +16,16 @@ struct RecipesView: View {
                 .overlay(Text("Recipes")
                     .font(.custom("Hiragino Sans W3", size: 34))
                     .foregroundColor(.white)
+                            .offset(y: 20)
                     , alignment:
                     .center)
             
-            HStack {
+            HStack(spacing:30) {
                 Button(action: { print("All") })  {
                     Text("All Recipes")
-                        .font(.custom("Hiragino Sans W3", size: 22))
+                        .font(.custom("Hiragino Sans W3", size: 20))
                         .foregroundColor(.gray)
-                        .frame(width: 190, height: 80)
+                        .frame(width: 160, height: 50)
                 }.buttonStyle(PrimaryButtonStyle())
                 .overlay(
                     RoundedRectangle(cornerRadius: 15)
@@ -33,9 +34,9 @@ struct RecipesView: View {
 
                 Button(action: { print("Saved") }) {
                     Text("Saved Recipes")
-                        .font(.custom("Hiragino Sans W3", size: 22))
+                        .font(.custom("Hiragino Sans W3", size: 20))
                         .foregroundColor(.gray)
-                        .frame(width: 190, height: 80)
+                        .frame(width: 160, height: 50)
                 }.buttonStyle(PrimaryButtonStyle())
                 .overlay(
                     RoundedRectangle(cornerRadius: 15)
@@ -56,7 +57,7 @@ struct RecipesView: View {
             
             Button(action: { print("Generate Recipes") }) {
                 Text("GENERATE NEW RECIPES")
-                    .frame(width: 320, height: 40)
+                    .frame(width: 260, height: 20)
                     .padding()
                     .font(.custom("Hiragino Sans W3", size: 18))
                     .foregroundColor(.gray)
@@ -74,7 +75,7 @@ struct RecipesView: View {
         }
     }
     
-    struct ContentView_Previews: PreviewProvider {
+    struct RecpiesView_Previews: PreviewProvider {
         static var previews: some View {
             RecipesView()
                 .background(Color(.systemBackground))

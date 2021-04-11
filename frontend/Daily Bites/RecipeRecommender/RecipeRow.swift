@@ -22,7 +22,7 @@ struct RecipeRow: View {
                 .cornerRadius(50)
             VStack(alignment: .leading) {
                 Text(recipe.name)
-                    .font(.custom("Hiragino Sans W3", size: 22))
+                    .font(.custom("Hiragino Sans W3", size: 20))
                     .foregroundColor(.gray)
             }
         }

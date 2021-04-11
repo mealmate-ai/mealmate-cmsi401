@@ -1,11 +1,10 @@
-
 import SwiftUI
 import UIKit
 import Combine
 
 struct DashboardView: View {
     
-//    var pieChartData: PieChartData
+    let pieChartData = NutPieChart(pieChartData: PieChartData(data: [1, 2]))
     
     var body: some View {
         
@@ -19,6 +18,7 @@ struct DashboardView: View {
                         .fontWeight(.regular)
                         .font(.custom("Hiragino Sans W3", size: 34))
                         .foregroundColor(.white)
+                                .offset(y: 20)
                         , alignment:
                     .center)
 
@@ -50,7 +50,7 @@ struct DashboardView: View {
                     .frame(width: 425, height: 2)
                 
                 HStack (alignment: .center, spacing: 0, content:{
-                    Text("Hello, Name!")
+                    Text("Hello, Lexi!")
                         .fontWeight(.regular)
                         .font(.custom("Hiragino Sans W3", size: 33))
                         .foregroundColor(.gray)
@@ -60,32 +60,21 @@ struct DashboardView: View {
                 Spacer()
                 })
                 
-//                GeometryReader { geometry in
-//                    self.makePieChart(geometry, pieChartData: self.pieChartData.data)
-//                }
+                pieChartData
+                    .frame(width: 400, height: 400, alignment: .trailing)
+                    .offset(x: 20)
                 
                 Spacer()
                 
             }
         }
     }
-    
-//    func makePieChart(_ geometry: GeometryProxy, pieChartData: [NutData]) -> some View {
-//        return ZStack {
-//            ForEach(0..<pieChartData.count, id: \.self) { index in
-//                PieChartSlide(geometry: geometry, nutData: pieChartData[index])
-//            }
-//        }
-//    }
 }
-
-//pieChartData: PieChartData(data: [1, 2])
     
-    struct ContentView_Previews: PreviewProvider {
+    struct DashboardView_Previews: PreviewProvider {
         static var previews: some View {
             DashboardView()
                 .background(Color(.systemBackground))
                 .edgesIgnoringSafeArea(.top)
         }
     }
-

@@ -22,6 +22,7 @@ struct ChatView: View {
                         .fontWeight(.regular)
                         .font(.custom("Hiragino Sans W3", size: 34))
                         .foregroundColor(.white)
+                                .offset(y: 20)
                         , alignment:
                         .center)
                 

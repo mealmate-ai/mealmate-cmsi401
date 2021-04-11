@@ -5,6 +5,7 @@ import UIKit
 
 struct SettingsView: View {
     
+    //these should be filled based on the user
     @State var name: String = ""
     @State var email: String = ""
     @State var password: String = ""
@@ -19,10 +20,10 @@ struct SettingsView: View {
                     .frame(width: 419, height: 120)
                     .overlay(Text("Settings")
                         .font(.custom("Hiragino Sans W3", size: 34))
-                        .foregroundColor(.white),
+                        .foregroundColor(.white)
+                             .offset(y: 20),
                              alignment:
                         .center)
-//                    .offset(y:15)
                 
                 VStack(alignment: .leading) {
                     Text("NAME")

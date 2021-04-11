@@ -99,7 +99,8 @@ struct RegisterView: View {
                 Spacer()
                 Spacer()
             }
-        }
+        }.navigationBarHidden(true)
+        .navigationBarTitle("")
     }
     
     struct ContentView_Previews: PreviewProvider {
