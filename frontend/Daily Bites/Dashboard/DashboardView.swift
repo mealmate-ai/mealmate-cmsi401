@@ -64,6 +64,8 @@ struct DashboardView: View {
                     .frame(width: 400, height: 400, alignment: .trailing)
                     .offset(x: 20)
                 
+                Text("idk bro")
+                
                 Spacer()
                 
             }

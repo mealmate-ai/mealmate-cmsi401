@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,9 @@
 		221F6448254BE7D400BA8AF2 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F6447254BE7D400BA8AF2 /* RecipesView.swift */; };
 		221F644A254BE83100BA8AF2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F6449254BE83100BA8AF2 /* SettingsView.swift */; };
 		222171B426029F0500865F1A /* NutPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222171B326029F0500865F1A /* NutPieChart.swift */; };
+		222171BD2623CBBE00865F1A /* SiestaUI in Frameworks */ = {isa = PBXBuildFile; productRef = 222171BC2623CBBE00865F1A /* SiestaUI */; };
+		222171BF2623CBBE00865F1A /* Siesta in Frameworks */ = {isa = PBXBuildFile; productRef = 222171BE2623CBBE00865F1A /* Siesta */; };
+		222171C12623CBBE00865F1A /* Siesta_Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 222171C02623CBBE00865F1A /* Siesta_Alamofire */; };
 		229CE60D2601166D00701030 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229CE60C2601166D00701030 /* DataItem.swift */; };
 		229CE612260118FF00701030 /* SlideData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229CE611260118FF00701030 /* SlideData.swift */; };
 		229CE6172601195800701030 /* PieChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229CE6162601195800701030 /* PieChartData.swift */; };
@@ -112,6 +115,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				222171BD2623CBBE00865F1A /* SiestaUI in Frameworks */,
+				222171C12623CBBE00865F1A /* Siesta_Alamofire in Frameworks */,
+				222171BF2623CBBE00865F1A /* Siesta in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +330,11 @@
 			dependencies = (
 			);
 			name = "Daily Bites";
+			packageProductDependencies = (
+				222171BC2623CBBE00865F1A /* SiestaUI */,
+				222171BE2623CBBE00865F1A /* Siesta */,
+				222171C02623CBBE00865F1A /* Siesta_Alamofire */,
+			);
 			productName = "Daily Bites";
 			productReference = 221F6410254A618000BA8AF2 /* Daily Bites.app */;
 			productType = "com.apple.product-type.application";
@@ -396,6 +407,9 @@
 				Base,
 			);
 			mainGroup = 221F6407254A618000BA8AF2;
+			packageReferences = (
+				222171BB2623CBBE00865F1A /* XCRemoteSwiftPackageReference "siesta" */,
+			);
 			productRefGroup = 221F6411254A618000BA8AF2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -794,6 +808,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		222171BB2623CBBE00865F1A /* XCRemoteSwiftPackageReference "siesta" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bustoutsolutions/siesta";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		222171BC2623CBBE00865F1A /* SiestaUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 222171BB2623CBBE00865F1A /* XCRemoteSwiftPackageReference "siesta" */;
+			productName = SiestaUI;
+		};
+		222171BE2623CBBE00865F1A /* Siesta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 222171BB2623CBBE00865F1A /* XCRemoteSwiftPackageReference "siesta" */;
+			productName = Siesta;
+		};
+		222171C02623CBBE00865F1A /* Siesta_Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 222171BB2623CBBE00865F1A /* XCRemoteSwiftPackageReference "siesta" */;
+			productName = Siesta_Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 221F6408254A618000BA8AF2 /* Project object */;
 }
