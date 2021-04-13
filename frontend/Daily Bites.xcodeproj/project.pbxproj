@@ -48,6 +48,7 @@
 		4F47B4D3262500A000156B72 /* MessageTail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F47B4D2262500A000156B72 /* MessageTail.swift */; };
 		4F47B4D8262501B600156B72 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F47B4D7262501B600156B72 /* ChatCell.swift */; };
 		4F47B4DD2625035200156B72 /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F47B4DC2625035200156B72 /* ConversationView.swift */; };
+		4F47B4E22625106700156B72 /* ChatTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F47B4E12625106700156B72 /* ChatTextView.swift */; };
 		4F7A59A32601E4AF0045BBE1 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A59A22601E4AF0045BBE1 /* Recipes.swift */; };
 		4F7A59B62601F2CE0045BBE1 /* RecipeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7A59B52601F2CE0045BBE1 /* RecipeRow.swift */; };
 /* End PBXBuildFile section */
@@ -114,6 +115,7 @@
 		4F47B4D2262500A000156B72 /* MessageTail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTail.swift; sourceTree = "<group>"; };
 		4F47B4D7262501B600156B72 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		4F47B4DC2625035200156B72 /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
+		4F47B4E12625106700156B72 /* ChatTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextView.swift; sourceTree = "<group>"; };
 		4F7A59A22601E4AF0045BBE1 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
 		4F7A59B52601F2CE0045BBE1 /* RecipeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,6 +266,7 @@
 				4F47B4D2262500A000156B72 /* MessageTail.swift */,
 				4F47B4D7262501B600156B72 /* ChatCell.swift */,
 				4F47B4DC2625035200156B72 /* ConversationView.swift */,
+				4F47B4E12625106700156B72 /* ChatTextView.swift */,
 			);
 			path = Chatbot;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				22FB1F7B257AD14800F02730 /* CuisineChoice.swift in Sources */,
 				221F6444254BE77000BA8AF2 /* DashboardView.swift in Sources */,
 				4F47B4D3262500A000156B72 /* MessageTail.swift in Sources */,
+				4F47B4E22625106700156B72 /* ChatTextView.swift in Sources */,
 				222171B426029F0500865F1A /* NutPieChart.swift in Sources */,
 				4F47B4CE2624FE9600156B72 /* Messaging.swift in Sources */,
 				221F6446254BE78D00BA8AF2 /* ChatView.swift in Sources */,
