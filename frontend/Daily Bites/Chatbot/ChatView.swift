@@ -38,7 +38,7 @@ struct ChatView: View {
                         Button(action: {
                             print("?")
                         }) {
-                            Image(systemName: "mic")
+                            Image(systemName: "mic.fill")
                                 .font(.largeTitle)
                                 .foregroundColor(.gray)
                                 .frame(width: 34, height: 30, alignment: .leading)
@@ -54,7 +54,7 @@ struct ChatView: View {
                         Button(action: {
                             print("?")
                         }) {
-                            Image(systemName: "camera")
+                            Image(systemName: "camera.fill")
                                 .font(.largeTitle)
                                 .foregroundColor(.gray)
                                 .frame(width: 50, height: 30, alignment: .leading)
@@ -65,10 +65,14 @@ struct ChatView: View {
                 
                 VStack {
                     HStack(spacing: 20) {
-                        TextField("What did you eat today?", text: $message).font(.subheadline).padding(.leading)
+                        ChatTextView(text: $message).frame(numLines: 1)
+                            .font(.headline)
+                            .padding(.leading)
+                            .multilineTextAlignment(.leading)
                         Spacer()
                         Button(action: {
-                            print("?")
+//                            Messaging(id: 0, message: "\(message)", myMessage: true)
+                            print("\(message)")
                         }) {Image(systemName: "arrow.up.circle.fill").font(.title).foregroundColor(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
                         }
                     }.padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
