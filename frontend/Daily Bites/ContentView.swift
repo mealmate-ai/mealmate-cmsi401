@@ -44,10 +44,19 @@ struct ContentView: View {
                             Text("Settings")
                         }
                 }
+<<<<<<< HEAD
             }
         }
         .navigationBarTitle("")
         .navigationBarHidden(true)
+=======
+                
+                //Spacer()
+                
+            }
+        }.navigationBarHidden(true)
+        .navigationBarTitle("")
+>>>>>>> bree-spring
     }
     
     

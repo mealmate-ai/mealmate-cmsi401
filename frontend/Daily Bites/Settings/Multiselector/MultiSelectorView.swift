@@ -14,7 +14,7 @@ struct MultiSelectionView<Selectable: Identifiable & Hashable>: View {
                         Text(self.optionToString(selectable)).foregroundColor(.gray)
                         Spacer()
                         if self.selected.contains { $0.id == selectable.id } {
-                            Image(systemName: "checkmark").foregroundColor((Color(red: 222 / 255, green: 193 / 255, blue: 255 / 255)))
+                            Image(systemName: "checkmark")
                         }
                     }
                 }.tag(selectable.id)

@@ -37,6 +37,7 @@ struct RegisterView: View {
                 
                 
                 HStack {
+<<<<<<< HEAD
                     
                     if (secured) {
                         SecureField("Password", text: $password)
@@ -55,6 +56,26 @@ struct RegisterView: View {
                     //                            print("Password onCommit")
                     //                        })
                     
+=======
+                    
+                    if (secured) {
+                        SecureField("Password", text: $password)
+                            .padding()
+                            .frame(width: 328, height: 35)
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+                            .padding()
+                    } else {
+                        TextField("Password", text: $password)
+                            .padding()
+                            .frame(width: 328, height: 35)
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
+                            .padding()
+                    }
+                    //                        ({
+                    //                            print("Password onCommit")
+                    //                        })
+                    
+>>>>>>> bree-spring
                     Button(action: {
                         self.secured.toggle()
                     }) {
@@ -99,7 +120,8 @@ struct RegisterView: View {
                 Spacer()
                 Spacer()
             }
-        }
+        }.navigationBarHidden(true)
+        .navigationBarTitle("")
     }
     
     struct ContentView_Previews: PreviewProvider {

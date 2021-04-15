@@ -2,7 +2,7 @@ from services import dal
 from checks import SavedRecipeChecker
 from datetime import datetime
 import uuid
-from dals.models import Recipe, SavedRecipe
+from dals.models import Recipe, SavedRecipe, Account
 
 from apis.spoonacular import spoonacular
 
@@ -38,3 +38,25 @@ def save_recipe(account_id, recipe):
     saved_recipe["date_saved"] = datetime.today().strftime("%Y-%m-%d")
 
     return {'saved_recipe': dal.insert_saved_recipe(saved_recipe)}, 201
+
+
+def get_filtered_recipes(account_id, number):
+    user = dal.get_account_by_id(account_id)
+    preferences = user['diets'].split(',')
+    preferences += user['dietary_restrictions'].split(',')
+    preferences += user['cuisine_preferences'].split(',')
+    print('PREFs ' ,preferences)
+    preferences = {
+        'diet' : user['diets'] if not None else '',
+        'intolerances' : user['dietary_restrictions']  if not None else '',
+        'cuisine' : user['cuisine_preferences'] if not None else '',
+    }
+    return {'recipes': spoonacular.get_tailored_recipes(preferences, number)}, 201
+
+    
+
+
+
+
+
+

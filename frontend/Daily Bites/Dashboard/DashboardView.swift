@@ -1,4 +1,3 @@
-
 import SwiftUI
 import UIKit
 import Combine
@@ -65,6 +64,11 @@ struct DashboardView: View {
                     .frame(width: 400, height: 400, alignment: .trailing)
                     .offset(x: 20)
                 
+<<<<<<< HEAD
+=======
+                Text("idk bro")
+                
+>>>>>>> bree-spring
                 Spacer()
                 
             }
@@ -79,4 +83,7 @@ struct DashboardView: View {
                 .edgesIgnoringSafeArea(.top)
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> bree-spring

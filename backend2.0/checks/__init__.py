@@ -35,17 +35,30 @@ class Checker:
 class AccountChecker(Checker):
     creationFields = {
         "name": [check_arg_is_required, check_string],
-        "email": [check_email],
+        "password": [check_arg_is_required, check_string],
+        "email": [check_arg_is_required, check_email],
         "fbid": [check_string],
+        "diets": [check_valid_diets],
+        "dietary_restrictions": [check_valid_dietary_restrictions],
+        "cuisine_preferences": [check_valid_cuisines],
     }
     updateFields = {
         "name": [check_string],
+        "password": [check_string],
         "email": [check_email],
         "fbid": [check_string],
         "diets": [check_valid_diets],
         "dietary_restrictions": [check_valid_dietary_restrictions],
         "cuisine_preferences": [check_valid_cuisines],
     }
+    loginFields = {
+        "email": [check_email, check_arg_is_required],
+        "password": [check_string, check_arg_is_required]
+    }
+
+    @classmethod
+    def __on_login__(cls, record):
+        return checked(record, cls.loginFields)
 
 
 class MealChecker(Checker):

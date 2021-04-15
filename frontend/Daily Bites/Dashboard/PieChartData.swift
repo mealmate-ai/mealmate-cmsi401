@@ -13,9 +13,15 @@ class PieChartData: ObservableObject {
         for index in 0..<data.count {
             let slide = SlideData()
             slide.data = DataItem(name: "Data name \(index + 1)", value: data[index])
+<<<<<<< HEAD
             
 //            let percentage = data[index] / total * 100
 //            slide.percentage = String(format: "%.1f", percentage)
+=======
+        
+            let percentage = "\(data[index] / total * 100)"
+            slide.percentage = String(format: "%.1f", percentage)
+>>>>>>> bree-spring
             
             slide.startAngle = .degrees(currentAngle)
             let angle = data[index] * 360 / total
