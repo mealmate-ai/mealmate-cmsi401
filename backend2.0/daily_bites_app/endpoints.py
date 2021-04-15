@@ -36,7 +36,18 @@ def parsed_request():
         raise BadArgumentError("Error occured when parsing arguments")
     return content
 
+
 @app.route("/", methods=["GET"])
 @auth.verify_token
 def hello():
     return {"message": "Welcome to the Daily Bites Flask Server!"}, 200
+
+
+@app.route("/signup", methods=["POST"])
+def signup():
+    return account_service.signup(parsed_request())
+
+
+@app.route("/login", methods=["POST"])
+def login():
+    return account_service.login(parsed_request())

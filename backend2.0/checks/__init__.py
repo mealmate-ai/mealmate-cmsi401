@@ -41,6 +41,7 @@ class AccountChecker(Checker):
         "diets": [check_valid_diets],
         "dietary_restrictions": [check_valid_dietary_restrictions],
         "cuisine_preferences": [check_valid_cuisines],
+        "goal": [check_string]
     }
     updateFields = {
         "name": [check_string],
@@ -50,6 +51,7 @@ class AccountChecker(Checker):
         "diets": [check_valid_diets],
         "dietary_restrictions": [check_valid_dietary_restrictions],
         "cuisine_preferences": [check_valid_cuisines],
+        "goal": [check_string]
     }
     loginFields = {
         "email": [check_email, check_arg_is_required],

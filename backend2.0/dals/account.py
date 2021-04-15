@@ -1,5 +1,6 @@
 from sqlalchemy.exc import IntegrityError
 from dals.models import db, Account, Meal
+import datetime
 
 
 def insert_account(account_args):
@@ -7,7 +8,7 @@ def insert_account(account_args):
         inserted_account = Account(**account_args)
         db.session.add(inserted_account)
         db.session.commit()
-        return inserted_account.full_view()
+        return inserted_account
     except IntegrityError:
         db.session.rollback()
         return None
@@ -28,6 +29,13 @@ def update_account(account_id, account_patch):
     db.session.commit()
     return account.full_view()
 
+def update_login_date(account):
+    try: 
+        setattr(account, 'most_recent_login', datetime.datetime.today().strftime("%Y-%m-%d %H:%M:%S"))
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        raise
 
 def delete_account(account_id):
     account = Account.get_account_by_id(account_id)

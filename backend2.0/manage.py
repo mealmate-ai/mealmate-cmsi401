@@ -5,7 +5,7 @@ import json
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 from sqlalchemy import text
-from daily_bites_app.routes import app
+from daily_bites_app.endpoints import app
 from dals import db
 
 migrate = Migrate(app, db)

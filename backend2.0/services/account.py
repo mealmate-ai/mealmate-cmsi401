@@ -13,12 +13,13 @@ def signup(account_info):
     if accountExists:
         return {"message": f"This email already exists: {account['email']}"}, 409
     account["id"] = str(uuid.uuid4())
-    account["date_created"] = datetime.today().strftime("%Y-%m-%d")
+    account["date_created"] = datetime.today().strftime("%Y-%m-%d %H:%M:%S")
     account["password"] = _encrypt(account["password"])
+    account["most_recent_login"] = datetime.today().strftime("%Y-%m-%d %H:%M:%S")
 
-    token = account.encode_auth_token(account.id)
-
-    return {"account": dal.insert_account(account), "token": token}, 201
+    new_account = dal.insert_account(account)
+    token = new_account.encode_auth_token(new_account.id)
+    return {"account": new_account.full_view(), "token": token}, 201
 
 def login(account_info):
     checkedAccount = AccountChecker.__on_login__(account_info)
@@ -29,6 +30,7 @@ def login(account_info):
     if not _verify(checkedAccount["password"], account.password):
         return {"message": "Incorrect password provided, please try again"}, 401
     
+    dal.update_login_date(account)
     token = account.encode_auth_token(account.id)
     return {"message": account.full_view(), "token": token}, 201
 
