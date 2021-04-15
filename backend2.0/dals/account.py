@@ -1,5 +1,5 @@
 from sqlalchemy.exc import IntegrityError
-from dals.models import db, Account
+from dals.models import db, Account, Meal
 
 
 def insert_account(account_args):
@@ -30,8 +30,14 @@ def update_account(account_id, account_patch):
 
 
 def delete_account(account_id):
-    # NEED TO DELETE REFERENCES TO ACCOUNT FIRST ! 
     account = Account.get_account_by_id(account_id)
+    if len(account) < 1:
+        return 'Invalid account_id provided'
+
+    # try:
+    #     meals = Meal.get_meal_by_id()
+    # # NEED TO DELETE REFERENCES TO ACCOUNT FIRST ! 
+    
     db.session.delete(account)
     db.session.commit()
     return True

@@ -15,7 +15,10 @@ def signup(account_info):
     account["id"] = str(uuid.uuid4())
     account["date_created"] = datetime.today().strftime("%Y-%m-%d")
     account["password"] = _encrypt(account["password"])
-    return {"account": dal.insert_account(account)}, 201
+
+    token = account.encode_auth_token(account.id)
+
+    return {"account": dal.insert_account(account), "token": token}, 201
 
 def login(account_info):
     checkedAccount = AccountChecker.__on_login__(account_info)
@@ -48,8 +51,9 @@ def get_account(account_id):
     return None if account is None else account.full_view()
 
 
-def update_account(account_id, patch_content):
+def update_account(patch_content):
     patch = AccountChecker.__on_update__(patch_content)
+#    FIND TOKEN
     if not patch:
         return {"message": "No fields to update from arguments"}, 400
     updated_account = dal.update_account(account_id, patch)
