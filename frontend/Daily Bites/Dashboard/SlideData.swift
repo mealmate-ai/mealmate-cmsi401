@@ -8,8 +8,6 @@ class SlideData: Identifiable, ObservableObject {
     var annotation: String! = ""
     var startAngle: Angle! = .degrees(0)
     var endAngle: Angle! = .degrees(0)
-<<<<<<< HEAD
-=======
     var percentage = ""
->>>>>>> bree-spring
+
 }

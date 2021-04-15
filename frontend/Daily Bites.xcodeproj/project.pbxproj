@@ -19,13 +19,6 @@
 		221F6446254BE78D00BA8AF2 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F6445254BE78D00BA8AF2 /* ChatView.swift */; };
 		221F6448254BE7D400BA8AF2 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F6447254BE7D400BA8AF2 /* RecipesView.swift */; };
 		221F644A254BE83100BA8AF2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221F6449254BE83100BA8AF2 /* SettingsView.swift */; };
-<<<<<<< HEAD
-		222171872602696E00865F1A /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222171862602696E00865F1A /* DataItem.swift */; };
-		2221718C2602698F00865F1A /* SlideData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2221718B2602698F00865F1A /* SlideData.swift */; };
-		22217191260269BC00865F1A /* PieChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22217190260269BC00865F1A /* PieChartData.swift */; };
-		2221719626026A0300865F1A /* NutPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2221719526026A0300865F1A /* NutPieChart.swift */; };
-		2221719B260278CE00865F1A /* PieChartSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2221719A260278CE00865F1A /* PieChartSlide.swift */; };
-=======
 		222171B426029F0500865F1A /* NutPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222171B326029F0500865F1A /* NutPieChart.swift */; };
 		222171BD2623CBBE00865F1A /* SiestaUI in Frameworks */ = {isa = PBXBuildFile; productRef = 222171BC2623CBBE00865F1A /* SiestaUI */; };
 		222171BF2623CBBE00865F1A /* Siesta in Frameworks */ = {isa = PBXBuildFile; productRef = 222171BE2623CBBE00865F1A /* Siesta */; };
@@ -34,12 +27,11 @@
 		229CE612260118FF00701030 /* SlideData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229CE611260118FF00701030 /* SlideData.swift */; };
 		229CE6172601195800701030 /* PieChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229CE6162601195800701030 /* PieChartData.swift */; };
 		229CE61C26011FE200701030 /* PieChartSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229CE61B26011FE200701030 /* PieChartSlide.swift */; };
->>>>>>> bree-spring
 		229F63D3258730E1006398E2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F63D2258730E1006398E2 /* LoginView.swift */; };
 		229F63D52589CAF3006398E2 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F63D42589CAF3006398E2 /* LoginPageView.swift */; };
 		229F63D72589D412006398E2 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F63D62589D412006398E2 /* RegisterView.swift */; };
 		229F63DC258AA314006398E2 /* NutPrefView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F63DB258AA314006398E2 /* NutPrefView.swift */; };
-		22FB1F6B2563905A00F02730 /* RecipeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F6A2563905A00F02730 /* RecipeDetails.swift */; };
+		22BB51EA2628AE6B00F78086 /* RecipeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB51E92628AE6B00F78086 /* RecipeDetails.swift */; };
 		22FB1F6D2573784100F02730 /* DateRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F6C2573784100F02730 /* DateRangeView.swift */; };
 		22FB1F732576273D00F02730 /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F722576273D00F02730 /* BarcodeReaderViewController.swift */; };
 		22FB1F79257AD10E00F02730 /* Cuisine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB1F78257AD10E00F02730 /* Cuisine.swift */; };
@@ -97,24 +89,16 @@
 		221F6445254BE78D00BA8AF2 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		221F6447254BE7D400BA8AF2 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		221F6449254BE83100BA8AF2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		222171862602696E00865F1A /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
-		2221718B2602698F00865F1A /* SlideData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideData.swift; sourceTree = "<group>"; };
-		22217190260269BC00865F1A /* PieChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartData.swift; sourceTree = "<group>"; };
-		2221719526026A0300865F1A /* NutPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutPieChart.swift; sourceTree = "<group>"; };
-		2221719A260278CE00865F1A /* PieChartSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartSlide.swift; sourceTree = "<group>"; };
-=======
 		222171B326029F0500865F1A /* NutPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutPieChart.swift; sourceTree = "<group>"; };
 		229CE60C2601166D00701030 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		229CE611260118FF00701030 /* SlideData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideData.swift; sourceTree = "<group>"; };
 		229CE6162601195800701030 /* PieChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartData.swift; sourceTree = "<group>"; };
 		229CE61B26011FE200701030 /* PieChartSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartSlide.swift; sourceTree = "<group>"; };
->>>>>>> bree-spring
 		229F63D2258730E1006398E2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		229F63D42589CAF3006398E2 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		229F63D62589D412006398E2 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		229F63DB258AA314006398E2 /* NutPrefView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutPrefView.swift; sourceTree = "<group>"; };
-		22FB1F6A2563905A00F02730 /* RecipeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetails.swift; sourceTree = "<group>"; };
+		22BB51E92628AE6B00F78086 /* RecipeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetails.swift; sourceTree = "<group>"; };
 		22FB1F6C2573784100F02730 /* DateRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangeView.swift; sourceTree = "<group>"; };
 		22FB1F722576273D00F02730 /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		22FB1F78257AD10E00F02730 /* Cuisine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuisine.swift; sourceTree = "<group>"; };
@@ -264,19 +248,11 @@
 			children = (
 				221F6443254BE77000BA8AF2 /* DashboardView.swift */,
 				22FB1F6C2573784100F02730 /* DateRangeView.swift */,
-<<<<<<< HEAD
-				222171862602696E00865F1A /* DataItem.swift */,
-				2221718B2602698F00865F1A /* SlideData.swift */,
-				22217190260269BC00865F1A /* PieChartData.swift */,
-				2221719A260278CE00865F1A /* PieChartSlide.swift */,
-				2221719526026A0300865F1A /* NutPieChart.swift */,
-=======
 				229CE60C2601166D00701030 /* DataItem.swift */,
 				229CE611260118FF00701030 /* SlideData.swift */,
 				229CE6162601195800701030 /* PieChartData.swift */,
 				229CE61B26011FE200701030 /* PieChartSlide.swift */,
 				222171B326029F0500865F1A /* NutPieChart.swift */,
->>>>>>> bree-spring
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -299,9 +275,9 @@
 			isa = PBXGroup;
 			children = (
 				221F6447254BE7D400BA8AF2 /* RecipesView.swift */,
-				22FB1F6A2563905A00F02730 /* RecipeDetails.swift */,
 				4F7A59A22601E4AF0045BBE1 /* Recipes.swift */,
 				4F7A59B52601F2CE0045BBE1 /* RecipeRow.swift */,
+				22BB51E92628AE6B00F78086 /* RecipeDetails.swift */,
 			);
 			path = RecipeRecommender;
 			sourceTree = "<group>";
@@ -506,40 +482,28 @@
 				4F47B4CE2624FE9600156B72 /* Messaging.swift in Sources */,
 				221F6446254BE78D00BA8AF2 /* ChatView.swift in Sources */,
 				22FB1F7D257AD1A700F02730 /* MultiSelector.swift in Sources */,
-<<<<<<< HEAD
-				2221718C2602698F00865F1A /* SlideData.swift in Sources */,
-=======
 				229CE6172601195800701030 /* PieChartData.swift in Sources */,
 				4F47B4DD2625035200156B72 /* ConversationView.swift in Sources */,
 				229CE612260118FF00701030 /* SlideData.swift in Sources */,
->>>>>>> bree-spring
 				229F63D72589D412006398E2 /* RegisterView.swift in Sources */,
 				4F7A59A32601E4AF0045BBE1 /* Recipes.swift in Sources */,
 				22FB1F83257AE63E00F02730 /* Diet.swift in Sources */,
-				2221719B260278CE00865F1A /* PieChartSlide.swift in Sources */,
 				221F6416254A618000BA8AF2 /* SceneDelegate.swift in Sources */,
-				22217191260269BC00865F1A /* PieChartData.swift in Sources */,
 				22FB1F912584261B00F02730 /* NutGoalChoice.swift in Sources */,
 				22FB1F732576273D00F02730 /* BarcodeReaderViewController.swift in Sources */,
 				22FB1F7F257AD1D700F02730 /* MultiSelectorView.swift in Sources */,
+				22BB51EA2628AE6B00F78086 /* RecipeDetails.swift in Sources */,
 				229F63DC258AA314006398E2 /* NutPrefView.swift in Sources */,
-				22FB1F6B2563905A00F02730 /* RecipeDetails.swift in Sources */,
-<<<<<<< HEAD
-				229F63D3258730E1006398E2 /* LoginView.swift in Sources */,
-=======
 				229CE61C26011FE200701030 /* PieChartSlide.swift in Sources */,
 				229F63D3258730E1006398E2 /* LoginView.swift in Sources */,
 				229CE60D2601166D00701030 /* DataItem.swift in Sources */,
->>>>>>> bree-spring
 				221F6448254BE7D400BA8AF2 /* RecipesView.swift in Sources */,
 				22FB1F85257AE6B300F02730 /* DietChoice.swift in Sources */,
-				222171872602696E00865F1A /* DataItem.swift in Sources */,
 				22FB1F79257AD10E00F02730 /* Cuisine.swift in Sources */,
 				229F63D52589CAF3006398E2 /* LoginPageView.swift in Sources */,
 				22FB1F6D2573784100F02730 /* DateRangeView.swift in Sources */,
 				4F7A59B62601F2CE0045BBE1 /* RecipeRow.swift in Sources */,
 				221F6418254A618000BA8AF2 /* ContentView.swift in Sources */,
-				2221719626026A0300865F1A /* NutPieChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

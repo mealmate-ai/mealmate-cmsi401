@@ -20,12 +20,8 @@ struct SettingsView: View {
                     .frame(width: 419, height: 120)
                     .overlay(Text("Settings")
                         .font(.custom("Hiragino Sans W3", size: 34))
-<<<<<<< HEAD
-                        .foregroundColor(.white),
-=======
                         .foregroundColor(.white)
                              .offset(y: 20),
->>>>>>> bree-spring
                              alignment:
                         .center)
                 

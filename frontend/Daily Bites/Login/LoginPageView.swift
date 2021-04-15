@@ -22,20 +22,6 @@ struct LoginPageView: View {
                 
                 Spacer()
                 
-<<<<<<< HEAD
-                TextField("Email", text: $email, onEditingChanged: { (changed) in
-                    print("Email onEditingChanged - \(changed)")
-                })
-                {
-                    print("Email onCommit")
-                }
-                .frame(width: 340, height: 4)
-                .padding()
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
-                
-                Text("\(email)")
-                
-=======
                 //                onEditingChanged: { (changed) in
                 //                    print("Email onEditingChanged - \(changed)")
 
@@ -43,7 +29,6 @@ struct LoginPageView: View {
                     .frame(width: 340, height: 4)
                     .padding()
                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
->>>>>>> bree-spring
                 
                 HStack {
                     
