@@ -1,17 +1,17 @@
-//import SwiftUI
-//import UIKit
-//
+import SwiftUI
+import UIKit
+
 //protocol DateRangeSpecifierViewDelegate: class {
 //    func dateRangeSpecifier(_ dateRangeSpecifier: DateRangeSpecifierView, didChooseDateRange dateRange: Int)
 //    func dateRangeSpecifier(_ dateRangeSpecifier: DateRangeSpecifierView, didChooseDate date: Date)
 //}
-//
-//enum DateRange: Int {
-//    case singleDay = 0
-//    case week = 7
-//    case thirtyDays = 30
-//}
-//
+
+enum DateRange: Int {
+    case singleDay = 0
+    case week = 7
+    case thirtyDays = 30
+}
+
 //class DateRangeSpecifierView: UIView {
 //
 //    // MARK: - Properties -
