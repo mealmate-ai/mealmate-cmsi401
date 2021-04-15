@@ -5,6 +5,7 @@ struct RecipesView: View {
     
     //    @State var buttonTapped: Bool = false
     //    var recipes: [Recipes] = []
+    @State var recipes: [Recipes] = []
     
     var body: some View {
         //DESIGN ---------------------------------
@@ -44,16 +45,22 @@ struct RecipesView: View {
                     )
                 }
                 
-                //  NavigationView {
+
+                // List(recipes) { recipes in
+                // Text(recipes.title)
+                
+                
                 List(recipes) { recipe in
-                    NavigationLink(destination: RecipeDetails(recipe: recipe)) {
+                    NavigationLink(destination: RecipeDetails(recipes: [])) {
                         RecipeRow(recipe: recipe)
                     }
                 }
-                //            }
-                //            .navigationBarTitle("")
-                //            .navigationBarHidden(true)
-                //            .padding(10)
+                
+//                .onAppear(){
+//                    Api().getRecipeDetails { (recipes) in
+//                        self.recipes = recipes
+//                    }
+//                }
                 
                 Button(action: { print("Generate Recipes") }) {
                     Text("GENERATE NEW RECIPES")
@@ -70,7 +77,6 @@ struct RecipesView: View {
             }
             .navigationBarTitle("")
             .navigationBarHidden(true)
-            
             
             Spacer()
         }

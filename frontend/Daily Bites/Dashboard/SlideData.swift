@@ -9,5 +9,5 @@ class SlideData: Identifiable, ObservableObject {
     var startAngle: Angle! = .degrees(0)
     var endAngle: Angle! = .degrees(0)
     var percentage = ""
-
+//make percentage grams that is an int
 }

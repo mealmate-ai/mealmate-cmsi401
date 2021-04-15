@@ -1,4 +1,3 @@
-
 import SwiftUI
 import UIKit
 
@@ -17,7 +16,11 @@ struct ChatView: View {
                 
                 RoundedRectangle(cornerRadius: 5.0)
                     .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
+<<<<<<< Updated upstream
                     .frame(width: 410, height: 120)
+=======
+                    .frame(width: 420, height: 120)
+>>>>>>> Stashed changes
                     .overlay(Text("Chat")
                         .fontWeight(.regular)
                         .font(.custom("Hiragino Sans W3", size: 34))

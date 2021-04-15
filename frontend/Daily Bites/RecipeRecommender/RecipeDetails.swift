@@ -3,7 +3,14 @@ import UIKit
 
 struct RecipeDetails: View {
 
-    var recipe: Recipes
+  //  var recipe: Recipes
+    @State var recipes: [Recipes] = []
+    
+//        .onAppear(){
+//            Api().getRecipeDetails { (recipes) in
+//                self.recipes = recipes
+//            }
+//        }
 
     var body: some View {
         VStack {
@@ -27,7 +34,7 @@ struct RecipeDetails: View {
                     .frame(width: 414, height: 100)
                 
                 HStack {
-                    Image(recipe.image)
+                    Image(recipes[0].image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 145, height: 145)
@@ -36,11 +43,11 @@ struct RecipeDetails: View {
                         .shadow(radius: 3)
                     Spacer()
                     VStack(alignment: .leading) {
-                        Text(recipe.name)
+                        Text(recipes[1].name)
                             .font(.custom("Hiragino Sans W3", size: 25))
                             .fontWeight(.heavy)
                             .foregroundColor(.black)
-                        Text("Cuisine: " + recipe.cuisine)
+                        Text("Cuisine: " + recipes[2].cuisine)
                             .font(.custom("Hiragino Sans W3", size: 20))
                             .foregroundColor(.black)
                     }
@@ -55,7 +62,7 @@ struct RecipeDetails: View {
                         .font(.custom("Hiragino Sans W3", size: 20))
                         .foregroundColor(.gray)
                         .fontWeight(.medium)
-                    Text(recipe.ingredients)
+                    Text(recipes[3].ingredients)
                         .font(.custom("Hiragino Sans W3", size: 15))
                         .foregroundColor(.gray)
                         .lineLimit(10)
@@ -69,7 +76,7 @@ struct RecipeDetails: View {
                         .font(.custom("Hiragino Sans W3", size: 20))
                         .foregroundColor(.gray)
                         .fontWeight(.medium)
-                    Text(recipe.insructions)
+                    Text(recipes[4].insructions)
                         .font(.custom("Hiragino Sans W3", size: 15))
                         .foregroundColor(.gray)
                 }.padding(15)
@@ -82,7 +89,7 @@ struct RecipeDetails: View {
 }
     struct RecipeDetails_Previews: PreviewProvider {
         static var previews: some View {
-            RecipeDetails(recipe: recipes[4])
+            RecipeDetails(recipes: [])
         }
 }
 
