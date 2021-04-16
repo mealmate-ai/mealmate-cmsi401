@@ -9,14 +9,15 @@
 import Foundation
 import SwiftUI
 
-struct Messaging: Identifiable {
+struct Messaging: Identifiable, Equatable {
     var id = UUID()
+    var idx: Int
     var message: String
     var myMessage: Bool
 }
 
 var AllMessages = [
-    Messaging(message: "hello there!!", myMessage: false),
-    Messaging(message: "hello there!!", myMessage: true),
-    Messaging(message: "hello there!!", myMessage: true),
+    Messaging(idx: 0, message: "hello there!!", myMessage: false),
+    Messaging(idx: 1, message: "hello there!!", myMessage: true),
+    Messaging(idx: 2, message: "hello there!!", myMessage: true),
 ]

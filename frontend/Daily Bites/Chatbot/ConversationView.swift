@@ -9,19 +9,36 @@
 import SwiftUI
 
 struct ConversationView: View {
+    
+    @State var m: String = ""
+    @Binding var messages: [Messaging]
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack {
-                ForEach(AllMessages) { chat in
-                    ChatCell(data: chat)
+            if #available(iOS 14.0, *) {
+                ScrollViewReader { scrollView in
+                    VStack {
+                        ForEach(messages) { message in
+                            ChatCell(data: message)
+                        }
+                    }.onChange(of: messages, perform: { value in
+                        DispatchQueue.main.async {
+                            scrollView.scrollTo(messages[messages.endIndex-1].id, anchor: .bottom)
+                        }
+                    })
                 }
+            } else {
+                // Fallback on earlier versions
             }
         }.padding(.horizontal, 15)
     }
-}
-
-struct ConversationView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConversationView()
+    
+    func addItem(mess: String) {
+        m = mess
+        let newIndex = messages.count
+        let message = Messaging(idx:newIndex, message: mess, myMessage: true)
+        messages.append(message)
+        print(messages)
     }
+ 
 }

@@ -4,6 +4,7 @@ import UIKit
 struct ChatView: View {
         
     @State var message: String = ""
+    @State var messages: [Messaging] = AllMessages
     
     //    @Binding var text: String
     //    @State private var isEditing = false
@@ -16,11 +17,7 @@ struct ChatView: View {
                 
                 RoundedRectangle(cornerRadius: 5.0)
                     .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
-<<<<<<< Updated upstream
                     .frame(width: 410, height: 120)
-=======
-                    .frame(width: 420, height: 120)
->>>>>>> Stashed changes
                     .overlay(Text("Chat")
                         .fontWeight(.regular)
                         .font(.custom("Hiragino Sans W3", size: 34))
@@ -31,7 +28,7 @@ struct ChatView: View {
                 
                 Spacer()
                 
-                ConversationView()
+                ConversationView(messages: self.$messages)
                 
                 Spacer()
                 
@@ -74,9 +71,12 @@ struct ChatView: View {
                             .multilineTextAlignment(.leading)
                         Spacer()
                         Button(action: {
-//                            Messaging(id: 0, message: "\(message)", myMessage: true)
-                            print("\(message)")
-                        }) {Image(systemName: "arrow.up.circle.fill").font(.title).foregroundColor(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
+                            let newIndex = messages.count
+                            let mess = Messaging(idx:newIndex, message: "\(message)", myMessage: true)
+                            messages.append(mess)
+                            message = ""
+                        }) {
+                            Image(systemName: "arrow.up.circle.fill").font(.title).foregroundColor(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
                         }
                     }.padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
                     .foregroundColor(.secondary).background(Color.white).clipShape(Capsule()).shadow(radius: 1).padding()
