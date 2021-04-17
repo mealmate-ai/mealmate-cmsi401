@@ -3,51 +3,51 @@ import UIKit
 
 struct RecipeDetails: View {
 
-  //  var recipe: Recipes
-    @State var recipes: [Recipes] = []
+    @State var recipe: Recipes
+    @State var isFavorite =  false
     
-//        .onAppear(){
-//            Api().getRecipeDetails { (recipes) in
-//                self.recipes = recipes
-//            }
-//        }
-
     var body: some View {
+
         VStack {
-            
+        
             HStack {
                 Spacer()
                 Button(action: {
                     print("You liked this recipe")
-                    //The button can change from filled to unfilled
-                    //based on the Bool value of recipe.liked
+                    isFavorite = !self.isFavorite
                 }) {
-                    Image(systemName: "heart")
+                    if isFavorite {
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(.red)
+                    } else {
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(.gray)
+                    }
                 }
                 .font(.system(size:30))
                 .padding(.trailing, 30)
             }
-            
+        
             ZStack {
                 RoundedRectangle(cornerRadius: 5.0)
                     .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
                     .frame(width: 414, height: 100)
-                
+        
                 HStack {
-                    Image(recipes[0].image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 145, height: 145)
-                        .clipped()
-                        .cornerRadius(150)
-                        .shadow(radius: 3)
+//                    Image(recipe.title)
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fill)
+//                        .frame(width: 145, height: 145)
+//                        .clipped()
+//                        .cornerRadius(150)
+//                        .shadow(radius: 3)
                     Spacer()
                     VStack(alignment: .leading) {
-                        Text(recipes[1].name)
+                        Text(recipe.title)
                             .font(.custom("Hiragino Sans W3", size: 25))
                             .fontWeight(.heavy)
                             .foregroundColor(.black)
-                        Text("Cuisine: " + recipes[2].cuisine)
+                        Text("Cuisine: " + recipe.title)
                             .font(.custom("Hiragino Sans W3", size: 20))
                             .foregroundColor(.black)
                     }
@@ -55,41 +55,44 @@ struct RecipeDetails: View {
                 .padding(.leading, 35)
                 .padding(.trailing, 35)
             }
-            
+        
             HStack {
                 VStack(alignment: .leading, spacing: 15) {
                     Text("Ingredients")
                         .font(.custom("Hiragino Sans W3", size: 20))
                         .foregroundColor(.gray)
                         .fontWeight(.medium)
-                    Text(recipes[3].ingredients)
+                    Text(recipe.body)
                         .font(.custom("Hiragino Sans W3", size: 15))
                         .foregroundColor(.gray)
                         .lineLimit(10)
                 }.padding(15)
             }
-            
-            
+        
+        
             HStack {
                 VStack(alignment: .leading, spacing: 15) {
                     Text("Instructions")
                         .font(.custom("Hiragino Sans W3", size: 20))
                         .foregroundColor(.gray)
                         .fontWeight(.medium)
-                    Text(recipes[4].insructions)
+                    Text(recipe.body)
                         .font(.custom("Hiragino Sans W3", size: 15))
                         .foregroundColor(.gray)
                 }.padding(15)
             }
-           
+        
             Spacer()
-            
+        
         }
+
     }
 }
-    struct RecipeDetails_Previews: PreviewProvider {
-        static var previews: some View {
-            RecipeDetails(recipes: [])
-        }
-}
+
+//struct RecipeDetails_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecipeDetails(recipe: <#Recipes#>)
+//    }
+//}
+//
 

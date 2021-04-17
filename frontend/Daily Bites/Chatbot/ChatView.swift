@@ -10,30 +10,29 @@ struct ChatView: View {
     //    @State private var isEditing = false
     
     var body: some View {
-        
-        //DESIGN ---------------------------------
-        ZStack{
-            VStack {
+            
+        VStack {
                 
                 RoundedRectangle(cornerRadius: 5.0)
                     .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
-                    .frame(width: 410, height: 120)
+                    .edgesIgnoringSafeArea(.top)
+                    .frame(width: 410, height: 50)
                     .overlay(Text("Chat")
                         .fontWeight(.regular)
                         .font(.custom("Hiragino Sans W3", size: 34))
                         .foregroundColor(.white)
-                                .offset(y: 20)
+                                .offset(y: -20)
                         , alignment:
                         .center)
                 
                 Spacer()
                 
-                ConversationView(messages: self.$messages)
+                ConversationView(messages: $messages)
                 
                 Spacer()
                 
-                VStack(alignment: .leading){
-                    HStack(alignment: .bottom){
+                VStack(alignment: .leading) {
+                    HStack(alignment: .bottom) {
                         Spacer()
                         Button(action: {
                             print("?")
@@ -81,18 +80,12 @@ struct ChatView: View {
                     }.padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
                     .foregroundColor(.secondary).background(Color.white).clipShape(Capsule()).shadow(radius: 1).padding()
                 }.frame(height:70).background(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
-            
-            
-            }
-            
-            Spacer()
         }
     }
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ChatView()
-                .background(Color(.systemBackground))
-                .edgesIgnoringSafeArea(.top)
-        }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChatView()
     }
 }

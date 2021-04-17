@@ -6,25 +6,28 @@
 //  Copyright © 2021 Lexi Weingardt. All rights reserved.
 //
 
-import Foundation
+//import Foundation
 import SwiftUI
 
-struct Recipes: Decodable, Identifiable {
-    let image: String
-    let name: String
-    let cuisine: String
-    let liked: Bool
-    //let nutrients: String
-    let ingredients: String
-    let insructions: String
-    var id = UUID()
+struct Recipes: Codable, Identifiable {
+    let id = UUID()
+    var title: String
+    var body: String
+//    let image: String
+//    let cuisine: String
+//    let liked: Bool
+//    //let nutrients: String
+//    let ingredients: String
+//    let insructions: String
 }
 
 class Api{
     func getRecipeDetails(completion: @escaping ([Recipes]) -> ()) {
-       guard let url = URL(string: "http://ec2-3-16-149-133.us-east-2.compute.amazonaws.com:8080/get-recipes/") else {return}
-        
-        URLSession.shared.dataTask(with: url) { (data, _, _) in let recipeDetails = try! JSONDecoder().decode([Recipes].self, from:data!)
+       guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else {return}
+//        http://ec2-3-16-149-133.us-east-2.compute.amazonaws.com:8080/get-recipes/
+        URLSession.shared.dataTask(with: url) { (data, _, _) in
+            print(data!)
+            let recipeDetails = try! JSONDecoder().decode([Recipes].self, from:data!)
             
             DispatchQueue.main.async {
                 completion(recipeDetails)
