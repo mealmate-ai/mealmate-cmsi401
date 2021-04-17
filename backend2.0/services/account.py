@@ -1,10 +1,12 @@
 from services import dal
 from checks import AccountChecker
-from datetime import datetime
+from datetime import datetime, timedelta
 import uuid
 from dals.models import Account
 from services.auth import verify_token
 from passlib.hash import pbkdf2_sha256
+import jwt
+import os
 
 
 def signup(account_info):
@@ -53,9 +55,8 @@ def get_account(account_id):
     return None if account is None else account.full_view()
 
 
-def update_account(patch_content):
+def update_account(account_id, patch_content):
     patch = AccountChecker.__on_update__(patch_content)
-#    FIND TOKEN
     if not patch:
         return {"message": "No fields to update from arguments"}, 400
     updated_account = dal.update_account(account_id, patch)
@@ -66,8 +67,30 @@ def remove_account(account_id):
     return {"deleted": dal.delete_account(account_id)}, 200
 
 
+def generate_token(account_id):
+    token = ''
+    try:
+        payload = {
+            'exp': datetime.utcnow() + timedelta(minutes=15),
+            'iat': datetime.utcnow(),
+            'sub': account_id
+        }
+        token = jwt.encode(payload, os.environ.get('SECRET_KEY'), algorithm='HS256')
+        print('token', token)
+    except Exception as e:
+        return e, 400
+    return {"token": token}, 200
+
+
+def logout(account_id):
+    now = datetime.today().strftime("%Y-%m-%d %H:%M:%S")
+    dal.update_last_logout(account_id, now)
+    return {'message': 'Logged out'}, 200
+
+
 def _encrypt(password_input):
     return pbkdf2_sha256.hash(password_input)
+
 
 def _verify(password, accountHash):
     return pbkdf2_sha256.verify(password, accountHash)

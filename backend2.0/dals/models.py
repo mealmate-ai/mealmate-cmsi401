@@ -64,6 +64,7 @@ class Account(db.Model, ReturnHelper):
     cuisine_preferences = db.Column(db.Text)
     goal = db.Column(db.Text)
     most_recent_login = db.Column(db.DateTime)
+    last_logout = db.Column(db.DateTime)
 
     min_fields = {"id"}
     search_result_fields = {*min_fields, "name", "email", "date_created"}

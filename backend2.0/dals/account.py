@@ -1,6 +1,6 @@
 from sqlalchemy.exc import IntegrityError
 from dals.models import db, Account, Meal
-import datetime
+from datetime import datetime
 
 
 def insert_account(account_args):
@@ -31,7 +31,7 @@ def update_account(account_id, account_patch):
 
 def update_login_date(account):
     try: 
-        setattr(account, 'most_recent_login', datetime.datetime.today().strftime("%Y-%m-%d %H:%M:%S"))
+        setattr(account, 'most_recent_login', datetime.today().strftime("%Y-%m-%d %H:%M:%S"))
         db.session.commit()
     except Exception as e:
         db.session.rollback()
@@ -41,11 +41,19 @@ def delete_account(account_id):
     account = Account.get_account_by_id(account_id)
     if len(account) < 1:
         return 'Invalid account_id provided'
-
-    # try:
-    #     meals = Meal.get_meal_by_id()
-    # # NEED TO DELETE REFERENCES TO ACCOUNT FIRST ! 
-    
     db.session.delete(account)
     db.session.commit()
     return True
+
+def get_last_logout(account_id):
+    account = Account.get_account_by_id(account_id)
+    return None if account is None else account.last_logout
+
+def update_last_logout(account_id, time):
+    account = Account.get_account_by_id(account_id)
+    try:
+        setattr(account, 'last_logout', time)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        raise
