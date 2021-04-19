@@ -63,8 +63,7 @@ struct DashboardView: View {
                 pieChartData
                     .frame(width: 400, height: 400, alignment: .trailing)
                     .offset(x: 20)
-                
-                Text("idk bro")
+                    .offset(y: 40)
                 
                 Spacer()
                 

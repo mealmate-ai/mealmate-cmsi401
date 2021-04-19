@@ -11,9 +11,9 @@ extension CGFloat {
 extension Color {
     static func random() -> Color {
         return Color(
-            red:   .random(in: 0...0.69),
-            green: .random(in: 0...0.39),
-            blue:  .random(in: 0.58...1))
+            red:   .random(in: 0...0.68),
+            green: .random(in: 0.56...0.85),
+            blue:  .random(in: 0.90...1))
     }
 }
 

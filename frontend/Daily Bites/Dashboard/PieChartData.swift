@@ -11,8 +11,10 @@ class PieChartData: ObservableObject {
         let total = data.reduce(0.0, +)
         
         for index in 0..<data.count {
-            let slide = SlideData()
-            slide.data = DataItem(name: "Data name \(index + 1)", value: data[index])
+            let slide = SlideData(startAngle: .degrees(0), endAngle: .degrees(180))
+            var dataItem = DataItem(name: "Data name \(index + 1)", value: data[index])
+            dataItem = DataItem(name: "grams", value: 3)
+            slide.data = dataItem
         
             let percentage = "\(data[index] / total * 100)"
             slide.percentage = String(format: "%.1f", percentage)

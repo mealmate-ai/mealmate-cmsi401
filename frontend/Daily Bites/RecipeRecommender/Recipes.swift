@@ -10,7 +10,7 @@
 import SwiftUI
 
 struct Recipes: Codable, Identifiable {
-    let id = UUID()
+    var id = UUID()
     var title: String
     var body: String
 //    let image: String

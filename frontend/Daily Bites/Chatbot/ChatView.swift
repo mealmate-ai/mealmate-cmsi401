@@ -16,7 +16,7 @@ struct ChatView: View {
                 RoundedRectangle(cornerRadius: 5.0)
                     .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
                     .edgesIgnoringSafeArea(.top)
-                    .frame(width: 410, height: 50)
+                    .frame(width: 425, height: 50)
                     .overlay(Text("Chat")
                         .fontWeight(.regular)
                         .font(.custom("Hiragino Sans W3", size: 34))
