@@ -1,6 +1,6 @@
 """ The Daily Bites Server"""
 
-from daily_bites_app.routes import app
+from daily_bites_app.endpoints import app
 
 
 if __name__ == "__main__":

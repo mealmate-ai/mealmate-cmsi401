@@ -9,7 +9,7 @@ from sqlalchemy.ext import compiler
 from sqlalchemy.schema import DDLElement
 
 from daily_bites_app.errors import BadArgumentError
-from daily_bites_app.routes import app
+from daily_bites_app.endpoints import app
 import uuid
 import jwt
 import os
@@ -55,19 +55,20 @@ class Account(db.Model, ReturnHelper):
     __tablename__ = ACCOUNT_TABLE
 
     id = db.Column(db.String(36), primary_key=True)
-    date_created = db.Column(db.Date)
+    date_created = db.Column(db.DateTime)
     name = db.Column(db.String(128))
     email = db.Column(db.String(256))
     password = db.Column(db.String(256), nullable=False)
     diets = db.Column(db.Text)
     dietary_restrictions = db.Column(db.Text)
     cuisine_preferences = db.Column(db.Text)
-    fbid = db.Column(db.String(128))
-    # most_recent_login = db.Column(db.Date)
+    goal = db.Column(db.Text)
+    most_recent_login = db.Column(db.DateTime)
+    last_logout = db.Column(db.DateTime)
 
     min_fields = {"id"}
     search_result_fields = {*min_fields, "name", "email", "date_created"}
-    all_fields = {*search_result_fields, "diets", "dietary_restrictions", "cuisine_preferences"}
+    all_fields = {*search_result_fields, "diets", "dietary_restrictions", "cuisine_preferences", "goal"}
 
     @classmethod
     def get_account_by_id(cls, id):
