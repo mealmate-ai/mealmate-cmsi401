@@ -4,7 +4,9 @@ import UIKit
 struct ChatView: View {
         
     @State var message: String = ""
-    @State var messages: [Messaging] = AllMessages
+    //@State var rasaMessages: [String] = []
+    @State var rMessages: [MessagingRasa] = []
+    @State var messages: [Messaging] = []
     
     //    @Binding var text: String
     //    @State private var isEditing = false
@@ -15,6 +17,7 @@ struct ChatView: View {
                 
                 RoundedRectangle(cornerRadius: 5.0)
                     .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
+                    .background(Color(.systemBackground))
                     .edgesIgnoringSafeArea(.top)
                     .frame(width: 425, height: 50)
                     .overlay(Text("Chat")
@@ -61,7 +64,15 @@ struct ChatView: View {
                         }
                     }
                 }
-                
+            
+//            List(rMessages) { rMessage in
+//                Text(rMessage.title)
+//            }.onAppear {
+//                ApiChat().getChatResponse { (rMessages) in
+//                    self.rMessages = rMessages
+//                }
+//            }
+            
                 VStack {
                     HStack(spacing: 20) {
                         ChatTextView(text: $message).frame(numLines: 1)
@@ -70,17 +81,34 @@ struct ChatView: View {
                             .multilineTextAlignment(.leading)
                         Spacer()
                         Button(action: {
-                            let newIndex = messages.count
-                            let mess = Messaging(idx:newIndex, message: "\(message)", myMessage: true)
-                            messages.append(mess)
-                            message = ""
+                            sendButtonAction()
                         }) {
                             Image(systemName: "arrow.up.circle.fill").font(.title).foregroundColor(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
                         }
-                    }.padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
-                    .foregroundColor(.secondary).background(Color.white).clipShape(Capsule()).shadow(radius: 1).padding()
-                }.frame(height:70).background(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
+                    }
+                    .padding(8)
+                    .foregroundColor(.secondary).background(Color.white).clipShape(Capsule()).shadow(radius: 1).padding(25)
+                }
+                .frame(height:70).background(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
         }
+    }
+    
+    func sendButtonAction() {
+        let newIndex = messages.count
+        
+        let mess = Messaging(idx: newIndex, message: "\(message)", myMessage: true)
+        messages.append(mess)
+        message = ""
+        
+        ApiChat().getChatResponse { (rMessages) in
+            self.rMessages = rMessages
+            for rMessage in rMessages {
+                print(rMessage.title)
+                let rasaMess = Messaging(idx: newIndex, message: "\(rMessage.title)", myMessage: false)
+                messages.append(rasaMess)
+            }
+        }
+       //rasaMessages = [String]()
     }
 }
 

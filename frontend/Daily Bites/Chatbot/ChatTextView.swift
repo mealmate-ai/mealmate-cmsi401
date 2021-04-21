@@ -23,6 +23,7 @@ struct ChatTextView: UIViewRepresentable {
         textView.isEditable = true
         textView.isScrollEnabled = true
         textView.isUserInteractionEnabled = true
+        textView.keyboardType = .default
         
         textView.text = placeholderText
         textView.textColor = .placeholderText
@@ -61,6 +62,7 @@ struct ChatTextView: UIViewRepresentable {
         }
         
         func textViewDidBeginEditing(_ textView: UITextView) {
+            
             if textView.textColor == .placeholderText {
                 textView.text = ""
                 textView.textColor = .label
