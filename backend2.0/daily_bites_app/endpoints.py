@@ -94,3 +94,22 @@ def nutrition():
     if period not in ['day', 'week', 'month']:
         return BadArgumentError("Invalid period provided")
     return nutrition_service.calculate_nutrition(g.user, period)
+
+@app.route("/meal/<meal_id>", methods=["GET"])
+@auth.login_required
+def get_meal_details(meal_id):
+    # TODO: check that meal id belongs to current user
+    return meal_service.meal_full_view(meal_id)
+
+@app.route('/meal/<meal_id>', methods=['PATCH'])
+@auth.login_required
+def update_meal(meal_id):
+    # TODO: think about what users will want to update (specific food items)
+    return 'WIP'
+
+@app.route('/recipes', methods=['GET'])
+@auth.login_required
+def get_recipes():
+    number = request.args.get("number")
+    n = number if number else 5
+    return recipe_service.get_filtered_recipes(g.user, n)

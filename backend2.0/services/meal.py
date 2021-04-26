@@ -42,3 +42,6 @@ def log_meal(meal_id, meal_log_info):
     meal_log = MealLogChecker.__on_creation__(meal_log_info)
     meal_log["meal_id"] = meal_id
     return {"meal_log": dal.insert_meal_log(meal_log)}, 201
+
+def meal_full_view(meal_id):
+    return dal.get_meal_details(meal_id), 200

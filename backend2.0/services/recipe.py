@@ -45,7 +45,7 @@ def get_filtered_recipes(account_id, number):
     preferences = user['diets'].split(',')
     preferences += user['dietary_restrictions'].split(',')
     preferences += user['cuisine_preferences'].split(',')
-    print('PREFs ' ,preferences)
+
     preferences = {
         'diet' : user['diets'] if not None else '',
         'intolerances' : user['dietary_restrictions']  if not None else '',
