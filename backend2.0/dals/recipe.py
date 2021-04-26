@@ -1,10 +1,18 @@
 from sqlalchemy.exc import IntegrityError
 from dals.models import db, Recipe
+from apis.spoonacular import spoonacular
 
-
-def insert_spoonacular_recipe(recipe_details):
+def insert_spoonacular_recipe(recipe_id):
     try:
-        inserted_recipe = Recipe(**recipe_details)
+        recipe = {}
+        recipe_info = spoonacular.recipe_information(recipe_id)
+        recipe['recipe_id'] = recipe_id
+        recipe['title'] = recipe_info['title']
+        recipe['recipe_desc'] = recipe_info['summary']
+        recipe['image'] = recipe_info['image']
+        recipe['dish_type'] = ''.join(recipe_info['dishTypes'])
+
+        inserted_recipe = Recipe(**recipe)
         db.session.add(inserted_recipe)
         db.session.commit()
 
@@ -19,5 +27,8 @@ def insert_spoonacular_recipe(recipe_details):
 
 def get_recipe(recipe_id):
     recipe = Recipe.get_recipe_by_id(recipe_id)
-
     return recipe.full_view()
+
+# def get_recipe_details(recipe_id):
+#     try:
+#         recipe_info = spoonacular.recipe_information(recipe_id)

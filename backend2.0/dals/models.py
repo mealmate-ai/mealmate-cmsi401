@@ -327,12 +327,12 @@ class Recipe(db.Model, ReturnHelper):
     recipe_id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(256))
     recipe_desc = db.Column(db.Text)
-    recipe_ingredients = db.Column(db.Text)
-    recipe_instructions = db.Column(db.Text)
+    image = db.Column(db.Text)
+    dish_type = db.Column(db.Text)
 
     min_fields = {"recipe_id"}
     search_result_fields = {*min_fields, "title"}
-    all_fields = {*search_result_fields, "recipe_desc", "recipe_instructions", "recipe_ingredients"}
+    all_fields = {*search_result_fields, "recipe_desc", "image", "dish_type"}
 
     @classmethod
     def get_recipe_by_id(cls, recipe_id):

@@ -113,3 +113,20 @@ def get_recipes():
     number = request.args.get("number")
     n = number if number else 5
     return recipe_service.get_filtered_recipes(g.user, n)
+
+@app.route("/save-recipe/<recipe_id>", methods=["POST"])
+@auth.login_required
+def create_saved_recipe(recipe_id):
+    return recipe_service.save_recipe(g.user, recipe_id)
+
+
+@app.route('/my-recipes', methods=['GET'])
+@auth.login_required
+def get_my_recipes():
+    return recipe_service.recipes_list(g.user)
+
+
+@app.route('/my-recipes/<recipe_id>', methods=['GET'])
+@auth.login_required
+def get_my_recipes(recipe_id):
+    return 'TODO'

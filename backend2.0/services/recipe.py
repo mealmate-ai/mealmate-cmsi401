@@ -24,17 +24,16 @@ def get_recipe_nutrition(recipe_id):
     return {'nutrition': spoonacular.recipe_nutrition(recipe_id)}, 201
 
 
-def save_recipe(account_id, recipe):
+def save_recipe(account_id, recipe_id):
     # first check if recipe is in db
-    db_recipe = Recipe.get_recipe_by_id(recipe['id'])
+    db_recipe = Recipe.get_recipe_by_id(recipe_id)
 
     saved_recipe = {}
     if not db_recipe:
-        # add recipe to db if missing
-        db_recipe = dal.insert_spoonacular_recipe(recipe)
+        db_recipe = dal.insert_spoonacular_recipe(recipe_id)
 
     saved_recipe['account_id'] = account_id
-    saved_recipe['recipe_id'] = recipe['id']
+    saved_recipe['recipe_id'] = recipe_id
     saved_recipe["date_saved"] = datetime.today().strftime("%Y-%m-%d")
 
     return {'saved_recipe': dal.insert_saved_recipe(saved_recipe)}, 201
@@ -52,6 +51,10 @@ def get_filtered_recipes(account_id, number):
         'cuisine' : user['cuisine_preferences'] if not None else '',
     }
     return {'recipes': spoonacular.get_tailored_recipes(preferences, number)}, 201
+
+
+def recipes_list(account_id):
+    return {'saved_recipes': dal.get_recipes_list(account_id)}, 200
 
     
 

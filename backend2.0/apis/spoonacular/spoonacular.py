@@ -69,3 +69,18 @@ def get_tailored_recipes(preferences, number):
     )
 
     return r.json()['recipes']
+
+
+def recipe_information(recipe_id):
+    # https://api.spoonacular.com/recipes/{id}/information
+    api_route = (
+        str(recipe_id)
+        + '/information'
+        + '?apiKey='
+        + os.environ.get('SPOONACULAR_API_KEY')
+    )
+    r = requests.get(
+        SPOONACULAR + api_route,
+    )
+
+    return r.json()

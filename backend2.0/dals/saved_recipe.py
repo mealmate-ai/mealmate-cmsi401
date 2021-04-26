@@ -1,5 +1,5 @@
 from sqlalchemy.exc import IntegrityError
-from dals.models import db, SavedRecipe
+from dals.models import db, SavedRecipe, Recipe
 
 
 def insert_saved_recipe(recipe_details):
@@ -17,7 +17,6 @@ def insert_saved_recipe(recipe_details):
         raise
 
 
-def get_recipes(account_id):
-    recipes = SavedRecipe.get_saved_recipes_by_user(account_id)
-
-    return [recipe.full_view() for recipe in recipes.all()]
+def get_recipes_list(account_id):
+    recipes = SavedRecipe.get_saved_recipes_by_user(account_id).all()
+    return [Recipe.get_recipe_by_id(recipe[0]).full_view() for recipe in recipes]
