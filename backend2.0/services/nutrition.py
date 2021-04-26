@@ -14,4 +14,6 @@ def get_nutrition_by_date(account_id, date_logged):
         print(meal)
 
     return {nutrition}, 200
-    
+
+def calculate_nutrition(account_id, period):
+    return dal.get_user_nut(account_id, period), 200

@@ -297,7 +297,7 @@ class FoodDetail(db.Model, ReturnHelper):
 
     food_id = db.Column(db.String(36), db.ForeignKey("nut_per_100_gram.food_id"), primary_key=True)
     food_desc = db.Column(db.String(256))
-    barcode = db.Column(db.String(50))
+    barcode = db.Column(db.String(256))
     brand = db.Column(db.String(256))
 
     __table_args__ = (
@@ -492,3 +492,4 @@ class TotalNutritionView(db.Model, ReturnHelper):
         food = cls.query.filter_by(food_id=food_id).first()
         # do a check if missing food - means there has been an error
         return food
+

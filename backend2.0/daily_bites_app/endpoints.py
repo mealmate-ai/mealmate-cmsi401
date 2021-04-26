@@ -90,5 +90,7 @@ def account_details():
 @app.route("/nutrition", methods=["GET"])
 @auth.login_required
 def nutrition():
-    period = request.args.get("period") # day, week, month
-    return True
+    period = request.args.get("period")
+    if period not in ['day', 'week', 'month']:
+        return BadArgumentError("Invalid period provided")
+    return nutrition_service.calculate_nutrition(g.user, period)
