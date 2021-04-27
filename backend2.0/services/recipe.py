@@ -57,9 +57,9 @@ def recipes_list(account_id):
     return {'saved_recipes': dal.get_recipes_list(account_id)}, 200
 
     
-
-
-
-
-
-
+def recipe_details(recipe_id):
+    response = dal.get_recipe_details(recipe_id)
+    print(response, type(response), response is None)
+    if response is None:
+        return {'error': "Error occured when attempting to call Spoonacular API"}, 400
+    return {'recipe': response}, 200

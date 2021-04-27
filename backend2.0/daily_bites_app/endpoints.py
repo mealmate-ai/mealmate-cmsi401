@@ -126,7 +126,7 @@ def get_my_recipes():
     return recipe_service.recipes_list(g.user)
 
 
-@app.route('/my-recipes/<recipe_id>', methods=['GET'])
+@app.route('/recipe/<recipe_id>', methods=['GET'])
 @auth.login_required
 def get_recipe_details(recipe_id):
-    return 'TODO'
+    return recipe_service.recipe_details(recipe_id)

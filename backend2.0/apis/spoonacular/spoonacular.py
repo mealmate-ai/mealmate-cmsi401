@@ -71,7 +71,7 @@ def get_tailored_recipes(preferences, number):
     return r.json()['recipes']
 
 
-def recipe_information(recipe_id):
+def recipe_information(recipe_id, includeNutrition = False):
     # https://api.spoonacular.com/recipes/{id}/information
     api_route = (
         str(recipe_id)
@@ -79,8 +79,8 @@ def recipe_information(recipe_id):
         + '?apiKey='
         + os.environ.get('SPOONACULAR_API_KEY')
     )
+    api_route += '&includeNutrition=true' if includeNutrition else ''
     r = requests.get(
         SPOONACULAR + api_route,
     )
-
     return r.json()
