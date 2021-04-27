@@ -336,7 +336,7 @@ class Recipe(db.Model, ReturnHelper):
 
     @classmethod
     def get_recipe_by_id(cls, recipe_id):
-        return cls.query.filter_by(recipe_id=recipe_id).all()
+        return cls.query.filter_by(recipe_id=recipe_id).first()
 
 
 class SavedRecipe(db.Model, ReturnHelper):

@@ -41,10 +41,7 @@ def save_recipe(account_id, recipe_id):
 
 def get_filtered_recipes(account_id, number):
     user = dal.get_account_by_id(account_id)
-    preferences = user['diets'].split(',')
-    preferences += user['dietary_restrictions'].split(',')
-    preferences += user['cuisine_preferences'].split(',')
-
+    
     preferences = {
         'diet' : user['diets'] if not None else '',
         'intolerances' : user['dietary_restrictions']  if not None else '',
