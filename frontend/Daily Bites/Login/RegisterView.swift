@@ -106,7 +106,7 @@ struct RegisterView: View {
             return
         }
         
-        let url = URL(string: "https://reqres.in/api/cupcakes")!
+        let url = URL(string: "http://192.168.1.18:8080/signup")!
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"

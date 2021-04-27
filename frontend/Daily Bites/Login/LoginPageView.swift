@@ -7,7 +7,8 @@ struct LoginPageView: View {
     @State private var password: String = ""
     @State private var secured: Bool = true
     @State private var action: Int? = 0
-    @State var userToken: String = ""
+    
+    @State private var userToken: String = ""
     
     var body: some View {
         
@@ -89,7 +90,7 @@ struct LoginPageView: View {
             return
         }
         
-        let url = URL(string: "https://reqres.in/api/cupcakes")!
+        let url = URL(string: "http://192.168.1.18:8080/login")!
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"

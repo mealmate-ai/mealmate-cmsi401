@@ -54,7 +54,8 @@ struct ContentView: View {
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
-            ContentView().edgesIgnoringSafeArea([.top])
+            ContentView()
+                .edgesIgnoringSafeArea([.top])
             .border(Color.purple)
                 .background(Color(.systemBackground))
         }
