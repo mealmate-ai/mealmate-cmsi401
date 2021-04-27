@@ -91,7 +91,7 @@ class Account(db.Model, ReturnHelper):
         """
         try:
             payload = {
-                'exp': datetime.utcnow() + timedelta(minutes=15),
+                'exp': datetime.utcnow() + timedelta(minutes=45),
                 'iat': datetime.utcnow(),
                 'sub': id
             }
