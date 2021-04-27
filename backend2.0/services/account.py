@@ -21,7 +21,7 @@ def signup(account_info):
 
     new_account = dal.insert_account(account)
     token = new_account.encode_auth_token(new_account.id)
-    return {"account": new_account.full_view(), "token": token}, 201
+    return {"token": token}, 201
 
 def login(account_info):
     checkedAccount = AccountChecker.__on_login__(account_info)
@@ -34,7 +34,7 @@ def login(account_info):
     
     dal.update_login_date(account)
     token = account.encode_auth_token(account.id)
-    return {"message": account.full_view(), "token": token}, 201
+    return {"token": token}, 201
 
 
 def get_current_account(token):

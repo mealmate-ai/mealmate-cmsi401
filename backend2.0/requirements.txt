@@ -2,6 +2,7 @@ alembic==1.4.3
 certifi==2020.12.5
 chardet==3.0.4
 click==7.1.2
+git+ssh://git@github.com/breelynbetts/dailybitestagger.git
 Flask==1.1.2
 Flask-HTTPAuth==4.2.0
 Flask-Migrate==2.5.3

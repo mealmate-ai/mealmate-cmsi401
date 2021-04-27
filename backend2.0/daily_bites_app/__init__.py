@@ -7,5 +7,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 app = Flask(__name__)
-app.debug = True
+app.debug = False
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DAILY_BITES_DB_URL")
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
