@@ -30,15 +30,16 @@ struct ConversationView: View {
             } else {
                 // Fallback on earlier versions
             }
-        }.padding(.horizontal, 15)
+        }.padding(.horizontal, 25)
     }
     
-    func addItem(mess: String) {
-        m = mess
-        let newIndex = messages.count
-        let message = Messaging(idx:newIndex, message: mess, myMessage: true)
-        messages.append(message)
-        print(messages)
-    }
+//    func addItem(mess: String) {
+//        m = mess
+//        let newIndex = messages.count
+//        let message = Messaging(idx:newIndex, message: mess, myMessage: true)
+//        messages.append(message)
+//        print(messages)
+//    }
  
 }
+

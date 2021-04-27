@@ -10,9 +10,10 @@
 import SwiftUI
 
 struct Recipes: Codable, Identifiable {
-    var id = UUID()
-    var title: String
-    var body: String
+   // var idUUID()
+    let id: Int
+    let title: String
+    let body: String
 //    let image: String
 //    let cuisine: String
 //    let liked: Bool
