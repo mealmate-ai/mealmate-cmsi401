@@ -6,18 +6,18 @@ import UIKit
 struct SettingsView: View {
     
     //these should be filled based on the user
-    @State var name: String = ""
-    @State var email: String = ""
-    @State var password: String = ""
+    @State var name: String = "Lexi Weingardt"
+    @State var email: String = "lexi1@test.com"
+    @State var password: String = "testing"
     
     
     var body: some View {
         
-        NavigationView{
+        NavigationView {
             VStack {
                 RoundedRectangle(cornerRadius: 5.0)
                     .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
-                    .frame(width: 419, height: 120)
+                    .frame(width: 420, height: 150)
                     .overlay(Text("Settings")
                         .font(.custom("Hiragino Sans W3", size: 34))
                         .foregroundColor(.white)

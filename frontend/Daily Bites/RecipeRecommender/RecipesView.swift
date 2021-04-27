@@ -12,7 +12,7 @@ struct RecipesView: View {
             RoundedRectangle(cornerRadius: 5.0)
                 .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
                 .edgesIgnoringSafeArea(.top)
-                .frame(width: 410, height: 50)
+                .frame(width: 420, height: 50)
                 .overlay(Text("Recipes")
                     .fontWeight(.regular)
                     .font(.custom("Hiragino Sans W3", size: 34))
@@ -23,7 +23,9 @@ struct RecipesView: View {
                 
             HStack(spacing:30) {
                
-                Button(action: { print("All") })  {
+                Button(action: { Api().getRecipeDetails { (recipes) in
+                    self.recipes = recipes
+                } })  {
                     Text("All Recipes")
                         .font(.custom("Hiragino Sans W3", size: 20))
                         .foregroundColor(.gray)
@@ -60,7 +62,9 @@ struct RecipesView: View {
                 }
             }
 
-            Button(action: { print("Generate Recipes") }) {
+            Button(action: { Api().getRecipeDetails { (recipes) in
+                self.recipes = recipes
+            } }) {
                 Text("GENERATE NEW RECIPES")
                     .frame(width: 260, height: 20)
                     .padding()

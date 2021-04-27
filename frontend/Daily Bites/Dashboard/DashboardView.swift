@@ -13,7 +13,7 @@ struct DashboardView: View {
             VStack {
                 Rectangle()
                     .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
-                    .frame(width: 419, height: 120)
+                    .frame(width: 420, height: 150)
                     .overlay(Text("Trends")
                         .fontWeight(.regular)
                         .font(.custom("Hiragino Sans W3", size: 34))

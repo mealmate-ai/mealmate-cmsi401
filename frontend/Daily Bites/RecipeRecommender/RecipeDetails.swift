@@ -34,20 +34,22 @@ struct RecipeDetails: View {
                     .frame(width: 414, height: 100)
         
                 HStack {
-//                    Image(recipe.title)
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fill)
-//                        .frame(width: 145, height: 145)
-//                        .clipped()
-//                        .cornerRadius(150)
-//                        .shadow(radius: 3)
+                    Image(recipe.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 145, height: 145)
+                        .clipped()
+                        .cornerRadius(150)
+                        .shadow(radius: 3)
+                    
                     Spacer()
+                    
                     VStack(alignment: .leading) {
                         Text(recipe.title)
                             .font(.custom("Hiragino Sans W3", size: 25))
                             .fontWeight(.heavy)
                             .foregroundColor(.black)
-                        Text("Cuisine: " + recipe.title)
+                        Text("Cuisine: " + recipe.cuisine)
                             .font(.custom("Hiragino Sans W3", size: 20))
                             .foregroundColor(.black)
                     }
@@ -62,7 +64,7 @@ struct RecipeDetails: View {
                         .font(.custom("Hiragino Sans W3", size: 20))
                         .foregroundColor(.gray)
                         .fontWeight(.medium)
-                    Text(recipe.body)
+                    Text(recipe.insructions)
                         .font(.custom("Hiragino Sans W3", size: 15))
                         .foregroundColor(.gray)
                         .lineLimit(10)
@@ -76,7 +78,19 @@ struct RecipeDetails: View {
                         .font(.custom("Hiragino Sans W3", size: 20))
                         .foregroundColor(.gray)
                         .fontWeight(.medium)
-                    Text(recipe.body)
+                    Text(recipe.ingredients)
+                        .font(.custom("Hiragino Sans W3", size: 15))
+                        .foregroundColor(.gray)
+                }.padding(15)
+            }
+            
+            HStack {
+                VStack(alignment: .leading, spacing: 15) {
+                    Text("Instructions")
+                        .font(.custom("Hiragino Sans W3", size: 20))
+                        .foregroundColor(.gray)
+                        .fontWeight(.medium)
+                    Text(recipe.nutrients)
                         .font(.custom("Hiragino Sans W3", size: 15))
                         .foregroundColor(.gray)
                 }.padding(15)

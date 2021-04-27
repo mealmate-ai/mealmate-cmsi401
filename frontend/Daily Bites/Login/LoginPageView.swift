@@ -38,7 +38,7 @@ struct LoginPageView: View {
                             .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
                     } else {
                         TextField("Password", text: $password)
-                            .frame(width: 300, height: 36)
+                            .frame(width: 308, height: 4)
                             .padding()
                             .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))                        }
                     

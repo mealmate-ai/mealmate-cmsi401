@@ -19,7 +19,7 @@ struct ChatView: View {
                     .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
                     .background(Color(.systemBackground))
                     .edgesIgnoringSafeArea(.top)
-                    .frame(width: 425, height: 50)
+                    .frame(width: 420, height: 50)
                     .overlay(Text("Chat")
                         .fontWeight(.regular)
                         .font(.custom("Hiragino Sans W3", size: 34))

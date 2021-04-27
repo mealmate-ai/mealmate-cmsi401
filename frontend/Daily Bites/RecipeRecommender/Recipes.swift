@@ -10,25 +10,29 @@
 import SwiftUI
 
 struct Recipes: Codable, Identifiable {
-   // var idUUID()
     let id: Int
     let title: String
-    let body: String
-//    let image: String
-//    let cuisine: String
-//    let liked: Bool
-//    //let nutrients: String
-//    let ingredients: String
-//    let insructions: String
+    let image: String
+    let cuisine: String
+    let liked: Bool
+    let nutrients: String
+    let ingredients: String
+    let insructions: String
 }
+
+var token: String = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTk1MDAyMTAsImlhdCI6MTYxOTQ5OTMxMCwic3ViIjoiOWY0MzdhYTgtNjhiNC00ZTAwLWI3YTEtYmYwNTRhNTg1OTRhIn0.ag6i1hgRgE5oTReClpZ_uQZgGHgYBFteu49yAONu0G4"
 
 class Api{
     func getRecipeDetails(completion: @escaping ([Recipes]) -> ()) {
-       guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else {return}
-//        http://ec2-3-16-149-133.us-east-2.compute.amazonaws.com:8080/get-recipes/
+       guard let url = URL(string: "http://192.168.1.18:8080/recipes")
+       else {return}
+        
         URLSession.shared.dataTask(with: url) { (data, _, _) in
             print(data!)
             let recipeDetails = try! JSONDecoder().decode([Recipes].self, from:data!)
+            
+            var request = URLRequest(url: url)
+            request.setValue( "Bearer \(token)", forHTTPHeaderField: "Authorization")
             
             DispatchQueue.main.async {
                 completion(recipeDetails)
