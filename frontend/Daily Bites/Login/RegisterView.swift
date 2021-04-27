@@ -10,7 +10,6 @@ struct RegisterView: View {
     @State private var password: String = ""
     @State private var secured: Bool = true
     
-    
     var body: some View {
         
         NavigationView{
@@ -51,9 +50,6 @@ struct RegisterView: View {
                             .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
                             .padding()
                     }
-                    //                        ({
-                    //                            print("Password onCommit")
-                    //                        })
                     
                     Button(action: {
                         self.secured.toggle()
@@ -80,7 +76,7 @@ struct RegisterView: View {
                     .navigationBarHidden(true)
                     
                     Button(action: {
-                        print("New Account")
+                        self.createUser()
                     }, label: {
                         NavigationLink(destination: ContentView()) {
                             RoundedRectangle(cornerRadius: 18)
@@ -102,6 +98,30 @@ struct RegisterView: View {
         }.navigationBarHidden(true)
         .navigationBarTitle("")
     }
+    
+    func createUser(){
+        guard let encoded = try? JSONEncoder().encode([name, email, password])
+        else{
+            print("Failed to encode user")
+            return
+        }
+        
+        let url = URL(string: "https://reqres.in/api/cupcakes")!
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        request.httpBody = encoded
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard data != nil else {
+                print("No data in response: \(error?.localizedDescription ?? "Unknown error").")
+                return
+            }
+
+            // handle the result here.
+        }.resume()
+    }
+
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {

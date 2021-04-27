@@ -73,7 +73,9 @@ struct SettingsView: View {
                     }
                 }
                 
-                Button(action: {print("saved")}) {
+                Button(action: {
+                    print("updated user info")
+                }) {
                     RoundedRectangle(cornerRadius: 26)
                         .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
                         .frame(width: 320, height: 45)
@@ -104,6 +106,29 @@ struct SettingsView: View {
         }.navigationBarTitle("")
         .navigationBarHidden(true)
     }
+    
+//    func updateUser(){
+//        guard let encoded = try? JSONEncoder().encode([name, email, password])
+//        else{
+//            print("Failed to encode update for user")
+//            return
+//        }
+//
+//        let url = URL(string: "https://reqres.in/api/cupcakes")!
+//        var request = URLRequest(url: url)
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.httpMethod = "PATCH"
+//        request.httpBody = encoded
+//
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard data != nil else {
+//                print("No data in response: \(error?.localizedDescription ?? "Unknown error").")
+//                return
+//            }
+//
+//            // handle the result here.
+//        }.resume()
+//    }
     
     
     struct ContentView_Previews: PreviewProvider {
