@@ -82,3 +82,19 @@ def recipe_information(recipe_id, includeNutrition = False):
         SPOONACULAR + api_route,
     )
     return r.json()
+
+
+def recipe_information_bulk(recipe_ids, includeNutrition = False):
+    # https://api.spoonacular.com/recipes/{id}/information
+    api_route = (
+        '/informationBulk?ids='
+        + ','.join(recipe_ids)
+        + '&apiKey='
+        + os.environ.get('SPOONACULAR_API_KEY')
+    )
+    api_route += '&includeNutrition=true' if includeNutrition else ''
+    print(api_route)
+    r = requests.get(
+        SPOONACULAR + api_route,
+    )
+    return r.json()

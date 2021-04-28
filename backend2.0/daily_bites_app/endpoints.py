@@ -129,6 +129,10 @@ def create_saved_recipe(recipe_id):
 def get_my_recipes():
     return recipe_service.recipes_list(g.user)
 
+@app.route('/saved-recipes', methods=['GET'])
+@auth.login_required
+def get_saved_recipes():
+    return recipe_service.bulk_recipe_lookup(g.user)
 
 @app.route('/recipe/<recipe_id>', methods=['GET'])
 @auth.login_required

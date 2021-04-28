@@ -49,7 +49,6 @@ def get_filtered_recipes(account_id, number):
         'intolerances': user['dietary_restrictions'] if not None else '',
         'cuisine': user['cuisine_preferences'] if not None else '',
     }
-    spoonacularResults = spoonacular.get_tailored_recipes(preferences, number)
 
     recipes = [
         {
@@ -78,6 +77,10 @@ def get_filtered_recipes(account_id, number):
 
 def recipes_list(account_id):
     return {'saved_recipes': dal.get_recipes_list(account_id)}, 200
+
+
+def bulk_recipe_lookup(account_id):
+    return {'recipes': dal.spoonacular_recipes_list(account_id)}, 200
 
 
 def recipe_details(recipe_id):
