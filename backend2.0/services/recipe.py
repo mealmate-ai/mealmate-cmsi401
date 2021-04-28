@@ -57,7 +57,7 @@ def get_filtered_recipes(account_id, number):
             'image': res['image'] if res['image'] else '',
             'cuisine': ' '.join(res['cuisines']),
             'liked': False,
-            # 'instructions': res['instructions'],
+            'instructions': res['instructions'],
             'ingredients': [
                 ' '.join(
                     [

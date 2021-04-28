@@ -35,7 +35,7 @@ def spoonacular_recipes_list(account_id):
                     'image': res['image'] if res['image'] else '',
                     'cuisine': ' '.join(res['cuisines']),
                     'liked': True,
-                    # 'instructions': res['instructions'],
+                    'instructions': res['instructions'],
                     'ingredients': [
                         ' '.join(
                             [

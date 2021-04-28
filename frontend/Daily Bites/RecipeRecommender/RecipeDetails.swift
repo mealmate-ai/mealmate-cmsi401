@@ -46,13 +46,6 @@ struct RecipeDetails: View {
                             .cornerRadius(150)
                             .shadow(radius: 3)
                     })
-//                    Image(recipe.image)
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fill)
-//                        .frame(width: 145, height: 145)
-//                        .clipped()
-//                        .cornerRadius(150)
-//                        .shadow(radius: 3)
                             
                     Spacer()
                     
@@ -69,21 +62,7 @@ struct RecipeDetails: View {
                 .padding(.leading, 35)
                 .padding(.trailing, 35)
             }
-        
-//            HStack {
-//                VStack(alignment: .leading, spacing: 15) {
-//                    Text("Instructions")
-//                        .font(.custom("Hiragino Sans W3", size: 20))
-//                        .foregroundColor(.gray)
-//                        .fontWeight(.medium)
-//                    Text(recipe.insructions)
-//                        .font(.custom("Hiragino Sans W3", size: 15))
-//                        .foregroundColor(.gray)
-//                        .lineLimit(10)
-//                }.padding(15)
-//            }
-        
-        
+            
             HStack {
                 VStack(alignment: .leading, spacing: 15) {
                     Text("Ingredients")
@@ -93,6 +72,19 @@ struct RecipeDetails: View {
                     Text(recipe.ingredients.joined(separator: ", "))
                         .font(.custom("Hiragino Sans W3", size: 15))
                         .foregroundColor(.gray)
+                }.padding(15)
+            }
+        
+            HStack {
+                VStack(alignment: .leading, spacing: 15) {
+                    Text("Instructions")
+                        .font(.custom("Hiragino Sans W3", size: 20))
+                        .foregroundColor(.gray)
+                        .fontWeight(.medium)
+                    Text(recipe.instructions)
+                        .font(.custom("Hiragino Sans W3", size: 15))
+                        .foregroundColor(.gray)
+                        .lineLimit(10)
                 }.padding(15)
             }
             
