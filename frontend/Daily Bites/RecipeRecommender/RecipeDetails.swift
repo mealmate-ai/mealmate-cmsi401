@@ -36,7 +36,7 @@ struct RecipeDetails: View {
                     .frame(width: 414, height: 100)
         
                 HStack {
-                    URLImage(url: recipe.image, content: {
+                    URLImage(url: URL(string: recipe.image)!, content: {
                         image in image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
