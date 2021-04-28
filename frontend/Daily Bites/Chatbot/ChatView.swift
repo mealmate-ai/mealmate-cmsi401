@@ -1,46 +1,46 @@
-
 import SwiftUI
 import UIKit
 
 struct ChatView: View {
         
     @State var message: String = ""
+    //@State var rasaMessages: [String] = []
+    @State var rMessages: [MessagingRasa] = []
+    @State var messages: [Messaging] = []
     
     //    @Binding var text: String
     //    @State private var isEditing = false
     
     var body: some View {
-        
-        //DESIGN ---------------------------------
-        ZStack{
-            VStack {
+            
+        VStack {
                 
                 RoundedRectangle(cornerRadius: 5.0)
                     .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
-                    .frame(width: 419, height: 120)
+                    .background(Color(.systemBackground))
+                    .edgesIgnoringSafeArea(.top)
+                    .frame(width: 420, height: 50)
                     .overlay(Text("Chat")
                         .fontWeight(.regular)
                         .font(.custom("Hiragino Sans W3", size: 34))
                         .foregroundColor(.white)
-                                .offset(y: 20)
+                                .offset(y: -20)
                         , alignment:
                         .center)
                 
                 Spacer()
                 
-                ScrollView {
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Content")/*@END_MENU_TOKEN@*/
-                }
+                ConversationView(messages: $messages)
                 
                 Spacer()
                 
-                VStack(alignment: .leading){
-                    HStack(alignment: .bottom){
+                VStack(alignment: .leading) {
+                    HStack(alignment: .bottom) {
                         Spacer()
                         Button(action: {
                             print("?")
                         }) {
-                            Image(systemName: "mic")
+                            Image(systemName: "mic.fill")
                                 .font(.largeTitle)
                                 .foregroundColor(.gray)
                                 .frame(width: 34, height: 30, alignment: .leading)
@@ -56,47 +56,64 @@ struct ChatView: View {
                         Button(action: {
                             print("?")
                         }) {
-                            Image(systemName: "camera")
+                            Image(systemName: "camera.fill")
                                 .font(.largeTitle)
                                 .foregroundColor(.gray)
                                 .frame(width: 50, height: 30, alignment: .leading)
+                                .padding(.trailing)
                         }
                     }
                 }
-                
-                
-                HStack (alignment: .center, spacing: 0, content: {
-                    RoundedRectangle(cornerRadius: 5.0)
-                        .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
-                        .frame(width: 419, height: 55)
-                    .overlay(TextField("Enter food items", text: $message)
-                        .background(Color.white)
-                        .border(Color(UIColor.separator))
-                        .frame(width: 335, height: 30, alignment: .leading)
-                        .multilineTextAlignment(.leading)
-                        .padding(.trailing, 40) .textFieldStyle(RoundedBorderTextFieldStyle())
-                    )
-                        
-//                        Text("\(message)")
-                        .overlay(Button(action: {
-                            print("?")
+            
+//            List(rMessages) { rMessage in
+//                Text(rMessage.title)
+//            }.onAppear {
+//                ApiChat().getChatResponse { (rMessages) in
+//                    self.rMessages = rMessages
+//                }
+//            }
+            
+                VStack {
+                    HStack(spacing: 20) {
+                        ChatTextView(text: $message).frame(numLines: 1)
+                            .font(.headline)
+                            .padding(.leading)
+                            .multilineTextAlignment(.leading)
+                        Spacer()
+                        Button(action: {
+                            sendButtonAction()
                         }) {
-                            Image(systemName: "arrow.up.square")
-                                .font(.largeTitle)
-                                .foregroundColor(.white)
-                                .padding(.leading, 350.0)
+                            Image(systemName: "arrow.up.circle.fill").font(.title).foregroundColor(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
                         }
-                    )
-                })
-            }
-            Spacer()
+                    }
+                    .padding(8)
+                    .foregroundColor(.secondary).background(Color.white).clipShape(Capsule()).shadow(radius: 1).padding(25)
+                }
+                .frame(height:70).background(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
         }
     }
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ChatView()
-                .background(Color(.systemBackground))
-                .edgesIgnoringSafeArea(.top)
+    
+    func sendButtonAction() {
+        let newIndex = messages.count
+        
+        let mess = Messaging(idx: newIndex, message: "\(message)", myMessage: true)
+        messages.append(mess)
+        message = ""
+        
+        ApiChat().getChatResponse { (rMessages) in
+            self.rMessages = rMessages
+            for rMessage in rMessages {
+                print(rMessage.title)
+                let rasaMess = Messaging(idx: newIndex, message: "\(rMessage.title)", myMessage: false)
+                messages.append(rasaMess)
+            }
         }
+       //rasaMessages = [String]()
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChatView()
     }
 }

@@ -44,27 +44,22 @@ struct ContentView: View {
                             Text("Settings")
                         }
                 }
-<<<<<<< HEAD
-            }
-        }
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
-=======
                 
                 //Spacer()
-                
             }
-        }.navigationBarHidden(true)
-        .navigationBarTitle("")
->>>>>>> bree-spring
+        }.navigationBarTitle("")
+        .navigationBarHidden(true)
+        
     }
     
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
-            ContentView().edgesIgnoringSafeArea([.top])
+            ContentView()
+                .edgesIgnoringSafeArea([.top])
             .border(Color.purple)
                 .background(Color(.systemBackground))
         }
     }
 }
+

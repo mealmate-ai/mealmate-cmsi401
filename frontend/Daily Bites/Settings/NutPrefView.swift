@@ -106,7 +106,7 @@ struct NutPrefView: View {
                     
                 
                 Button(action: {
-                    print("Update")
+                    print("updated prefs")
                 }, label: {
                     NavigationLink(destination: SettingsView()) {
                         RoundedRectangle(cornerRadius: 20)
@@ -130,6 +130,31 @@ struct NutPrefView: View {
         }.navigationBarHidden(true)
         .navigationBarTitle("")
     }
+    
+    //how to do cuisine, diet, dietRes, nutGoal
+    
+//    func updatePrefs(){
+//        guard let encoded = try? JSONEncoder().encode([restrictions])
+//        else{
+//            print("Failed to encode update for user")
+//            return
+//        }
+//
+//        let url = URL(string: "https://reqres.in/api/cupcakes")!
+//        var request = URLRequest(url: url)
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.httpMethod = "POST"
+//        request.httpBody = encoded
+//
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard data != nil else {
+//                print("No data in response: \(error?.localizedDescription ?? "Unknown error").")
+//                return
+//            }
+//
+//            // handle the result here.
+//        }.resume()
+//    }
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {

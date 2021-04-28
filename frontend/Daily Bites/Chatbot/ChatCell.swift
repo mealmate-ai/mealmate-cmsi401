@@ -25,12 +25,12 @@ struct ChatCell: View {
                     .clipShape(MessageTail(myMessage: data.myMessage))
                 Spacer()
             }
-        }.padding(data.myMessage ? .leading: .trailing, 55).padding(.vertical, 10)
+        }.padding(data.myMessage ? .leading: .trailing, 55).padding(.vertical, 5)
     }
 }
 
 struct ChatCell_Previews: PreviewProvider {
     static var previews: some View {
-        ChatCell(data: AllMessages[1])
+        ChatCell(data: Messaging(idx: 0, message: "I ate an apple", myMessage: true))
     }
 }

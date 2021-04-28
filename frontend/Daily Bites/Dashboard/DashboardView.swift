@@ -13,7 +13,7 @@ struct DashboardView: View {
             VStack {
                 Rectangle()
                     .fill(Color(red: 4 / 255, green: 146 / 255, blue: 194 / 255))
-                    .frame(width: 419, height: 120)
+                    .frame(width: 420, height: 150)
                     .overlay(Text("Trends")
                         .fontWeight(.regular)
                         .font(.custom("Hiragino Sans W3", size: 34))
@@ -63,12 +63,8 @@ struct DashboardView: View {
                 pieChartData
                     .frame(width: 400, height: 400, alignment: .trailing)
                     .offset(x: 20)
+                    .offset(y: 40)
                 
-<<<<<<< HEAD
-=======
-                Text("idk bro")
-                
->>>>>>> bree-spring
                 Spacer()
                 
             }
@@ -83,7 +79,3 @@ struct DashboardView: View {
                 .edgesIgnoringSafeArea(.top)
         }
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> bree-spring

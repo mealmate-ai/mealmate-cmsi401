@@ -11,16 +11,9 @@ extension CGFloat {
 extension Color {
     static func random() -> Color {
         return Color(
-<<<<<<< HEAD
-            red:   .random(in: 0...1),
-            green: .random(in: 0...1),
-            blue:  .random(in: 0...1)
-=======
-            red:   .random(in: 0...0.69),
-            green: .random(in: 0...0.39),
-            blue:  .random(in: 0.58...1)
->>>>>>> bree-spring
-        )
+            red:   .random(in: 0...0.68),
+            green: .random(in: 0.56...0.85),
+            blue:  .random(in: 0.90...1))
     }
 }
 
@@ -40,11 +33,9 @@ class DataItem {
     }
 }
 
-<<<<<<< HEAD
-=======
 struct DataItem_Previews: PreviewProvider {
     static var previews: some View {
         /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }
->>>>>>> bree-spring
+

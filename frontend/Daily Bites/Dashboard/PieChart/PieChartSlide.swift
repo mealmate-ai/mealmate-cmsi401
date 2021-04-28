@@ -3,8 +3,12 @@ import Foundation
 import SwiftUI
 
 public struct PieChartSlide: View {
+    
+    @State private var show: Bool = false
+    
     var geometry: GeometryProxy
     var slideData: SlideData
+    var index: Int
     
     var path: Path {
         let chartSize = geometry.size.width * 0.90
@@ -23,15 +27,24 @@ public struct PieChartSlide: View {
     }
     
     public var body: some View {
+//        path.fill(slideData.data.color)
+//            .overlay(path.stroke(Color.white, lineWidth: 2))
         path.fill(slideData.data.color)
-            .overlay(path.stroke(Color.white, lineWidth: 2))
+            .overlay(path.stroke(Color.white, lineWidth: 1))
+            .scaleEffect(self.show ? 1 : 0)
+            .animation(
+                Animation.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0.3)
+                    .delay(Double(self.index) * 0.03)
+        ).onAppear() {
+                self.show = true
+        }
     }
 }
 
 struct PieChartSlide_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { geometry in
-            PieChartSlide(geometry: geometry, slideData: SlideData())
+            PieChartSlide(geometry: geometry, slideData: SlideData(startAngle: .degrees(0), endAngle: .degrees(180)), index: 0)
         }
     }
 }

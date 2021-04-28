@@ -10,30 +10,33 @@ import SwiftUI
 
 struct RecipeRow: View {
     
-    let recipe: Recipes
-    
+    @State var recipe: Recipes
+
     var body: some View {
-        HStack {
-            Image(recipe.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 60, height: 60)
-                .clipped()
-                .cornerRadius(50)
-            VStack(alignment: .leading) {
-                Text(recipe.name)
-                    .font(.custom("Hiragino Sans W3", size: 20))
-                    .foregroundColor(.gray)
-            }
-        }
+        
+        Text(recipe.title)
+       
+//        HStack {
+//            Image($recipe.title)
+//                .resizable()
+//                .aspectRatio(contentMode: .fill)
+//                .frame(width: 60, height: 60)
+//                .clipped()
+//                .cornerRadius(50)
+//            VStack(alignment: .leading) {
+//                Text($recipe.title)
+//                    .font(.custom("Hiragino Sans W3", size: 20))
+//                    .foregroundColor(.gray)
+//            }
+//        }
     }
 }
 
-struct RecipeRow_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            RecipeRow(recipe: recipes[0])
-            RecipeRow(recipe: recipes[1])
-        }
-    }
-}
+ //struct RecipeRow_Previews: PreviewProvider {
+ //    static var previews: some View {
+ //        Group {
+ //            RecipeRow(recipe: recipe[0])
+ //            RecipeRow(recipe: recipe[1])
+ //        }
+ //    }
+ //}

@@ -8,6 +8,8 @@ struct LoginPageView: View {
     @State private var secured: Bool = true
     @State private var action: Int? = 0
     
+    @State private var userToken: String = ""
+    
     var body: some View {
         
         //DESIGN ---------------------------------
@@ -21,29 +23,11 @@ struct LoginPageView: View {
                     .padding(.horizontal, 80)
                 
                 Spacer()
-                
-<<<<<<< HEAD
-                TextField("Email", text: $email, onEditingChanged: { (changed) in
-                    print("Email onEditingChanged - \(changed)")
-                })
-                {
-                    print("Email onCommit")
-                }
-                .frame(width: 340, height: 4)
-                .padding()
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
-                
-                Text("\(email)")
-                
-=======
-                //                onEditingChanged: { (changed) in
-                //                    print("Email onEditingChanged - \(changed)")
 
                 TextField("Email", text: $email)
                     .frame(width: 340, height: 4)
                     .padding()
                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
->>>>>>> bree-spring
                 
                 HStack {
                     
@@ -54,12 +38,9 @@ struct LoginPageView: View {
                             .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
                     } else {
                         TextField("Password", text: $password)
-                            .frame(width: 300, height: 36)
+                            .frame(width: 308, height: 4)
                             .padding()
                             .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))                        }
-                    //                        ({
-                    //                            print("Password onCommit")
-                    //                        })
                     
                     Button(action: {
                         self.secured.toggle()
@@ -73,7 +54,7 @@ struct LoginPageView: View {
                 }
                 
                 Button(action: {
-                    print("Login")
+                    self.checkUser()
                 }, label: {
                     NavigationLink(destination: ContentView()) {
                         RoundedRectangle(cornerRadius: 18)
@@ -97,6 +78,39 @@ struct LoginPageView: View {
         .navigationBarTitle("")
         
     }
+    
+    struct loginResponse: Codable {
+        var token: String
+    }
+    
+    func checkUser(){
+        guard let encoded = try? JSONEncoder().encode([email, password])
+        else{
+            print("Failed to encode user")
+            return
+        }
+        
+        let url = URL(string: "http://192.168.1.18:8080/login")!
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        request.httpBody = encoded
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard data != nil else {
+                print("No data in response: \(error?.localizedDescription ?? "Unknown error").")
+                return
+            }
+            
+            if let decodedResponse = try? JSONDecoder().decode(loginResponse.self, from: data!) {
+                self.userToken = decodedResponse.token
+            } else {
+                print("Invalid response from server")
+            }
+            
+        }.resume()
+    }
+    
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             LoginPageView()

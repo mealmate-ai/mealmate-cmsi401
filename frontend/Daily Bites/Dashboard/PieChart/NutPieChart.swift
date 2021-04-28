@@ -15,10 +15,14 @@ struct NutPieChart: View {
     func makePieChart(_ geometry: GeometryProxy, pieChartData: [SlideData]) -> some View {
         return ZStack {
             ForEach(0..<pieChartData.count, id: \.self) { index in
-                PieChartSlide(geometry: geometry, slideData: pieChartData[index])
+                PieChartSlide(geometry: geometry, slideData: pieChartData[index], index: index)
             }
         }
-    }
+//        ForEach(slides) { SlideData in
+//                       Text("\(SlideData.annotation) grams")
+//                           .foregroundColor(Color.white)
+//                   }
+        }
 }
 
 struct PieChart_Previews: PreviewProvider {
