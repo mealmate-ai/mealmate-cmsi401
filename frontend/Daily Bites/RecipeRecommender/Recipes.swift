@@ -21,15 +21,16 @@ struct Recipes: Codable, Identifiable {
 
 }
 
+
 struct ApiResponse: Codable {
     let recipes: [Recipes]
 }
 
-var token: String = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTk1NzQwNjgsImlhdCI6MTYxOTU3MTM2OCwic3ViIjoiOWY0MzdhYTgtNjhiNC00ZTAwLWI3YTEtYmYwNTRhNTg1OTRhIn0.5Q_1IfHNQWQBE9Ya_Fm1xJT_CsOebZ2BsGrl7_LgGlk"
+var token: String = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTk2NDI3MzgsImlhdCI6MTYxOTY0MDAzOCwic3ViIjoiOWY0MzdhYTgtNjhiNC00ZTAwLWI3YTEtYmYwNTRhNTg1OTRhIn0.xUmrcHU3Qvd4TI-OS_AjhYT2fKU7qjmEgDpJtE8H1gw"
 
 class Api{
     func getRecipeDetails(completion: @escaping ([Recipes]) -> ()) {
-       guard let url = URL(string: "http://192.168.1.18:8080/recipes")
+       guard let url = URL(string: "http://0.0.0.0:8080/recipes")
        else {return}
         
         var request = URLRequest(url: url)
@@ -44,6 +45,26 @@ class Api{
             
             DispatchQueue.main.async {
                 completion(recipeDetails.recipes)
+            }
+        }
+        .resume()
+    }
+    
+    func getSavedRecipes(completion: @escaping ([Recipes]) -> ()) {
+        guard let url = URL(string: "http://0.0.0.0:8080/saved-recipes")
+        else {return}
+        
+        var request = URLRequest(url: url)
+        request.setValue( "Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { (data, _, _) in
+            print("Data", data!)
+            let savedRecipes = try! JSONDecoder().decode(ApiResponse.self, from:data!)
+            print("Recipe Details: ", savedRecipes)
+            
+            DispatchQueue.main.async {
+                completion(savedRecipes.recipes)
             }
         }
         .resume()

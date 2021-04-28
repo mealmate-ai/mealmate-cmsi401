@@ -5,7 +5,8 @@ import UIKit
 struct RecipesView: View {
     
     @State var recipes: [Recipes] = []
-    
+    @State var savedRecipes: [Recipes] = []
+ 
     var body: some View {
         VStack {
             
@@ -38,7 +39,9 @@ struct RecipesView: View {
                 )
                 .padding(.top)
                 
-                Button(action: { print("Saved") }) {
+                Button(action: { Api().getSavedRecipes { (recipes) in
+                    self.recipes = recipes
+                } })  {
                     Text("Saved Recipes")
                         .font(.custom("Hiragino Sans W3", size: 20))
                         .foregroundColor(.gray)
