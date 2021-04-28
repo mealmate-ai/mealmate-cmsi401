@@ -26,7 +26,7 @@ struct ApiResponse: Codable {
     let recipes: [Recipes]
 }
 
-var token: String = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTk2NDI3MzgsImlhdCI6MTYxOTY0MDAzOCwic3ViIjoiOWY0MzdhYTgtNjhiNC00ZTAwLWI3YTEtYmYwNTRhNTg1OTRhIn0.xUmrcHU3Qvd4TI-OS_AjhYT2fKU7qjmEgDpJtE8H1gw"
+var token: String = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTk2NDU5NDAsImlhdCI6MTYxOTY0MzI0MCwic3ViIjoiOWY0MzdhYTgtNjhiNC00ZTAwLWI3YTEtYmYwNTRhNTg1OTRhIn0.ZIg4rF6pvtW0pGofIu0fuXFzkJfHgBBtysi1rn9IYeg"
 
 class Api{
     func getRecipeDetails(completion: @escaping ([Recipes]) -> ()) {
