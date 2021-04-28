@@ -26,7 +26,7 @@ struct ApiResponse: Codable {
     let recipes: [Recipes]
 }
 
-var token: String = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTk2NDU5NDAsImlhdCI6MTYxOTY0MzI0MCwic3ViIjoiOWY0MzdhYTgtNjhiNC00ZTAwLWI3YTEtYmYwNTRhNTg1OTRhIn0.ZIg4rF6pvtW0pGofIu0fuXFzkJfHgBBtysi1rn9IYeg"
+var token: String = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTk2NTE1NDEsImlhdCI6MTYxOTY0ODg0MSwic3ViIjoiOWY0MzdhYTgtNjhiNC00ZTAwLWI3YTEtYmYwNTRhNTg1OTRhIn0.Ia9BA_MoE5VPcgp9vlhyqP61qJskDRB64eQ0fm9goFc"
 
 class Api{
     func getRecipeDetails(completion: @escaping ([Recipes]) -> ()) {
@@ -68,6 +68,27 @@ class Api{
             }
         }
         .resume()
+    }
+    
+    func saveRecipe(recipe_id: Int) {
+        let stringUrl = "http://0.0.0.0:8080/save-recipe/" + String(recipe_id)
+        let url = URL(string: stringUrl)!
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue( "Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "POST"
+        
+        URLSession.shared.dataTask(with: request) {
+            (data, _, error) in 
+            if let error = error {
+                print("Error took place \(error)")
+                return
+            }
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print("Response data string:\n \(dataString)")
+            }
+        }.resume()
+        
     }
 }
 

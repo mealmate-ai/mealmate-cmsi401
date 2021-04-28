@@ -15,10 +15,11 @@ struct RecipeDetails: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    print("You liked this recipe")
+                    Api().saveRecipe(recipe_id: recipe.id)
+                    print("LIKED", recipe.id)
                     isFavorite = !self.isFavorite
                 }) {
-                    if isFavorite {
+                    if recipe.liked || isFavorite {
                         Image(systemName: "heart.fill")
                             .foregroundColor(.red)
                     } else {
