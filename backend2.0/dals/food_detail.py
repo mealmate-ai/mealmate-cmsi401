@@ -33,6 +33,7 @@ def search_foods(search_query):
 
 
 def search_mv_foods(search_query):
+    # https://stackoverflow.com/questions/33025891/returning-ranked-search-results-using-gin-index-with-sqlalchemy
     query = TotalNutritionView.query.filter(
         func.to_tsvector("english", TotalNutritionView.food_desc).op("@@")(
             func.plainto_tsquery("english", search_query)

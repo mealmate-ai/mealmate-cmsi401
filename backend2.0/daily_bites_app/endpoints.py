@@ -7,6 +7,7 @@ import services.food as food_service
 import services.recipe as recipe_service
 import services.nutrition as nutrition_service
 import services.auth as auth_service
+import services.chatbot as chatbot_service
 from flask_httpauth import HTTPTokenAuth
 from services import dal
 import jwt
@@ -24,8 +25,10 @@ def token_error():
 @auth.verify_token
 def verify_token(token):
     g.user = None
+    print('start of verification', token)
     try:
         payload = jwt.decode(token, os.environ.get('SECRET_KEY'), algorithms=["HS256"])
+        print('payload', payload)
     except jwt.ExpiredSignatureError:
         return False
     except jwt.InvalidTokenError:
@@ -34,6 +37,7 @@ def verify_token(token):
     if 'sub' in payload and 'iat' in payload:
         last_logout = dal.get_last_logout(payload['sub'])
         expire = datetime.fromtimestamp(payload['iat'])
+        print('token here', last_logout, expire)
         print(last_logout, expire)
         if last_logout is None or last_logout < expire:
             g.user = payload['sub']
@@ -130,3 +134,9 @@ def get_my_recipes():
 @auth.login_required
 def get_recipe_details(recipe_id):
     return recipe_service.recipe_details(recipe_id)
+
+
+@app.route('/chatbot/create-meal', methods=['POST'])
+@auth.login_required
+def chatbot():
+    return chatbot_service.tag_and_create_meal(g.user, parsed_request())

@@ -40,20 +40,46 @@ def save_recipe(account_id, recipe_id):
 
 
 def get_filtered_recipes(account_id, number):
+    import json
+
     user = dal.get_account_by_id(account_id)
-    
+
     preferences = {
-        'diet' : user['diets'] if not None else '',
-        'intolerances' : user['dietary_restrictions']  if not None else '',
-        'cuisine' : user['cuisine_preferences'] if not None else '',
+        'diet': user['diets'] if not None else '',
+        'intolerances': user['dietary_restrictions'] if not None else '',
+        'cuisine': user['cuisine_preferences'] if not None else '',
     }
-    return {'recipes': spoonacular.get_tailored_recipes(preferences, number)}, 201
+    spoonacularResults = spoonacular.get_tailored_recipes(preferences, number)
+
+    recipes = [
+        {
+            'id': res['id'],
+            'title': res['title'],
+            'image': res['image'] if res['image'] else '',
+            'cuisine': ' '.join(res['cuisines']),
+            'liked': False,
+            # 'instructions': res['instructions'],
+            'ingredients': [
+                ' '.join(
+                    [
+                        str(ing['measures']['us']['amount']),
+                        ing['measures']['us']['unitShort'],
+                        ing['name'],
+                    ]
+                )
+                for ing in res['extendedIngredients']
+            ],
+        }
+        for res in spoonacular.get_tailored_recipes(preferences, number)
+    ]
+
+    return {'recipes': recipes}, 201
 
 
 def recipes_list(account_id):
     return {'saved_recipes': dal.get_recipes_list(account_id)}, 200
 
-    
+
 def recipe_details(recipe_id):
     response = dal.get_recipe_details(recipe_id)
     print(response, type(response), response is None)

@@ -160,3 +160,8 @@ class RecipeChecker(Checker):
 class SavedRecipeChecker(Checker):
     creationFields = {}
     updateFields = {}
+
+
+class ChatbotChecker(Checker):
+    creationFields = {"raw_text": [check_arg_is_required, check_string], "category": [check_arg_is_required, check_category],}
+    updateFields = {}
