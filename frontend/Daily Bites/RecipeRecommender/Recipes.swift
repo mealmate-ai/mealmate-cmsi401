@@ -6,7 +6,7 @@
 //  Copyright © 2021 Lexi Weingardt. All rights reserved.
 //
 
-//import Foundation
+import Foundation
 import SwiftUI
 
 struct Recipes: Codable, Identifiable {
@@ -15,27 +15,35 @@ struct Recipes: Codable, Identifiable {
     let image: String
     let cuisine: String
     let liked: Bool
-    let nutrients: String
-    let ingredients: String
-    let insructions: String
+//    let nutrients: String
+    let ingredients: [String]
+//    let insructions: String
+
 }
 
-var token: String = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTk1MDAyMTAsImlhdCI6MTYxOTQ5OTMxMCwic3ViIjoiOWY0MzdhYTgtNjhiNC00ZTAwLWI3YTEtYmYwNTRhNTg1OTRhIn0.ag6i1hgRgE5oTReClpZ_uQZgGHgYBFteu49yAONu0G4"
+struct ApiResponse: Codable {
+    let recipes: [Recipes]
+}
+
+var token: String = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTk1NzQwNjgsImlhdCI6MTYxOTU3MTM2OCwic3ViIjoiOWY0MzdhYTgtNjhiNC00ZTAwLWI3YTEtYmYwNTRhNTg1OTRhIn0.5Q_1IfHNQWQBE9Ya_Fm1xJT_CsOebZ2BsGrl7_LgGlk"
 
 class Api{
     func getRecipeDetails(completion: @escaping ([Recipes]) -> ()) {
        guard let url = URL(string: "http://192.168.1.18:8080/recipes")
        else {return}
         
-        URLSession.shared.dataTask(with: url) { (data, _, _) in
-            print(data!)
-            let recipeDetails = try! JSONDecoder().decode([Recipes].self, from:data!)
-            
-            var request = URLRequest(url: url)
-            request.setValue( "Bearer \(token)", forHTTPHeaderField: "Authorization")
+        var request = URLRequest(url: url)
+        request.setValue( "Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+    
+        
+        URLSession.shared.dataTask(with: request) { (data, _, _) in
+            print("Data", data!)
+            let recipeDetails = try! JSONDecoder().decode(ApiResponse.self, from:data!)
+            print("Recipe Details: ", recipeDetails)
             
             DispatchQueue.main.async {
-                completion(recipeDetails)
+                completion(recipeDetails.recipes)
             }
         }
         .resume()
