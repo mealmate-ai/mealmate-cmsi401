@@ -11,6 +11,8 @@
 
 Click [here](https://github.com/AdrianaDonkers/401-chatbot) to view the Chatbot repository.
 
+Click [here](https://trello.com/b/qMeqw0Yh/cmsi-402-daily-bites) to view Trello Board.
+
 **What is Daily Bites?**
 
 Other nutrition apps require extensive data entry, focus on weight loss or caloric intake (which can actually hinder goals), and have limited functionality. 
@@ -20,9 +22,20 @@ Daily Bites is a nutrition app that emphasizes eating a balanced diet rather tha
 
 **Tech Stack**
 
-* SwiftUI (Xcode) - A tool that allows you to build user interfaces across all Apple platforms.
-* AWS - A robust cloud platform with an immense portfolio of services.
-* Postgres - An open source object-relational database management system.
-* Flask - A Python web framework used for building web applications.
-* Rasa - An open source machine learning framework for building conversational chatbots.
-* Spoonacular - An food API that provides recipes, nutrition information, ingredients, and instructions based on diet, intolerances, cuisine, and more.
+* **SwiftUI (Xcode)** - A tool that allows you to build user interfaces across all Apple platforms.
+* **AWS** - A robust cloud platform with an immense portfolio of services.
+* **Postgres** - An open source object-relational database management system.
+* **Flask** - A Python web framework used for building web applications.
+* **Rasa** - An open source machine learning framework for building conversational chatbots.
+* **Spoonacular** - An food API that provides recipes, nutrition information, ingredients, and instructions based on diet, intolerances, cuisine, and more.
+
+**Done:**
+
+* Majority of the front-end
+* Recipe Recommendations
+
+**To Do:**
+
+* Clean front-end up some more
+* Connect Rasa to chat page on the front-end
+* Connect the Dashborad to make it functional 
