@@ -1,4 +1,11 @@
-# Daily Bites (mealmate-cmsi402 GitHub Repo)
+<p align="center">
+  <img src="./daily_bites_logo_new.png" alt="Daily Bites Logo"/>
+</p>
+
+
+<h1 align="center" font="tradegothic">
+  Daily Bites (mealmate-cmsi402 GitHub Repo)
+</h1>
 
 ### By: Breelyn Betts, Maya Dahlke, Adriana Donkers, Henno Kublin, & Lexi Weingardt
 
